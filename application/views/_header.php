@@ -302,7 +302,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a class="nav-item" href="<?=site_url("/")?>">各區推動概況</a></li>
             <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li>
             -->
-            <li><a class="nav-item" href="<?=site_url("/welcome/QA")?>"> Q &amp; A</a></li>
+            <!-- <li><a class="nav-item" href="<?=site_url("/welcome/QA")?>"> Q &amp; A</a></li> -->
             <!-- 
             <li><a class="nav-item" href="<?=site_url("/")?>"> 歷年提案 </a></li>
             <li><a class="nav-item" href="<?=site_url("/")?>"> 記錄區 </a></li>
