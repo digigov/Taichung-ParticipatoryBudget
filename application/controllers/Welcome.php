@@ -27,8 +27,12 @@ class Welcome extends MY_Controller {
 
 	public function QA(){
 		session_write_close();
-		$this->load->view('page/qa');
+		$this->load->view('pages/qa');
 			
+	}
+	public function process(){
+		session_write_close();
+		$this->load->view('pages/process',["pageTitle" => "臺中市參與式預算推動流程"]);
 	}
 
 }
