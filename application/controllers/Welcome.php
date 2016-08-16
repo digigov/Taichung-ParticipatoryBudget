@@ -27,7 +27,7 @@ class Welcome extends MY_Controller {
 
 	public function QA(){
 		session_write_close();
-		$this->load->view('pages/qa');
+		$this->load->view('pages/qa',["pageTitle" => "問與答"]);
 			
 	}
 	public function process(){
