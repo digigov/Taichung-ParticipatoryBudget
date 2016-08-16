@@ -174,3 +174,20 @@ function autolink($str, $attributes=array()) {
   return $str;
 }
 
+
+function _truncate($string, $limit, $break=".", $pad="......")
+{
+  $string = str_replace("&nbsp;", " ", $string);
+
+  //TODO: review this
+  //special exception 
+  $string = str_replace("&nbsp", " ", $string);
+
+  //
+
+  $string= trim(html_entity_decode($string));
+  // return with no change if string is shorter than $limit
+  if(mb_strlen($string) <= $limit) return $string;
+  return mb_substr($string,0,$limit).$pad;
+}
+

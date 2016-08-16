@@ -204,12 +204,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     .content-list .thead-inverse th{
       background:white;
       border:none;
-      border-top:2px solid black !important;
-      border-bottom:2px solid black;
+      border-top:2px solid rgb(23,161,152) !important;
+      border-bottom:2px solid  rgb(23,161,152);
     }
 
     .content-list .category{
       color:rgb(151,51,14);
+    }
+
+    /* events */
+  
+    .event-item-container{
+      padding:20px;
+    }
+    .event-item{
+      height: 300px;
+      padding: 20px;
+      border-radius: 30px;
+      background: rgb(230,230,230);
+      -webkit-box-shadow: 3px 3px 15px 0px rgba(102,102,102,0.39);
+      -moz-box-shadow: 3px 3px 15px 0px rgba(102,102,102,0.39);
+      box-shadow: 3px 3px 15px 0px rgba(102,102,102,0.39);
+
+    }
+
+    .event-item img{
+      width:100%;
+    }
+
+    .event-item h2{
+      font-size:16px;
+      color:rgb(14,115,185);
+    }
+    .event-item div{
+      color:black;
     }
 
     /* News */
@@ -240,8 +268,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   <div class="container">
-    <div> 
-      <a href="<?=site_url("/")?>"><img style='width:100%;' src="<?=base_url("img/_header.png")?>" /></a>
+    <div style="position:relative;min-height:117px;"> 
+      <div style="position:absolute;bottom:2px;left:5%;width:100%;">
+        <a href="<?=site_url("/")?>"><img style='width:150px;left:5%;top:30%;' src="<?=base_url("img/taichung.png")?>" /></a>
+        <img style='margin-bottom:10px;margin-left:10%;width:150px;' src="<?=base_url("img/pb_logo.png")?>" /></a>
+      </div>
+      <img style='width:100%;min-height:117px;' src="<?=base_url("img/_header.png")?>" />
+
     </div>
 
     <nav class="navbar navbar-default" style="margin-bottom:0;background:rgb(128,208,205);border:none;">
@@ -261,15 +294,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" style="margin: 0 auto;width: 382px;float:none;">
             <li><a class="nav-item" href="<?=site_url("/news")?>">最新消息</a></li>
             <li><a class="nav-item" href="<?=site_url("/events")?>">活動快訊</a></li>
             <li><a class="nav-item" href="<?=site_url("/")?>">推動流程</a></li>
+            <!--
             <li><a class="nav-item" href="<?=site_url("/")?>">各區推動概況</a></li>
             <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li>
+            -->
             <li><a class="nav-item" href="<?=site_url("/welcome/QA")?>"> Q &amp; A</a></li>
+            <!-- 
             <li><a class="nav-item" href="<?=site_url("/")?>"> 歷年提案 </a></li>
             <li><a class="nav-item" href="<?=site_url("/")?>"> 記錄區 </a></li>
+            -->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
