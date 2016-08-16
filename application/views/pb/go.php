@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <div><img src="<?=base_url("img/slider.png")?>" style='width:100%;' /></div>
+  <div style="background:rgb(128,208,205);"><img src="<?=base_url("img/slide_1.png")?>" style='display:block;width:70%;margin:0 auto;' /></div>
 
   <div class="content-deep">
     <div class="col-md-3 block-left">
@@ -12,7 +12,7 @@
       <div class="content-info">
         <h2>您可以透過不同管道瞭解參與式預算</h2>
         <p>
-          可以直接到中區、大安區、豐原區、清水區區公所的「參與式預算工作坊」詢問相關細節，也可以邀請工作坊的人員到家裡舉行小型「客廳說明會」，也可以參加「地方說明會」聽取講解，一定讓您第一次參加參與式預算就上手！
+          可以直接到中區、大里區、豐原區、清水區區公所的「參與式預算工作坊」詢問相關細節，也可以邀請工作坊的人員到家裡舉行小型「客廳說明會」，也可以參加「地方說明會」聽取講解，一定讓您第一次參加參與式預算就上手！
         </p>
         <h2>
           &gt; 發展方案：

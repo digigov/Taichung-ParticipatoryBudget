@@ -269,8 +269,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <div class="container">
     <div style="position:relative;min-height:117px;"> 
-      <div style="position:absolute;bottom:2px;left:5%;width:100%;">
-        <a href="<?=site_url("/")?>"><img style='width:150px;left:5%;top:30%;' src="<?=base_url("img/taichung.png")?>" /></a>
+      <div style="position:absolute;bottom:20px;left:5%;width:100%;">
+        <a href="<?=site_url("/")?>"><img style='width:150px;' src="<?=base_url("img/taichung.png")?>" /></a>
         <img style='margin-bottom:10px;margin-left:10%;width:150px;' src="<?=base_url("img/pb_logo.png")?>" /></a>
       </div>
       <img style='width:100%;min-height:117px;' src="<?=base_url("img/_header.png")?>" />
