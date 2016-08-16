@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <div><img src="<?=base_url("img/slider.png")?>" style='width:100%;' /></div>
+  <div style="background:rgb(128,208,205);padding-top:20px;padding-bottom:30px;"><img src="<?=base_url("img/slide_1.png")?>" style='display:block;width:70%;margin:0 auto;' /></div>
 
   <div class="content-deep">
     <div class="col-md-3 block-left">
