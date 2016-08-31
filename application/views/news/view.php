@@ -22,8 +22,8 @@
 
         <tr>
           <td colspan="3" >
-            <div style="min-height:400px;padding:10px;line-height:160%;">
-              <?=autolink(nl2br($news->content))?>
+            <div class="word-content" style="min-height:400px;padding:10px;line-height:160%;">
+              <?=$news->content?>
             </div>
           </td>
         </tr>

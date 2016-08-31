@@ -22,11 +22,8 @@
 
         <tr>
           <td colspan="3" >
-            <div style="min-height:400px;padding:10px;line-height:160%;">
-              <?php if(isset($news->image)){ ?>
-                <img src="<?=base_url($news->image)?>" style="margin:0 auto;display:block;max-width:80%;margin-bottom:20px;" />
-              <?php } ?>
-              <?=autolink(nl2br($news->content))?>
+            <div  class="word-content" style="min-height:400px;padding:10px;line-height:160%;">
+              <?=$news->content?>
             </div>
           </td>
         </tr>

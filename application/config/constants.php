@@ -88,3 +88,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define('PASSWORD_SALT',"T0lke58gGbBe");
 define('SITE_TITLE',"臺中市政府參與式預算");
 
+
+define("S3_KEY","AKIAIJHHQ2OTW52B5ORQ");
+define("S3_SECRET","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");
+define("S3_Bucket","taichung-pb");
+define("S3_REGION","ap-northeast-1");
+define("S3_HOST","https://s3-ap-northeast-1.amazonaws.com/taichung-pb/");
+

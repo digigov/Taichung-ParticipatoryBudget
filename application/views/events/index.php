@@ -21,9 +21,9 @@
       <div class="col-md-4 event-item-container">
         <a href="<?=site_url("events/view/".$new->id)?>">
           <div class="event-item">
-            <p><img style='' src="<?=base_url($new->image)?>" /></p>
+            <p style='min-height:100px;'><img style='max-height: 100px;' src="<?=($new->image)?>" /></p>
             <h2><?=h($new->title)?></h2>
-            <div><?=_truncate($new->content,30)?></div>
+            <div><?=_truncate(strip_tags($new->content),30)?></div>
           </div>
         </a>
       </div>

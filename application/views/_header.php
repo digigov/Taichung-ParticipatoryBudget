@@ -257,6 +257,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       padding-bottom:30px;
       padding-top:30px;
     }
+
+    .word-content img{
+      max-width:100%;
+      max-height:800px;
+    }
   </style>
 
 <?php if(function_exists("css_section")) {
