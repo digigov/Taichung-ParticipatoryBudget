@@ -9,6 +9,8 @@
         <p>承辦單位：臺中市參與式預算推動專案辦公室</p>
       </div>
       <div class="col-md-4 col-md-offset-1">
+        <p>Facebook：<a target="_blank" href="https://www.facebook.com/pbtaichung/">臺中市參與式預算</a></p>
+        <p>Line：@frg1760p</p>
         <p>
           地址：臺中市中區中山路 69 號4樓(中區再生基地樓上)
         </p>
