@@ -109,7 +109,7 @@ class NewsModel extends CI_Model {
       "content" => $content,
       "image" => $img,
       "type" => $this->TYPE_EVENT,
-      "cagegory" => "活動快訊"
+      "category" => "活動快訊"
     ]);
     return $this->db->insert_id();
   }
