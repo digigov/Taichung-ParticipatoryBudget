@@ -25,7 +25,7 @@
 
       <p class="question">Ｑ：為什麼臺中市要推動參與式預算？ </p>
       <div class="answer">
-        <p><span class="answer-highlight">Ａ：透過參與式預算共審的機制達到三大目標 </span></p>
+        <p><span class="answer-highlight">Ａ：透過參與式預算公共審議的機制達到三大目標 </span></p>
         <ul>
           <li>
           政府公開化： 參與式預算透過公共審議的機制將決策權力交給人民，促使政府提高透明度，將一部分預算的使用模式攤開於全體人民之前，落實開放政府。
