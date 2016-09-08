@@ -262,6 +262,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       max-width:100%;
       max-height:800px;
     }
+
+    .menu{
+      padding: 20px;
+      background: white;
+      border: 1px solid black;
+      border-radius: 16px;
+    }
+
+    .menu ul{
+      padding-left: 0px;
+      list-style: none;
+    }
   </style>
 
 <?php if(function_exists("css_section")) {

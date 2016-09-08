@@ -17,7 +17,7 @@ class NewsModel extends CI_Model {
     $this->db->select("id,category,publish_date,title,clicks");
     $this->db->limit($pageSize);
     $this->db->offset(($pageIndex-1) * $pageSize);
-    $this->db->order_by("ctime","desc");
+    $this->db->order_by("publish_date","desc");
     $this->db->where("type",$this->TYPE_NEWS);
     $this->db->where("deleted",0);
     $q = $this->db->get($this->_table);
@@ -30,7 +30,7 @@ class NewsModel extends CI_Model {
     $this->db->select("id,category,publish_date,title,clicks,image,content");
     $this->db->limit($pageSize);
     $this->db->offset(($pageIndex-1) * $pageSize);
-    $this->db->order_by("ctime","desc");
+    $this->db->order_by("publish_date","desc");
     $this->db->where("type",$this->TYPE_EVENT);
     $this->db->where("deleted",0);
     $q = $this->db->get($this->_table);
