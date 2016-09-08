@@ -27,7 +27,7 @@
 
         foreach($menus as $m){
         ?>
-          <li><a href=""><img width="20" src="<?=base_url("img/icons/".$m."_gray.png")?>" />&nbsp;： <?=$m?></a></li>
+          <li><span href=""><img width="20" src="<?=base_url("img/icons/".$m."_gray.png")?>" />&nbsp;： <?=$m?></span></li>
         <?php } ?>
         </ul>
       </div>
