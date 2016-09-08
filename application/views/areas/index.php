@@ -54,6 +54,31 @@
 
     var mymap = L.map('mapid').setView(center, 11);
 
+    var _num = function(val, divide, floats){
+      return parseInt(val / divide * Math.pow(10, 2), 10) / Math.pow(10, floats);
+    };
+    var convert = function(value2, full_desc ){
+      var prefix, value, unitdata;
+      prefix = "";
+      if (value2 < 0) {
+        value = value2 * -1;
+        prefix = "-";
+      } else {
+        value = value2;
+      }
+      unitdata = ["", "元", 1];
+      value = parseInt(10000 * value / unitdata[2]) / 10000;
+      value = value >= 1000000000000
+        ? _num(value, 1000000000000, 2) + " 兆"
+        : value >= 100000000
+          ? _num(value, 100000000, 2) + " 億"
+          : value >= 10000
+            ? parseInt(value / 10000) + " 萬"
+            : value >= 1000
+              ? parseInt(value / 1000) + " 千"
+              : value >= 1 ? parseInt(10 * value) / 10 : value;
+      return prefix + value + (full_desc ? unitdata[0] + unitdata[1] : "");
+    };
 
     var osm = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
       maxZoom: 18,
@@ -67,10 +92,16 @@
       var fields = ["填報部門", "填報部門單位", "填報人", "填報人聯絡方式", "區", "起始年度", "結束年度", "分類", "建設(服務)案", "地點", "預算金額", "預算狀態", "中央補助款金額", "預算說明", "內容摘要", "辦理期程", "計畫聯絡科室", "分機", "備註", "區list"];
 
       var out = [];
-      for(var k in fields){
-        out.push(fields[k]+":"+item[fields[k]]);
-      }
-      return out.join("<Br />");
+      out.push("<h2>"+item["建設(服務)案"]+"</h2>");
+      out.push("<p>辦理機關： "+item["填報部門"]+"<br />");
+      out.push("計畫預算： "+item["預算金額"]+ "  ("+convert(parseInt(item["預算金額"],10),true)+")"+"<br />");
+      out.push("計畫期程： "+item["辦理期程"]+"</p>");
+      out.push("<div style='float:right;'><a href=''>...瞭解更多</a></div>");
+      out.push("<div style='clear:both;'></div>");
+      // for(var k in fields){
+      //   out.push(fields[k]+":"+item[fields[k]]);
+      // }
+      return out.join("");
     };
 
     var icons = {};
