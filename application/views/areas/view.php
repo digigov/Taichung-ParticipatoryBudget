@@ -7,37 +7,40 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <span class="now">各區推動概況</span>
-
+      <a href="<?=site_url("/areas/")?>">各區推動概況</a> &gt;
+      <?php $field = "建設(服務)案"; ?>
+      <span class="now"><?=h($data[$field])?></span>
     </div>
   
-    <div class="col-md-4 col-sm-4">
+    <div class="col-md-8">
       <div class="menu">
-      <!--
-        <p>
-          <img width="20" src="<?=base_url("img/icons/rect.png")?>" />&nbsp;： 為市政府規劃案
-        </p>
-        <p>
-          <img width="20" src="<?=base_url("img/icons/circle.png")?>" />&nbsp;： 為民眾自行提案
-        </p>
-        -->
-        <ul>
-        <?php 
-        $menus = ["地方基礎設施", "文化教育", "道路維護", "生態綠化", "公園設施", "交通設施", "老人及社會福利", "產業發展", "社區營造", "治安防災", "都市環境", "清潔衛生"] ;
+        <p>辦理機關： <?=$data["填報部門"]?></p>
+        <p>辦理期程： <?=$data["辦理期程"]?></p>
 
-        foreach($menus as $m){
-        ?>
-          <li><a href=""><img width="20" src="<?=base_url("img/icons/".$m."_gray.png")?>" />&nbsp;： <?=$m?></a></li>
-        <?php } ?>
-        </ul>
+        <p>計畫預算： <?=$data["預算金額"]?></p>
+        <p>計畫地點： <?=$data["地點"]?></p>
+        <p>內容摘要： <?=$data["內容摘要"]?></p>
+
+
       </div>
     </div>
-    <div class="col-md-8 col-sm-8">
-      <div id="mapid" style="width: 100%; height: 500px"></div>
+    <div class="col-md-4">
+      <div class="menu">
+        <p>計畫聯絡科室</p>
+
+        <?php if($data["計畫聯絡科室"] !=""){ ?>
+        <p>
+          <?=$data["計畫聯絡科室"]?>
+        </p>
+        <p><?=$data["分機"]?></p>
+        <?php } else { ?>
+        <p>無資料</p>
+        <?php } ?>
+      </div>
     </div>
 
+
     <div style="clear:both"></div>
-    
 
   </div>
 </div>
