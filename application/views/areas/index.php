@@ -11,13 +11,13 @@
 
     </div>
   
-    <div class="col-md-3">
+    <div class="col-md-4 col-sm-4">
       <div class="menu">
         <p>
-          <img width="20" src="<?=base_url("img/icons/rect.png")?>" />&nbsp;: 為市政府規劃案
+          <img width="20" src="<?=base_url("img/icons/rect.png")?>" />&nbsp;： 為市政府規劃案
         </p>
         <p>
-          <img width="20" src="<?=base_url("img/icons/circle.png")?>" />&nbsp;: 為民眾自行提案
+          <img width="20" src="<?=base_url("img/icons/circle.png")?>" />&nbsp;： 為民眾自行提案
         </p>
         <ul>
         <?php 
@@ -25,13 +25,13 @@
 
         foreach($menus as $m){
         ?>
-          <li><a href=""><img width="20" src="<?=base_url("img/icons/".$m."_gray.png")?>" />&nbsp;: <?=$m?></a></li>
+          <li><a href=""><img width="20" src="<?=base_url("img/icons/".$m."_gray.png")?>" />&nbsp;： <?=$m?></a></li>
         <?php } ?>
         </ul>
       </div>
     </div>
-    <div class="col-md-9">
-      <div id="mapid" style="width: 100%; height: 600px"></div>
+    <div class="col-md-8 col-sm-8">
+      <div id="mapid" style="width: 100%; height: 500px"></div>
     </div>
 
     <div style="clear:both"></div>
@@ -93,7 +93,8 @@
           var gis = project["地圖"][k];
           if(gis.type == 0 || gis.latlngs.length == 1){
             gis.latlngs.forEach(function(p){
-              var marker = L.marker(p.latlng,{icon:icons[project["分類"]]}).addTo(mymap)
+              var props = icons[project["分類"]] && {icon:icons[project["分類"]]} || {};
+              var marker = L.marker(p.latlng,props).addTo(mymap)
                 .bindPopup(renderText(project));
             });
           }else if(gis.type == 1){
