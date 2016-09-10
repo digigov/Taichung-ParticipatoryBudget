@@ -132,12 +132,12 @@
             });
           }else if(gis.type == 1){
             var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-            var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50}).addTo(mymap)
+            var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50,weight:10}).addTo(mymap)
               .bindPopup(renderText(project));
           }else if(gis.type == 2){
             var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
             latlngs.push(latlngs[0]);
-            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(mymap)
+            var polyline = L.polyline(latlngs, {color: 'red',weight:10}).addTo(mymap)
               .bindPopup(renderText(project));
           }
         }

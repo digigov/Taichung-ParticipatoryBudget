@@ -311,14 +311,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav" style="margin: 0 auto;width: 382px;float:none;">
+          <ul class="nav navbar-nav" style="margin: 0 auto;width: 500px;float:none;">
             <li><a class="nav-item" href="<?=site_url("/news")?>">最新消息</a></li>
             <li><a class="nav-item" href="<?=site_url("/events")?>">活動快訊</a></li>
             <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
-            <!--
-            <li><a class="nav-item" href="<?=site_url("/")?>">各區推動概況</a></li>
-            <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li>
-            -->
+            
+            <li><a class="nav-item" href="<?=site_url("/areas")?>">各區推動概況</a></li>
+            <!-- <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li> -->
+            
             <li><a class="nav-item" href="<?=site_url("/QA")?>"> Q &amp; A</a></li>
             <!-- 
             <li><a class="nav-item" href="<?=site_url("/")?>"> 歷年提案 </a></li>

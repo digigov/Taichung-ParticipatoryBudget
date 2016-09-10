@@ -21,7 +21,7 @@ var fetch_map_items = (field) => {
       ok(null);
       return true;
     }
-    return ok(keys);
+
     request("http://mapfiddle.org/api/markers/"+keys.join(",")+"/fiddle",function(err,res,body){
       var result = JSON.parse(body);
       if(!result.isSuccess){
@@ -38,6 +38,12 @@ var fetch_map_items = (field) => {
 
 Promise.all(items.map(function(item){
   return new Promise((ok,fail)=>{
+
+    item["預算金額"] = item["預算金額\n (元)"];
+    delete item["預算金額\n (元)"];
+    delete item["填報人"];
+    delete item["填報人聯絡方式"];
+    delete item["填報部門單位"];
 
     item["區list"] = item["區"].replace(/\(.*\)/g,"").replace(/（.*）/,"").split("、");
     item["區list"] = item["區list"].map(item=>{
@@ -65,5 +71,5 @@ Promise.all(items.map(function(item){
     return now;
   },{});
   console.log(ret);
-  // fs.writeFileSync(__dirname+"/../public/js/cleaned_data.json",JSON.stringify(items));
+  fs.writeFileSync(__dirname+"/../public/js/cleaned_data.json",JSON.stringify(items));
 });
