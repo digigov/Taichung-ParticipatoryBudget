@@ -132,10 +132,21 @@
             });
           }else if(gis.type == 1){
             var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
+
+            gis.latlngs.slice(0,1).forEach(function(p){
+              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
+              var marker = L.marker(p.latlng,props).addTo(mymap)
+                .bindPopup(renderText(project));
+            });
             var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50,weight:10}).addTo(mymap)
               .bindPopup(renderText(project));
           }else if(gis.type == 2){
             var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
+            gis.latlngs.slice(0,1).forEach(function(p){
+              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
+              var marker = L.marker(p.latlng,props).addTo(mymap)
+                .bindPopup(renderText(project));
+            });
             latlngs.push(latlngs[0]);
             var polyline = L.polyline(latlngs, {color: 'red',weight:10}).addTo(mymap)
               .bindPopup(renderText(project));
