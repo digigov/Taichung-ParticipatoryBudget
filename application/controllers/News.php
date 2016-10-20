@@ -15,6 +15,7 @@ class News extends MY_Controller {
         "pageTitle" => "最新消息",
         "all_news" => $latest_news
     ] );
+    
   }
 
 
