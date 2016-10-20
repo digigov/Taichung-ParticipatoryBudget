@@ -86,7 +86,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 define('PASSWORD_SALT',"T0lke58gGbBe");
-define('SITE_TITLE',"臺中市政府參與式預算");
+define('SITE_TITLE',"臺中市參與式預算");
 
 
 define("S3_KEY","AKIAIJHHQ2OTW52B5ORQ");

@@ -6,11 +6,25 @@ class NewsModel extends CI_Model {
 
   var $TYPE_NEWS = 1;
   var $TYPE_EVENT = 2;
+  var $TYPE_THIS_YEAR = 3;
+  var $TYPE_NEXT_YEAR = 4;
 
   public function __construct()
   {
     // Call the CI_Model constructor
     parent::__construct();
+  }
+
+  public function get_latest_list_by_type($type,$pageIndex,$pageSize = 100){
+    $this->db->select("id,category,publish_date,title,clicks");
+    $this->db->limit($pageSize);
+    $this->db->offset(($pageIndex-1) * $pageSize);
+    $this->db->order_by("publish_date","desc");
+    $this->db->where("type", $type);
+    $this->db->where("deleted",0);
+    $q = $this->db->get($this->_table);
+
+    return $q->result();
   }
 
   public function get_latest_news_list($pageIndex,$pageSize = 100){

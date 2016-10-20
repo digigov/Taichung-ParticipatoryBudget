@@ -11,8 +11,29 @@
 
     </div>
   
-    <div class="col-md-12 col-sm-12">
-      建置中......
+    <div class="col-md-4 col-sm-4">
+      <div class="menu">
+      <!--
+        <p>
+          <img width="20" src="<?=base_url("img/icons/rect.png")?>" />&nbsp;： 為市政府規劃案
+        </p>
+        <p>
+          <img width="20" src="<?=base_url("img/icons/circle.png")?>" />&nbsp;： 為民眾自行提案
+        </p>
+        -->
+        <ul>
+        <?php 
+        $menus = ["地方基礎設施", "文化教育", "道路維護", "生態綠化", "公園設施", "交通設施", "老人及社會福利", "產業發展", "社區營造", "治安防災", "都市環境", "清潔衛生"] ;
+
+        foreach($menus as $m){
+        ?>
+          <li class="menu-toggle" data-type="<?=h($m)?>"><span href=""><img width="20" src="<?=base_url("img/icons/".$m."_gray.png")?>" />&nbsp;： <?=$m?></span></li>
+        <?php } ?>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-8">
+      <div id="mapid" style="width: 100%; height: 500px"></div>
     </div>
 
     <div style="clear:both"></div>
@@ -96,8 +117,15 @@
         // popupAnchor:  [-3, -76] 
       });
     });
+
+    var icon_enable = {};
+    icons_type.forEach(function(icon){
+      icon_enable[icon] = true;
+    });
     
 
+    var markers = [];
+    // menu-toggle
     $.get("/js/cleaned_data.json").then(function(data){
 
       $.each(data,function(ind,project){
@@ -108,32 +136,48 @@
               var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
               var marker = L.marker(p.latlng,props).addTo(mymap)
                 .bindPopup(renderText(project));
+              marker.data = project;
+              markers.push(marker);
             });
-          }else if(gis.type == 1){
-            var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-
-            gis.latlngs.slice(0,1).forEach(function(p){
-              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap)
-                .bindPopup(renderText(project));
-            });
-            var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50,weight:10}).addTo(mymap)
-              .bindPopup(renderText(project));
-          }else if(gis.type == 2){
-            var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-            gis.latlngs.slice(0,1).forEach(function(p){
-              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap)
-                .bindPopup(renderText(project));
-            });
-            latlngs.push(latlngs[0]);
-            var polyline = L.polyline(latlngs, {color: 'red',weight:10}).addTo(mymap)
-              .bindPopup(renderText(project));
           }
+          // else if(gis.type == 1){
+          //   var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
+
+          //   gis.latlngs.slice(0,1).forEach(function(p){
+          //     var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
+          //     var marker = L.marker(p.latlng,props).addTo(mymap)
+          //       .bindPopup(renderText(project));
+          //   });
+          //   var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50,weight:10}).addTo(mymap)
+          //     .bindPopup(renderText(project));
+          // }else if(gis.type == 2){
+          //   var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
+          //   gis.latlngs.slice(0,1).forEach(function(p){
+          //     var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
+          //     var marker = L.marker(p.latlng,props).addTo(mymap)
+          //       .bindPopup(renderText(project));
+          //   });
+          //   latlngs.push(latlngs[0]);
+          //   var polyline = L.polyline(latlngs, {color: 'red',weight:10}).addTo(mymap)
+          //     .bindPopup(renderText(project));
+          // }
         }
       });
         
 
+    });
+
+    $(".menu-toggle").click(function(){
+      var type = $(this).data("type");
+      icon_enable[type] = !icon_enable[type];
+
+      markers.forEach(function(m){
+        if(icon_enable[m.data["分類"]] ){
+          m.addTo(mymap);
+        }else{
+          mymap.removeLayer(m);
+        }
+      });
     });
 
     // var ggl = new L.Google();
