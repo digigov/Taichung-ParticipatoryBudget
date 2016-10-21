@@ -25,8 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php } ?>
 
 <meta property="og:type" content="website" />
-<meta property="fb:app_id" content="1631332217194428" />
-<!-- <meta property="fb:admins" content="107507809341864"/> -->
 
   <meta property="og:site_name" content="<?=SITE_TITLE?>" />
 
@@ -69,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   css_section();
   }?>
 </head>
-<body>
+<body class="jq">
   
 
 
@@ -96,6 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <?php if($is_login){ ?>
             <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
+            <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/password")?>">變更密碼</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/logout")?>">登出</a></li>
           <?php }else{ ?>

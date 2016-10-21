@@ -48,6 +48,9 @@ function _date_gmt($inp_val){
   return gmdate("Y-m-d\TH:i:s\Z",$val);
 }
 
+function _utc_date_from_zone_date($inp_val){
+  return date("Y-m-d H:i:s",strtotime($inp_val) - date("Z"));
+}
 
 function _date_format_utc($inp_val,$format = "Y-m-d H:i:s"){
 

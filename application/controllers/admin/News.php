@@ -29,7 +29,7 @@ class News extends MY_ADMIN_Controller {
     $news->id = -1;
 
     $this->_load_view("news/edit",[
-        "pageTitle" => "編輯新聞 " ,
+        "pageTitle" => "新增新聞 " ,
         "news" => $news,
         "action" => admin_url("news/adding")
     ]);

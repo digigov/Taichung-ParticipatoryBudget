@@ -20,8 +20,17 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
+
+		$this->load->database();
+		$this->load->model("sliderModel");
+
+		$slides = $this->sliderModel->get_active_now();
+
 		$this->load->view('welcome_message',
-			[	"pb" => "" ] );
+			[	
+				"pb" => "",
+				"slides" => $slides
+			] );
 		session_write_close();
 	}
 
