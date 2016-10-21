@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav" style="">
-            
+            <li><a href="<?=site_url("/")?>">網站首頁</a></li>
           <?php if($is_login){ ?>
             <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>

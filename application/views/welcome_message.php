@@ -49,8 +49,7 @@
       width: 13px;
       height: 0;
       padding-top: 13px;
-      background-image: url(/img/pagination.png);
-      background-position: 0 0;
+/*      background-image: url(/img/pagination.png);*/      background-position: 0 0;
       float: left;
       overflow: hidden;
     }
@@ -83,7 +82,7 @@
 <div class="container">
   
   <?php if(count($slides) > 0){ ?>
-  <div class="slides" style="background:rgb(128,208,205);padding-top:20px;padding-bottom:30px;">
+  <div class="slides" style="background:rgb(128,208,205);padding-top:20px;">
 
     <div id="slides">
       <?php 

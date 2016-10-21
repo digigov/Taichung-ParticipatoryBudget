@@ -57,8 +57,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?=base_url("bootstrap/css/bootstrap-theme.min.css")?>" />
   
   <style>
-
+  
     /* Common */
+
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a{
+      background:rgb(128,208,205);
+    }
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+      background:rgb(118,198,195);
+    }
+
+    .navbar-nav .dropdown-menu{
+      position:relative;
+    }
     .nav-item{
       border:1px solid white;
       color:rgb(52,91,89) !important;
@@ -312,8 +323,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
           <ul class="nav navbar-nav" style="margin: 0 auto;width: 800px;float:none;">
-            <li><a class="nav-item" href="<?=site_url("/news")?>">最新消息</a></li>
-            <li><a class="nav-item" href="<?=site_url("/events")?>">活動快訊</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">最新消息</a>
+              <ul class="dropdown-menu">
+                <li><a href="<?=site_url("/news")?>">相關新聞</a></li>
+                <li><a href="<?=site_url("/events")?>">活動快訊</a></li>
+              </ul>
+            </li>
             <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
             <!--
             <li><a class="nav-item" href="<?=site_url("/cases")?>">今年提案</a></li>
@@ -323,10 +340,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a class="nav-item" href="<?=site_url("/areas")?>">各區推動概況</a></li>
             -->
             <!-- <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li> -->
-            
+
+            <li class="dropdown">
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">歷年提案</a>
+              <ul class="dropdown-menu">
+                <li><a href="http://2015taichungivoting.weebly.com/">2015</a></li>
+              </ul>
+            </li>
+
             <li><a class="nav-item" href="<?=site_url("/QA")?>"> Q &amp; A</a></li>
-            <!-- 
-            <li><a class="nav-item" href="<?=site_url("/")?>"> 歷年提案 </a></li>
+            
+            
+            <!--
             <li><a class="nav-item" href="<?=site_url("/")?>"> 記錄區 </a></li>
             -->
           </ul>
