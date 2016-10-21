@@ -315,10 +315,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a class="nav-item" href="<?=site_url("/news")?>">最新消息</a></li>
             <li><a class="nav-item" href="<?=site_url("/events")?>">活動快訊</a></li>
             <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
-            
+            <!--
             <li><a class="nav-item" href="<?=site_url("/cases")?>">今年提案</a></li>
-
+            -->
+  
+            <!--
             <li><a class="nav-item" href="<?=site_url("/areas")?>">各區推動概況</a></li>
+            -->
             <!-- <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li> -->
             
             <li><a class="nav-item" href="<?=site_url("/QA")?>"> Q &amp; A</a></li>
