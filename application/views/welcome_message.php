@@ -15,6 +15,11 @@
 
     #slides .slidesjs-navigation {
       margin-top:3px;
+      display:none;
+    }
+
+    #slides:hover .slidesjs-navigation{
+      display:block;
     }
 
     #slides .slidesjs-previous {

@@ -93,7 +93,7 @@
 </div>
 
 <?php function js_section(){ ?>
-  
+
 <script src="<?=base_url("js/tinymce/tinymce.min.js")?>"></script>
 <script src="<?=base_url("js/tinymce/jquery.tinymce.min.js")?>"></script>
 
