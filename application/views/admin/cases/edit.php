@@ -85,27 +85,65 @@
           </tr>
           <tr>
             <td class="field col-xs-2" >住民會議提案</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_source" value="1" <?=$news->step_source?"checked":""?> /></td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_source" value="1" <?=$news->step_source?"checked":""?> />
+              啟用<input type="file" name="step_source_files" />
+
+              <?php if($news->step_source_files != null){ ?>
+                <hr />
+                <a href="<?=$news->step_source_files?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
+            </td>
           </tr>
           <tr>
             <td class="field col-xs-2" >專家學者意見</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_expert" value="1" <?=$news->step_expert?"checked":""?> /></td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_expert" value="1" <?=$news->step_expert?"checked":""?> />
+              啟用<input type="file" name="step_expert_files" />
+              
+              <?php if($news->step_expert_files != null){ ?>
+                <hr />
+                <a href="<?=$news->step_expert_files?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
+            </td>
           </tr>
           <tr>
             <td class="field col-xs-2" >第一階段 ivoting</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_ivoting_1" value="1" <?=$news->step_ivoting_1?"checked":""?> /></td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_ivoting_1" value="1" <?=$news->step_ivoting_1?"checked":""?> />
+              啟用<input type="file" name="step_ivoting_1_files" />
+              <?php if($news->step_ivoting_1_files != null){ ?>
+                <hr />
+                <a href="<?=$news->step_ivoting_1_files?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
+            </td>
           </tr>
           <tr>
             <td class="field col-xs-2" >第二階段 ivoting</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_ivoting_2" value="1" <?=$news->step_ivoting_2?"checked":""?> /></td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_ivoting_2" value="1" <?=$news->step_ivoting_2?"checked":""?> />
+              啟用<input type="file" name="step_ivoting_2_files" />
+              <?php if($news->step_ivoting_2_files != null){ ?>
+                <hr />
+                <a href="<?=$news->step_ivoting_2_files?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
+            </td>
           </tr>
           <tr>
             <td class="field col-xs-2" >優先執行</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_advance" value="1" <?=$news->step_advance?"checked":""?> /></td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_advance" value="1" <?=$news->step_advance?"checked":""?> />
+              啟用<input type="file" name="step_advance_files" />
+              <?php if($news->step_advance_files != null){ ?>
+                <hr />
+                <a href="<?=$news->step_advance_files?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
+            </td>
           </tr>
           <tr>
             <td class="field col-xs-2" >執行進度</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_running" value="1" <?=$news->step_running?"checked":""?> /></td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_running" value="1" <?=$news->step_running?"checked":""?> />
+              啟用<input type="file" name="step_running_files" />
+              <?php if($news->step_running_files != null){ ?>
+                <hr />
+                <a href="<?=$news->step_running_files?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
+            </td>
           </tr>
         </tbody>
       </table>

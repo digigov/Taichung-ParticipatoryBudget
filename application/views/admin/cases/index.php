@@ -17,7 +17,7 @@
         <td><?=$ind +1 ?></td>
         <td><?=h($item->year)?></td>
         <td>
-          <?=h($item->name)?>
+          <a href="<?=site_url("cases/view/".$item->id)?>"><?=h($item->name)?></a>
         </td>
         <td>
           <?=h($item->author)?>

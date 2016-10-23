@@ -57,7 +57,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?=base_url("bootstrap/css/bootstrap-theme.min.css")?>" />
   
   <style>
-  
+    *{
+      font-family: Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", DFKai-SB, sans-serif;
+    }
     /* Common */
 
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a{
@@ -332,9 +334,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </li>
             <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
-            <!--
-            <li><a class="nav-item" href="<?=site_url("/cases")?>">今年提案</a></li>
-            -->
+<!--             <li><a class="nav-item" href="<?=site_url("/cases")?>">今年提案</a></li> -->
   
             <!--
             <li><a class="nav-item" href="<?=site_url("/areas")?>">各區推動概況</a></li>

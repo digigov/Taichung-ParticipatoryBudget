@@ -24,18 +24,18 @@ class Cases extends MY_Controller {
     session_write_close();
 
     $this->load->database();
-    $this->load->model("newsModel");
+    $this->load->model("caseModel");
 
-    $news = $this->newsModel->get($id);
+    $news = $this->caseModel->get($id);
 
     if($news == null){
       return show_404();
     }
 
-    $this->newsModel->update_clicks($id);
+    $this->caseModel->update_clicks($id);
 
     $this->load->view('cases/view',[
-        "pageTitle" => "今年提案 [".$news->title." ]" ,
+        "pageTitle" => $news->year." 年提案 [".$news->name." ]" ,
         "news" => $news
     ] );
   }

@@ -40,6 +40,14 @@ class Cases extends MY_ADMIN_Controller {
     $news->step_advance = false;
     $news->step_running = false;
 
+    $news->step_source_files = null;
+    $news->step_expert_files = null;
+    $news->step_ivoting_1_files = null;
+    $news->step_ivoting_2_files = null;
+    $news->step_advance_files = null;
+    $news->step_running_files = null;
+
+
     $news->year = date("Y");
     $news->id = -1;
 
@@ -59,6 +67,16 @@ class Cases extends MY_ADMIN_Controller {
     foreach($this->case_fields as $field){
       $data[$field] = $this->input->post($field);
     }
+
+    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files"];
+
+    foreach($files as $file){
+      $upload = $this->_upload("pb",$file,$file."/".date("Ymd")."/");
+      if($upload->isSuccess){
+        $data[$file] = $upload->data->url;
+      }
+    }
+
 
     $this->load->database();
     $this->load->model("caseModel");
@@ -104,6 +122,15 @@ class Cases extends MY_ADMIN_Controller {
 
     foreach($this->case_fields as $field){
       $data[$field] = $this->input->post($field);
+    }
+
+    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files"];
+
+    foreach($files as $file){
+      $upload = $this->_upload("pb",$file,$file."/".date("Ymd")."/");
+      if($upload->isSuccess){
+        $data[$file] = $upload->data->url;
+      }
     }
 
     $this->load->database();

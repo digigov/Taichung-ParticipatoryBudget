@@ -55,6 +55,12 @@ class CaseModel extends CI_Model {
     $this->db->update($this->_table);
   }
 
+  public function update_clicks($id){
+    $this->db->set("clicks","clicks + 1",false);
+    $this->db->where("id",$id);
+    $this->db->update($this->_table);
+  }
+  
   public function delete($post_id){
     $this->db->set("deleted",1);
     $this->db->where("id",$post_id);
