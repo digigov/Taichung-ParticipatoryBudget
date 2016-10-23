@@ -36,7 +36,15 @@ class Welcome extends MY_Controller {
 
 	public function QA(){
 		session_write_close();
-		$this->load->view('pages/qa',["pageTitle" => "問與答"]);
+		$this->load->database();
+    $this->load->model("qaModel");		
+
+    $qas = $this->qaModel->get_latest_by_page(1,1000);
+		$this->load->view('pages/qa',
+			[
+				"pageTitle" => "問與答",
+				"qas" => $qas
+			]);
 			
 	}
 	public function process(){

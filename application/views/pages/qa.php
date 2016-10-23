@@ -4,6 +4,7 @@
   .question{
     color:rgb(229,62,94);
     font-size:24px;
+    margin-top:20px;
   }
   .answer{
     font-size:16px;
@@ -18,11 +19,11 @@
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
       <span class="now"> 問與答 (Q&amp;A)</span>
-
     </div>
 
     <div class="col-md-12" style="border:1px solid rgb(110,134,172);padding:5%;border-radius:20px;background:white;">
-
+      
+      <?php if(false){ ?>
       <p class="question">Ｑ：為什麼臺中市要推動參與式預算？ </p>
       <div class="answer">
         <p><span class="answer-highlight">Ａ：透過參與式預算公共審議的機制達到三大目標 </span></p>
@@ -39,11 +40,11 @@
       <div class="answer">
         <p><span class="answer-highlight">Ａ：參與式預算辦理秉持五大原則</span></p>
         <ul>
-<li>公民培力：市民才是決定預算分配的主體。</li>
-<li>公開透明：資訊開放，各項資訊公開大眾檢視。</li>
-<li>包容多元：尋找傳統政治下被忽略的聲音，提供發聲的管道。</li>
-<li>立足點式平等：確保每個人都能夠有相等的權力影響公共支出。</li>
-<li>社區導向：利己利人，從關心社區開始。 </li>
+          <li>公民培力：市民才是決定預算分配的主體。</li>
+          <li>公開透明：資訊開放，各項資訊公開大眾檢視。</li>
+          <li>包容多元：尋找傳統政治下被忽略的聲音，提供發聲的管道。</li>
+          <li>立足點式平等：確保每個人都能夠有相等的權力影響公共支出。</li>
+          <li>社區導向：利己利人，從關心社區開始。 </li>
         </ul>
       </div>
       
@@ -70,6 +71,14 @@
         <p><span class="answer-highlight">A：</span>您可以在投票時間內攜帶身分證明文件到指定地點，當天現場會有志工協助您進行投票喔！（詳細地點都會上網公告，或與 「臺中市參與式預算推動專案辦公室」聯絡。電話04-22221712。）  </p>
       </div>
 
+      <?php } ?>
+      
+      <?php foreach($qas as $qa){ ?>
+        <p class="question">Q：<?=h($qa->question)?>  </p>
+        <div class="answer">
+          <?=($qa->answer)?>
+        </div>
+      <?php } ?>
     </div>
     <div style="clear:both"></div>
 

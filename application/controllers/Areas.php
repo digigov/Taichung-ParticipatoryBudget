@@ -7,7 +7,6 @@ class Areas extends MY_Controller {
   {
     session_write_close();
 
-
     $this->load->view('areas/index_old',[
         "pageTitle" => "各區推動概況"
     ] );

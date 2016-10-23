@@ -96,6 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/admin/cases")?>">提案管理</a></li>
+            <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/password")?>">變更密碼</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/logout")?>">登出</a></li>
           <?php }else{ ?>
