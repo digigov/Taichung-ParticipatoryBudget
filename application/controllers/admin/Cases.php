@@ -8,6 +8,10 @@ class Cases extends MY_ADMIN_Controller {
     "step_source","step_expert",
     "step_ivoting_1","step_ivoting_2","step_advance","step_running"];
 
+  var $advice_fields = [
+    "possible","law","reasonable","unit","job","phone","name","type"
+  ];
+
   public function index()
   {
 
@@ -168,6 +172,152 @@ class Cases extends MY_ADMIN_Controller {
         "pageTitle" => $news->year." 年提案 [".$news->name." ]" ,
         "news" => $news
     ] );
+  }
+
+
+  public function advices($id = null){
+    session_write_close();
+
+    if($id == null){
+      return show_404();
+    }
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $case = $this->caseModel->get($id);
+
+    if($case == null){
+      return show_404();
+    }
+
+    $advices = $this->caseModel->list_advices($id);
+
+    $this->_load_view("cases/advice_index",[
+        "pageTitle" => $case->name." 建議管理",
+        "case" => $case,
+        "all_items" => $advices
+    ]);
+
+  }
+
+  public function advice_add($case_id){
+    session_write_close();
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $case = $this->caseModel->get($case_id);
+
+    if($case == null){
+      return show_404();
+    }
+
+    $advice = new stdclass();
+    $advice->possible ="";
+    $advice->law ="";
+    $advice->reasonable ="";
+    $advice->unit ="";
+    $advice->job = "";
+    $advice->name ="";
+    $advice->phone ="";
+    $advice->type ="";
+    $advice->id = -1;
+    $advice->case_id = $case_id;
+
+    $this->_load_view("cases/advice_edit",[
+        "pageTitle" => "新增建議 " ,
+        "case" => $case,
+        "advice" => $advice,
+        "action" => admin_url("cases/advice_adding/".$case_id)
+    ]);
+
+  }
+
+
+  public function advice_adding($case_id){
+    session_write_close();
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $case = $this->caseModel->get($case_id);
+
+    if($case == null){
+      return show_404();
+    }
+
+    $data = [];
+    $data["case_id"] = $case->id;
+
+    foreach($this->advice_fields as $field){
+      $data[$field] = $this->input->post($field);
+    }
+
+    $this->load->database();
+    $this->load->model("caseModel");
+    $this->caseModel->insert_advice($data);
+
+    redirect(admin_url("cases/advices/".$case->id));
+  }
+
+  public function advice_edit($adv_id){
+    session_write_close();
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $advice = $this->caseModel->get_advice($adv_id);
+
+    if($advice == null){
+      return show_404();
+    }
+
+    $case = $this->caseModel->get($advice->case_id);
+    if($case == null){
+      return show_404();
+    }
+
+
+    $this->_load_view("cases/advice_edit",[
+        "pageTitle" => "編輯建議 " ,
+        "case" => $case,
+        "advice" => $advice,
+        "action" => admin_url("cases/advice_editing/".$adv_id)
+    ]);
+  }
+
+
+
+  public function advice_editing($adv_id){
+    session_write_close();
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $advice = $this->caseModel->get_advice($adv_id);
+
+    $data = [];
+    foreach($this->advice_fields as $field){
+      $data[$field] = $this->input->post($field);
+    }
+
+    $this->load->database();
+    $this->load->model("caseModel");
+    $this->caseModel->update_advice($adv_id,$data);
+
+    redirect(admin_url("cases/advices/".$advice->case_id));
+  }
+
+  public function advice_delete($adv_id){
+    session_write_close();
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $advice = $this->caseModel->get_advice($adv_id);
+    $this->caseModel->delete_advice($adv_id);
+    redirect(admin_url("cases/advices/".$advice->case_id));
   }
 
 }

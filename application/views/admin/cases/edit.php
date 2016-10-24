@@ -175,11 +175,8 @@
     </div>
     <div class="button pull-right" >
       <input type="hidden" name="id" value="<?=h($news->id)?>" />
-      <?php if(0) { ?>  <a href="">預覽</a>&nbsp;&nbsp;&nbsp; 
-      <button onclick="$('#form').attr('action','<?=site_url("member/posting/0")?>')" class="btn">暫存</button>&nbsp;&nbsp;&nbsp;
-      <?php } ?>
       <button class="btn-primary btn">存檔</button>&nbsp;&nbsp;&nbsp;
-      <a href="<?=admin_url("sliders")?>">返回</a>
+      <a href="<?=admin_url("cases")?>">返回</a>
     </div>
   </form>
         <br />

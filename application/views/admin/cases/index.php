@@ -9,6 +9,7 @@
         <td>提案年度</td>        
         <td>名稱</td>
         <td>提案人</td>
+        <td>專家建議</td>
         <td>建檔時間</td>
         <td>&nbsp;</td>
       </tr>
@@ -21,6 +22,11 @@
         </td>
         <td>
           <?=h($item->author)?>
+        </td>
+        <td>
+          <a href="<?=admin_url("cases/advices/".$item->id)?>">
+            建議管理(<?=$item->case_cnt?>)
+          </a>
         </td>
         <td>
           <?=_date_format_utc($item->ctime) ?>

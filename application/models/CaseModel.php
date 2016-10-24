@@ -3,6 +3,7 @@
 class CaseModel extends CI_Model {
 
   var $_table = "cases";
+  var $_table_advice = "case_advice";
 
   public function __construct()
   {
@@ -21,10 +22,8 @@ class CaseModel extends CI_Model {
     return ($q->result());
   }
 
-
-
   public function get_latest_by_page($page,$pageSize){
-    $this->db->select("*");
+    $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt");
     $this->db->where("deleted",0);
 
     $this->db->order_by("id","desc");
@@ -73,10 +72,48 @@ class CaseModel extends CI_Model {
     $this->db->update($this->_table);
   }
   
-  public function delete($post_id){
+  public function delete($id){
     $this->db->set("deleted",1);
-    $this->db->where("id",$post_id);
+    $this->db->where("id",$id);
     $this->db->update($this->_table);
   }
+
+
+
+
+  public function insert_advice($options){
+    //text,start_time,end_time,status,img_url,url
+    $this->db->insert($this->_table_advice,$options);
+    return $this->db->insert_id();
+  }
   
+  public function update_advice($id,$options){
+    $this->db->set($options);
+    $this->db->where("id",$id);
+    $this->db->update($this->_table_advice);
+  }
+
+  public function delete_advice($id){
+    $this->db->set("deleted",1);
+    $this->db->where("id",$id);
+    $this->db->update($this->_table_advice);
+  }
+
+
+  public function get_advice($id){
+    $this->db->select("*");
+    $this->db->limit(1);
+    $this->db->where("id",$id);
+    $this->db->where("deleted",0);
+    $q = $this->db->get($this->_table_advice);
+    return array_first_item($q->result());
+  }
+
+  
+  public function list_advices($case_id){
+    $this->db->where("case_id",$case_id);
+    $this->db->where("deleted",0);
+    $q = $this->db->get($this->_table_advice);
+    return $q->result();
+  }
 }
