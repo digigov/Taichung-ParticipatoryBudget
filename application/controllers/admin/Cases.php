@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Cases extends MY_ADMIN_Controller {
 
   var $case_fields = ["year","name","budget","author",
-    "purpose","content","advice","step_source","step_expert",
+    "purpose","content","budget_desc","advice","step_source","step_expert",
     "step_ivoting_1","step_ivoting_2","step_advance","step_running"];
 
   public function index()
@@ -30,6 +30,7 @@ class Cases extends MY_ADMIN_Controller {
     $news->name ="";
     $news->purpose ="";
     $news->budget ="";
+    $news->budget_desc = "";
     $news->content ="";
     $news->author ="";
     $news->advice ="";

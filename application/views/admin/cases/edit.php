@@ -61,9 +61,17 @@
             <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="budget" value="<?=h($news->budget)?>" class="title"></td>
           </tr>
           <tr>
+            <td class="field col-xs-2" >預算內容</td>
+            <td class="col-xs-10" colspan="2">
+
+            <textarea class="tinymce" name="budget_desc" style="width:770px; height:400px;resize:vertical;"><?=h($news->budget_desc)?></textarea>
+            </td>
+          </tr>
+          <tr>
             <td class="field col-xs-2" >提案人</td>
             <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="author" value="<?=h($news->author)?>" class="title"></td>
           </tr>
+          
           <tr>
             <td class="field col-xs-2" >目的</td>
             <td class="col-xs-10" colspan="2">
