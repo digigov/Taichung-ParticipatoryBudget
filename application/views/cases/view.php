@@ -34,6 +34,8 @@
             <li>
               提案預算額：<br />
               <?=$news->budget?> 元
+              <br />
+              <?=$news->budget_desc?>
             </li>
             <li>
               提案人：<br />
