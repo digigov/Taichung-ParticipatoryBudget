@@ -21,6 +21,19 @@ class SliderModel extends CI_Model {
   }
 
 
+  public function get_all_by_page($page,$pageSize){
+    $this->db->select("*");
+    $this->db->where("start_time <= timezone('utc'::text, now()) and end_time >= timezone('utc'::text, now()) ");
+    $this->db->where("deleted",0);
+
+    $this->db->order_by("id","desc");
+    $this->db->limit($pageSize);
+    $this->db->offset($pageSize*($page-1));
+
+    $q = $this->db->get($this->_table);
+    return ($q->result());
+  }
+
   public function get_latest_by_page($page,$pageSize){
     $this->db->select("*");
     $this->db->where("status",1);

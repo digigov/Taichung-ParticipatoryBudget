@@ -11,7 +11,7 @@ class Sliders extends MY_ADMIN_Controller {
     $this->load->database();
     $this->load->model("sliderModel");
 
-    $latest_sliders = $this->sliderModel->get_latest_by_page(1,1000);
+    $latest_sliders = $this->sliderModel->get_all_by_page(1,1000);
 
     $this->_load_view("sliders/index",[
         "pageTitle" => "輪播管理",
