@@ -43,7 +43,71 @@
             </li>
             <li>
               專家學者市政顧問團建議：<br />
-              <?=$news->advice?>
+              <?php foreach($advices as $adv){ ?>
+                <?php if($adv->type == 0){ ?>
+                <table class="table table-bordered">
+                  <tr>
+                    <td colspan="3">
+                      公部門
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:50%;" colspan="2"> A. 可行性評估</td>
+                    <td style="width:50%;" > <?=$adv->possible?> </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"> B. 法令面 </td>
+                    <td> <?=$adv->law?> </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"> C. 預算合理性</td>
+                    <td> <?=$adv->reasonable?> </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="4">提案聯繫窗口
+                    </td>
+                    <td>單位</td>
+                    <td><?=$adv->unit?></td>
+                  </tr>
+                  <tr>
+                    <td>職稱</td>
+                    <td><?=$adv->job?></td>
+                  </tr>
+                  <tr>
+                    <td>姓名</td>
+                    <td><?=$adv->name?></td>
+                  </tr>
+                  <tr>
+                    <td>電話</td>
+                    <td><?=$adv->phone?></td>
+                  </tr>
+                </table>
+                <?php }else{ ?>
+                <table class="table table-bordered">
+                  <tr>
+                    <td colspan="2">
+                      專家學者
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:50%;" > A. 可行性評估</td>
+                    <td style="width:50%;" > <?=$adv->possible?> </td>
+                  </tr>
+                  <tr>
+                    <td> B. 法令面 </td>
+                    <td > <?=$adv->law?> </td>
+                  </tr>
+                  <tr>
+                    <td> C. 預算合理性</td>
+                    <td > <?=$adv->reasonable?> </td>
+                  </tr>
+                  <tr>
+                    <td> 審查者 </td>
+                    <td><?=$adv->name?></td>
+                  </tr>
+                </table>                
+                <?php } ?>
+              <?php } ?>
             </li>
 
             <?php if($news->dm_file != null){ ?>

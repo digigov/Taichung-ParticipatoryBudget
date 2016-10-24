@@ -166,11 +166,14 @@ class Cases extends MY_ADMIN_Controller {
       return show_404();
     }
 
+    $advices = $this->caseModel->list_advices($id);
+
     $this->caseModel->update_clicks($id);
 
     $this->load->view('cases/view',[
         "pageTitle" => $news->year." 年提案 [".$news->name." ]" ,
-        "news" => $news
+        "news" => $news,
+        "advices" => $advices
     ] );
   }
 

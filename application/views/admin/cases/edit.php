@@ -91,12 +91,6 @@
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >專家學者市政顧問團建議</td>
-            <td class="col-xs-10" colspan="2">
-            <textarea class="tinymce" name="advice" style="width:770px; height:400px;resize:vertical;"><?=h($news->advice)?></textarea>
-            </td>
-          </tr>
-          <tr>
             <td class="field col-xs-2" >海報照片</td>
             <td class="col-xs-10" colspan="2">
               <input type="file" name="dm_file" />
