@@ -52,6 +52,11 @@
               </select>
             </td>
           </tr>
+
+          <tr>
+            <td class="field col-xs-2" >發佈日期</td>
+            <td class="col-xs-10" colspan="2"><input class="datepicker" style='width:100%;' type="text" name="publish_date" value="<?=_date_format_utc($news->publish_date,"Y/m/d")?>" class="title"></td>
+          </tr>
           <tr>
             <td class="field col-xs-2" >標題</td>
             <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="name" value="<?=h($news->name)?>" class="title"></td>
@@ -64,7 +69,7 @@
             <td class="field col-xs-2" >預算內容</td>
             <td class="col-xs-10" colspan="2">
 
-            <textarea class="tinymce" name="budget_desc" style="width:770px; height:400px;resize:vertical;"><?=h($news->budget_desc)?></textarea>
+            <textarea class="tinymce" name="budget_desc" style="width:770px; height:200px;resize:vertical;"><?=h($news->budget_desc)?></textarea>
             </td>
           </tr>
           <tr>
@@ -89,6 +94,16 @@
             <td class="field col-xs-2" >專家學者市政顧問團建議</td>
             <td class="col-xs-10" colspan="2">
             <textarea class="tinymce" name="advice" style="width:770px; height:400px;resize:vertical;"><?=h($news->advice)?></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td class="field col-xs-2" >海報照片</td>
+            <td class="col-xs-10" colspan="2">
+              <input type="file" name="dm_file" />
+              <?php if($news->dm_file != null){ ?>
+                <hr />
+                <a href="<?=$news->dm_file?>" target="_blank"> 下載已上傳檔案</a>
+              <?php } ?>
             </td>
           </tr>
           <tr>
@@ -153,6 +168,7 @@
               <?php } ?>
             </td>
           </tr>
+          
         </tbody>
       </table>
 

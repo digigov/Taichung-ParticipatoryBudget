@@ -45,6 +45,15 @@
               專家學者市政顧問團建議：<br />
               <?=$news->advice?>
             </li>
+
+            <?php if($news->dm_file != null){ ?>
+            <li>
+              海報照片 ：<br />
+              <a target="_blank" href="<?=h($news->dm_file)?>">
+              <img style="max-width:100%;" src="<?=h($news->dm_file)?>" />
+              </a>
+            </li>
+            <?php } ?>
           </ul>
         </div>
       </div>

@@ -13,12 +13,14 @@ class CaseModel extends CI_Model {
   public function get_active_now(){
     $this->db->select("*");
     $this->db->where("status",1);
-    $this->db->where("start_time <= timezone('utc'::text, now()) and end_time >= timezone('utc'::text, now()) ");
+
+    $this->db->where("publish_date <= timezone('utc'::text, now()) ");
     $this->db->where("deleted",0);
 
     $q = $this->db->get($this->_table);
     return ($q->result());
   }
+
 
 
   public function get_latest_by_page($page,$pageSize){
@@ -33,6 +35,16 @@ class CaseModel extends CI_Model {
     return ($q->result());
   }
 
+
+  public function get_public($id){
+    $this->db->select("*");
+    $this->db->limit(1);
+    $this->db->where("id",$id);
+    $this->db->where("publish_date <= timezone('utc'::text, now()) ");
+    $this->db->where("deleted",0);
+    $q = $this->db->get($this->_table);
+    return array_first_item($q->result());
+  }
 
   public function get($id){
     $this->db->select("*");

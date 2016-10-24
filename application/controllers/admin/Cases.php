@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Cases extends MY_ADMIN_Controller {
 
   var $case_fields = ["year","name","budget","author",
-    "purpose","content","budget_desc","advice","step_source","step_expert",
+    "purpose","content","budget_desc","advice",
+    "step_source","step_expert",
     "step_ivoting_1","step_ivoting_2","step_advance","step_running"];
 
   public function index()
@@ -34,6 +35,7 @@ class Cases extends MY_ADMIN_Controller {
     $news->content ="";
     $news->author ="";
     $news->advice ="";
+    $news->publish_date = gmdate("Y-m-d H:i:s");
     $news->step_source = false;
     $news->step_expert = false;
     $news->step_ivoting_1 = false;
@@ -69,7 +71,7 @@ class Cases extends MY_ADMIN_Controller {
       $data[$field] = $this->input->post($field);
     }
 
-    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files"];
+    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files","dm_file"];
 
     foreach($files as $file){
       $upload = $this->_upload("pb",$file,$file."/".date("Ymd")."/");
@@ -78,6 +80,7 @@ class Cases extends MY_ADMIN_Controller {
       }
     }
 
+    $data['publish_date']= _utc_date_from_zone_date($this->input->post("publish_date"));
 
     $this->load->database();
     $this->load->model("caseModel");
@@ -125,7 +128,7 @@ class Cases extends MY_ADMIN_Controller {
       $data[$field] = $this->input->post($field);
     }
 
-    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files"];
+    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files","dm_file"];
 
     foreach($files as $file){
       $upload = $this->_upload("pb",$file,$file."/".date("Ymd")."/");
@@ -134,12 +137,37 @@ class Cases extends MY_ADMIN_Controller {
       }
     }
 
+    $data['publish_date']= _utc_date_from_zone_date($this->input->post("publish_date"));
+
     $this->load->database();
     $this->load->model("caseModel");
     $this->caseModel->update($id,$data);
 
     redirect(admin_url("cases/"));
 
+  }
+
+
+
+  public function preview($id)
+  {
+    session_write_close();
+
+    $this->load->database();
+    $this->load->model("caseModel");
+
+    $news = $this->caseModel->get($id);
+
+    if($news == null){
+      return show_404();
+    }
+
+    $this->caseModel->update_clicks($id);
+
+    $this->load->view('cases/view',[
+        "pageTitle" => $news->year." 年提案 [".$news->name." ]" ,
+        "news" => $news
+    ] );
   }
 
 }

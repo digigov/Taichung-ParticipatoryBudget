@@ -28,6 +28,8 @@
         <td>
           <a class="btn btn-default" href="<?=admin_url("cases/edit/".$item->id)?>">編輯</a>
 
+          <a class="btn btn-default" href="<?=site_url("admin/cases/preview/".$item->id)?>"> 預覽 </a> 
+
           <a class="btn btn-default" href="<?=admin_url("cases/delete/".$item->id)?>">刪除</a>
         </td>
       </tr>

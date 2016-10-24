@@ -26,7 +26,7 @@ class Cases extends MY_Controller {
     $this->load->database();
     $this->load->model("caseModel");
 
-    $news = $this->caseModel->get($id);
+    $news = $this->caseModel->get_public($id);
 
     if($news == null){
       return show_404();
