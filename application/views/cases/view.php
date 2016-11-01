@@ -20,6 +20,12 @@
         <div style="background:white;border-radius:40px;padding:20px;min-height:400px;">
           <ul class="content-ul">
             <li>
+              提案編號：<?=$news->codeno?>
+            </li>
+            <li>
+              提案區域：<?=$news->area?>
+            </li>
+            <li>
               提案名稱：<br />
               <?=$news->name?>
             </li>
@@ -120,7 +126,7 @@
                 </table>     
                 <?php } ?>
                 <hr />           
-                
+
               <?php } ?>
             </li>
 
