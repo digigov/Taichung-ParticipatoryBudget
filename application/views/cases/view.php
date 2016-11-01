@@ -117,8 +117,10 @@
                     <td> 審查者 </td>
                     <td ><?=$adv->name?></td>
                   </tr>
-                </table>                
+                </table>     
                 <?php } ?>
+                <hr />           
+                
               <?php } ?>
             </li>
 
