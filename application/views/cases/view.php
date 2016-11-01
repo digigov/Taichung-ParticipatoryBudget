@@ -96,19 +96,19 @@
                     </td>
                   </tr>
                   <tr>
-                    <td  colspan="3"  > <b>A. 可行性評估</b></td>
+                    <td  colspan="3"  > A. 可行性評估</td>
                   </tr>
                   <tr>
                     <td colspan="3"   > <?=$adv->possible?> </td>
                   </tr>
                   <tr>
-                    <td colspan="3"> <b>B. 法令面</b> </td>
+                    <td colspan="3"> B. 法令面 </td>
                   </tr>
                   <tr>
                     <td  colspan="3"> <?=$adv->law?> </td>
                   </tr>
                   <tr>
-                    <td colspan="3"> <b>C. 預算合理性</b></td>
+                    <td colspan="3"> C. 預算合理性</td>
                   </tr>
                   <tr>
                     <td colspan="3" > <?=$adv->reasonable?> </td>
