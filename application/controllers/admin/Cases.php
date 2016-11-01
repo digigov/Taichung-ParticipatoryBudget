@@ -3,10 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cases extends MY_ADMIN_Controller {
 
-  var $case_fields = ["year","name","budget","author",
+  var $case_fields = [
+    "year","name","budget","author",
     "purpose","content","budget_desc","advice",
     "step_source","step_expert",
-    "step_ivoting_1","step_ivoting_2","step_advance","step_running"];
+    "step_ivoting_1","step_ivoting_2",
+    "step_advance","step_running","area",
+    "caseno"
+    ];
 
   var $advice_fields = [
     "possible","law","reasonable","unit","job","phone","name","type"

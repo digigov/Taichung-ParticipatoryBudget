@@ -21,7 +21,12 @@
         <hr style="clear:both;margin-top:20px;" />
         <table class="table table-bordered">
           <tbody>
-          
+          <tr>
+            <td class="field col-xs-2" >提案編號</td>
+            <td class="col-xs-10" colspan="2">
+              <input type="text" name="caseno" value="<?=h($news->caseno)?>" />
+            </td>
+          </tr>          
           <tr>
             <td class="field col-xs-2" >提案年度</td>
             <td class="col-xs-10" colspan="2">
@@ -43,7 +48,7 @@
             <td class="field col-xs-2" >分區</td>
             <td class="col-xs-10" colspan="2">
               
-              <select>
+              <select name="area">
               <?php 
               $areas = ["中區", "東區", "南區", "西區", "北區", "西屯區", "南屯區", "北屯區", "豐原區", "東勢區", "大甲區", "清水區", "沙鹿區", "梧棲區", "后里區", "神岡區", "潭子區", "大雅區", "新社區", "石岡區", "外埔區", "大安區", "烏日區", "大肚區", "龍井區", "霧峰區", "太平區", "大里區", "和平區"];
               foreach($areas as $area){ ?>
