@@ -52,16 +52,22 @@
                     </td>
                   </tr>
                   <tr>
-                    <td style="width:50%;" colspan="2"> A. 可行性評估</td>
-                    <td style="width:50%;" > <?=$adv->possible?> </td>
+                    <td style="width:50%;" colspan="3"> A. 可行性評估</td>
                   </tr>
                   <tr>
-                    <td colspan="2"> B. 法令面 </td>
-                    <td> <?=$adv->law?> </td>
+                    <td style="width:50%;" colspan="3" > <?=$adv->possible?> </td>
                   </tr>
                   <tr>
-                    <td colspan="2"> C. 預算合理性</td>
-                    <td> <?=$adv->reasonable?> </td>
+                    <td colspan="3"> B. 法令面 </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"> <?=$adv->law?> </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"> C. 預算合理性</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"> <?=$adv->reasonable?></td>
                   </tr>
                   <tr>
                     <td rowspan="4">提案聯繫窗口
@@ -85,25 +91,31 @@
                 <?php }else{ ?>
                 <table class="table table-bordered">
                   <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                       專家學者
                     </td>
                   </tr>
                   <tr>
-                    <td style="width:50%;" > A. 可行性評估</td>
-                    <td style="width:50%;" > <?=$adv->possible?> </td>
+                    <td  colspan="3"  > <b>A. 可行性評估</b></td>
                   </tr>
                   <tr>
-                    <td> B. 法令面 </td>
-                    <td > <?=$adv->law?> </td>
+                    <td colspan="3"   > <?=$adv->possible?> </td>
                   </tr>
                   <tr>
-                    <td> C. 預算合理性</td>
-                    <td > <?=$adv->reasonable?> </td>
+                    <td colspan="3"> <b>B. 法令面</b> </td>
+                  </tr>
+                  <tr>
+                    <td  colspan="3"> <?=$adv->law?> </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"> <b>C. 預算合理性</b></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" > <?=$adv->reasonable?> </td>
                   </tr>
                   <tr>
                     <td> 審查者 </td>
-                    <td><?=$adv->name?></td>
+                    <td ><?=$adv->name?></td>
                   </tr>
                 </table>                
                 <?php } ?>

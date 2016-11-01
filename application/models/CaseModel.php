@@ -13,7 +13,6 @@ class CaseModel extends CI_Model {
 
   public function get_active_now(){
     $this->db->select("*");
-    $this->db->where("status",1);
 
     $this->db->where("publish_date <= timezone('utc'::text, now()) ");
     $this->db->where("deleted",0);
@@ -21,6 +20,19 @@ class CaseModel extends CI_Model {
     $q = $this->db->get($this->_table);
     return ($q->result());
   }
+
+
+  public function get_active_by_area($area){
+    $this->db->select("*");
+    $this->db->where("area",$area);
+    $this->db->where("publish_date <= timezone('utc'::text, now()) ");
+    $this->db->where("deleted",0);
+    $this->db->order_by("caseno","asc");
+
+    $q = $this->db->get($this->_table);
+    return ($q->result());
+  }
+
 
   public function get_latest_by_page($page,$pageSize){
     $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt");
@@ -116,4 +128,6 @@ class CaseModel extends CI_Model {
     $q = $this->db->get($this->_table_advice);
     return $q->result();
   }
+
+
 }

@@ -7,29 +7,43 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <span class="now"><?=h($area)?>提案狀況</a>
-
+      <a href="<?=site_url("/areas/")?>">各區推動概況</a> &gt;
+      <?php $field = "建設(服務)案"; ?>
+      <span class="now"><?=h($data[$field])?></span>
     </div>
   
-    <div class="col-md-10 col-sm-12 ">
-      <table style="background:white;border-radius: 5px;" class="table table-bordered">
-        <tr>
-          <td>編號</td>
-          <td>名稱</td>
-          <td>提案人</td>
-        </tr>
-      <?php foreach($items as $item){ ?>
-        <tr>
-          <td><?=h($item->caseno)?></td>
-          <td><a href="<?=site_url("/cases/view/".$item->id)?>"><?=h($item->name)?></a></td>
-          <td><?=h($item->author)?></td>
-        </tr>
-      <?php } ?>
-      </table>
+    <div class="col-md-8" >
+      <div id='cont' class="menu" data-name="<?=($data["建設(服務)案"])?>">
+        <p>辦理機關： <?=$data["填報部門"]?></p>
+        <p>計畫分類：<?=$data["分類"]?> </p>
+
+        <p>辦理期程： <?=$data["辦理期程"]?></p>
+        
+        <p>計畫預算： <?=$data["預算金額"]?></p>
+        <p>計畫地點： <?=$data["地點"]?></p>
+        <p>內容摘要： <?=$data["內容摘要"]?></p>
+        
+        <hr />
+        <div id="mapid" style="width: 100%; height: 500px"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="menu">
+        <p>計畫聯絡科室</p>
+
+        <?php if($data["計畫聯絡科室"] !=""){ ?>
+        <p>
+          <?=$data["計畫聯絡科室"]?>
+        </p>
+        <p><?=$data["分機"]?></p>
+        <?php } else { ?>
+        <p>無資料</p>
+        <?php } ?>
+      </div>
     </div>
 
+
     <div style="clear:both"></div>
-    
 
   </div>
 </div>
@@ -82,21 +96,21 @@
       id: 'mapbox.streets'
     });
 
-    var renderText = function(item){
-      var fields = ["填報部門", "填報部門單位", "填報人", "填報人聯絡方式", "區", "起始年度", "結束年度", "分類", "建設(服務)案", "地點", "預算金額", "預算狀態", "中央補助款金額", "預算說明", "內容摘要", "辦理期程", "計畫聯絡科室", "分機", "備註", "區list"];
+    // var renderText = function(item){
+    //   var fields = ["填報部門", "填報部門單位", "填報人", "填報人聯絡方式", "區", "起始年度", "結束年度", "分類", "建設(服務)案", "地點", "預算金額", "預算狀態", "中央補助款金額", "預算說明", "內容摘要", "辦理期程", "計畫聯絡科室", "分機", "備註", "區list"];
 
-      var out = [];
-      out.push("<h2>"+item["建設(服務)案"]+"</h2>");
-      out.push("<p>辦理機關： "+item["填報部門"]+"<br />");
-      out.push("計畫預算： "+( item["預算金額"] && (item["預算金額"]+ "  (約 "+convert(parseInt(item["預算金額"],10),true)+")" ) || "無資料")+"<br />");
-      out.push("計畫期程： "+item["辦理期程"]+"</p>");
-      out.push("<div style='float:right;'><a href='/areas/view/"+item["建設(服務)案"]+"'>...瞭解更多</a></div>");
-      out.push("<div style='clear:both;'></div>");
-      // for(var k in fields){
-      //   out.push(fields[k]+":"+item[fields[k]]);
-      // }
-      return out.join("");
-    };
+    //   var out = [];
+    //   out.push("<h2>"+item["建設(服務)案"]+"</h2>");
+    //   out.push("<p>辦理機關： "+item["填報部門"]+"<br />");
+    //   out.push("計畫預算： "+( item["預算金額"] && (item["預算金額"]+ "  (約 "+convert(parseInt(item["預算金額"],10),true)+")" ) || "無資料")+"<br />");
+    //   out.push("計畫期程： "+item["辦理期程"]+"</p>");
+    //   out.push("<div style='float:right;'><a href='/areas/view/"+item["建設(服務)案"]+"'>...瞭解更多</a></div>");
+    //   out.push("<div style='clear:both;'></div>");
+    //   // for(var k in fields){
+    //   //   out.push(fields[k]+":"+item[fields[k]]);
+    //   // }
+    //   return out.join("");
+    // };
 
     var icons = {};
 
@@ -112,36 +126,33 @@
     
 
     $.get("/js/cleaned_data.json").then(function(data){
+      var dataw = [];
+      var name = decodeURIComponent($("#cont").data("name"));
 
+      $.each(data,function(ind,proj){
+        if(proj["建設(服務)案"] == name) {
+          dataw.push(proj);
+        }
+      });
+      data = dataw;
       $.each(data,function(ind,project){
         for(var k in project["地圖"]){
           var gis = project["地圖"][k];
           if(gis.type == 0 || gis.latlngs.length == 1){
             gis.latlngs.forEach(function(p){
               var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap)
-                .bindPopup(renderText(project));
+              var marker = L.marker(p.latlng,props).addTo(mymap);
+                // .bindPopup(renderText(project));
             });
           }else if(gis.type == 1){
             var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-
-            gis.latlngs.slice(0,1).forEach(function(p){
-              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap)
-                .bindPopup(renderText(project));
-            });
-            var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50,weight:10}).addTo(mymap)
-              .bindPopup(renderText(project));
+            var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50}).addTo(mymap);
+              // .bindPopup(renderText(project));
           }else if(gis.type == 2){
             var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-            gis.latlngs.slice(0,1).forEach(function(p){
-              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap)
-                .bindPopup(renderText(project));
-            });
             latlngs.push(latlngs[0]);
-            var polyline = L.polyline(latlngs, {color: 'red',weight:10}).addTo(mymap)
-              .bindPopup(renderText(project));
+            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(mymap);
+              // .bindPopup(renderText(project));
           }
         }
       });
