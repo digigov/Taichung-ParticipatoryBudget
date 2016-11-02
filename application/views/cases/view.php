@@ -143,7 +143,7 @@
       </div>
       <div class="col-md-4">
         <div style="background:white;border-radius:40px;padding:20px;min-height:400px;padding-left:10%">
-          <h2>提案執行流程</h2>
+          <h3>提案執行流程</h3>
           <?php 
           $status = [
             ["住民會議提案", "step_source" ],
