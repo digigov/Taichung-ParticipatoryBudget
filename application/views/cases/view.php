@@ -8,6 +8,9 @@
 .advices img{
   max-width:100%;
 }
+.content-ul img{
+  max-width:100%;
+}
 </style>
 <?php }?>
 

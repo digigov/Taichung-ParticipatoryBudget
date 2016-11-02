@@ -311,7 +311,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" aria-expanded="true">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -340,7 +340,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <ul class="dropdown-menu">
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
                 <?php foreach($areas_list as $area){ ?>
-                <li><a class="nav-item" href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
+                <li><a href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
                 <?php } ?>
               </ul>
 
@@ -350,7 +350,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!--
             <li><a class="nav-item" href="<?=site_url("/areas")?>">各區推動概況</a></li>
             -->
-            <!-- <li><a class="nav-item" href="<?=site_url("/")?>">票選系統</a></li> -->
+            <li><a class="nav-item" href="http://pb.taichung.gov.tw/news/view/34">票選系統</a></li>
 
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">歷年提案</a>
