@@ -7,7 +7,7 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <span class="now"><?=h($area)?>提案狀況</a>
+      <span class="now"><?=h($area_now)?>提案狀況</a>
 
     </div>
   

@@ -34,11 +34,10 @@ class Areas extends MY_Controller {
     $this->load->model("caseModel");
 
     $cases = $this->caseModel->get_active_by_area($area);
-
     $this->load->view('areas/view',[
         "pageTitle" => "各區推動概況 - ".$area,
         "items" => $cases,
-        "area" => $area
+        "area_now" => $area
     ] );
 
   }

@@ -132,7 +132,7 @@
 
             <?php if($news->dm_file != null){ ?>
             <li>
-              海報照片 ：<br />
+              原始提案海報 ：<br />
               <a target="_blank" href="<?=h($news->dm_file)?>">
               <img style="max-width:100%;" src="<?=h($news->dm_file)?>" />
               </a>
@@ -143,6 +143,7 @@
       </div>
       <div class="col-md-4">
         <div style="background:white;border-radius:40px;padding:20px;min-height:400px;padding-left:10%">
+          <h2>提案執行流程</h2>
           <?php 
           $status = [
             ["住民會議提案", "step_source" ],
