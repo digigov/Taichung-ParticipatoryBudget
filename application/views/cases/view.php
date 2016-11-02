@@ -3,7 +3,12 @@
 <?php function css_section(){ ?>
 <style>.content-ul li{margin-top:10px;
   font-size:18px;
-  }</style>
+  }
+
+.advices img{
+  max-width:100%;
+}
+</style>
 <?php }?>
 
 <div class="container">
@@ -47,7 +52,7 @@
               提案人：<br />
               <?=$news->author?>
             </li>
-            <li>
+            <li class="advices">
               專家學者市政顧問團建議：<br />
               <?php foreach($advices as $adv){ ?>
                 <?php if($adv->type == 0){ ?>
