@@ -11,6 +11,7 @@
 .content-ul img{
   max-width:100%;
 }
+
 </style>
 <?php }?>
 
@@ -18,8 +19,8 @@
   <div class="content-list">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/cases/area/".$news->area)?>"><?=$news->area?>提案清單</a> &gt; 
-      <span class="now"><?=h($news->name)?></span>
+      <a href="<?=site_url("/areas/view/".$news->area)?>"><?=$news->area?>提案清單</a> &gt; 
+      <span class="now"><?=h($news->name)?></span>  
 
     </div>
 

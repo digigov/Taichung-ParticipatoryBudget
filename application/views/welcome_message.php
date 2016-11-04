@@ -113,7 +113,7 @@
     </div>
     <div class="col-md-9 block-right">
       <div>
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/i8m-QLFKAjc" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/7hnzIIvy290" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
     <div style='clear:both;'></div>
