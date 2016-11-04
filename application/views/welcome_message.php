@@ -81,6 +81,10 @@
     .navbar {
       overflow: hidden
     }
+
+    .slidesjs-play,.slidesjs-stop{
+      display:none !important;
+    }
   </style>
 <?php } ?>
 
@@ -91,6 +95,7 @@
 
     <div id="slides">
       <?php 
+      shuffle($slides);
       if(count($slides) == 1){
         $slides[] = $slides[0];
       }
@@ -113,7 +118,7 @@
     </div>
     <div class="col-md-9 block-right">
       <div>
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/7hnzIIvy290" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/g_fL0eYOxqE" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
     <div style='clear:both;'></div>
@@ -127,7 +132,20 @@
   $('#slides').slidesjs({
     width: 940,
     height: 375,
-    navigation: false
+    navigation: false,
+    play: {
+      active: true,
+      effect: "slide",
+      interval: 5000,
+      auto: true,
+        // [boolean] Start playing the slideshow on load.
+      swap: true,
+        // [boolean] show/hide stop and play buttons
+      pauseOnHover: true,
+        // [boolean] pause a playing slideshow on hover
+      restartDelay: 2500
+        // [number] restart delay on inactive slideshow
+    }
   });
 </script>
 <?php } ?>
