@@ -3,6 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pb extends MY_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->database();
+		$this->load->model("sliderModel");
+
+		$slides = $this->sliderModel->get_active_now();
+
+    $this->load->vars(["slides" => $slides]);
+
+	}
+
 	public function what()
 	{
 		session_write_close();

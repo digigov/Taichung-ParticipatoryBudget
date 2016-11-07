@@ -1,8 +1,8 @@
+<?php include(__DIR__."/_slides_css.php"); ?>
 <?php include(__DIR__."/../_header.php"); ?>
 
-
 <div class="container">
-  <div style="background:rgb(128,208,205);padding-top:20px;padding-bottom:30px;"><img src="<?=base_url("img/slide_1.png")?>" style='display:block;width:70%;margin:0 auto;' /></div>
+  <?php include(__DIR__."/_slides.php"); ?>
 
   <div class="content-deep">
     <div class="col-md-3 block-left">
@@ -25,10 +25,6 @@
   </div>
 
 </div>
-
-<?php function js_section(){ ?>
-
-<?php } ?>
 
 <div class="container">
   <img src="<?=base_url("img/bg_city.png")?>" width="100%" />
