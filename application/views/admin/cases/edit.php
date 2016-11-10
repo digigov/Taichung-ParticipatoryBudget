@@ -96,6 +96,12 @@
             </td>
           </tr>
           <tr>
+            <td class="field col-xs-2" >地圖網址</td>
+            <td class="col-xs-10" colspan="2">
+              <textarea class="tinymce" name="location_urls" style="width:770px; height:400px;resize:vertical;"><?=h($news->location_urls)?></textarea>
+            </td>
+          </tr>
+          <tr>
             <td class="field col-xs-2" >海報照片</td>
             <td class="col-xs-10" colspan="2">
               <input type="file" name="dm_file" />

@@ -5,7 +5,7 @@
       -webkit-font-smoothing: antialiased;
       font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: #232525;
-      padding-top:70px;
+      /*padding-top:70px;*/
     }
 
     #slides {

@@ -18,8 +18,12 @@ class Events extends MY_Controller {
   }
 
 
-  public function view($id)
+  public function view($id = null)
   {
+    if($id == null){
+      return show_404();
+    }
+    
     session_write_close();
 
     $this->load->database();

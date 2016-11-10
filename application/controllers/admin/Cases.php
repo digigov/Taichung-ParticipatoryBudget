@@ -57,7 +57,7 @@ class Cases extends MY_ADMIN_Controller {
     $news->step_ivoting_2_files = null;
     $news->step_advance_files = null;
     $news->step_running_files = null;
-
+    $news->location_urls = null;
 
     $news->year = date("Y");
     $news->id = -1;
