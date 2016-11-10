@@ -23,7 +23,11 @@ class Events extends MY_Controller {
     if($id == null){
       return show_404();
     }
-    
+
+    if(!is_numeric($id)){
+      return show_404(); 
+    }
+
     session_write_close();
 
     $this->load->database();
