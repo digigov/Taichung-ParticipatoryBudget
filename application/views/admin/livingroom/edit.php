@@ -3,6 +3,9 @@
 <?php function css_section(){ ?> 
 
   <link rel="stylesheet" href="<?=base_url("js/jquery-ui-1.12.1.custom/jquery-ui.min.css")?>" />
+  <link rel="stylesheet" href="<?=base_url("css/jquery.fileupload.css")?>">
+
+
 <?php } ?>
 <div class="container">
   <div class="content-list">
@@ -66,6 +69,36 @@
             </td>
           </tr>
           <tr>
+            <td>
+              上傳照片
+            </td>
+            <td>
+              <div class="form-group">
+                <p>
+                  <span class="btn btn-success fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>上傳檔案</span>
+                      <!-- The file input field used as target for the file upload widget -->
+                      <input type="file" id="fileupload" name="files" multiple />
+                      <div id="files" >
+                      <?php foreach($news_images as $file){  ?>
+                      <p id="file_<?=$file->id?>">
+                        <a target='_blank' href="<?=$file->url?>"><?=h($file->filename)?>
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <input type="hidden" name="fileids[]" value="<?=$file->id?>" />
+                        <button class="btn btn-delete btn-danger" data-fileid="<?=h($file->id)?>" >刪除檔案</button>
+                      </p>
+                    <?php }?>
+                      </div>
+                  </span>
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
             <td>啟用</td>
             <td>
               <label><input <?=$news->status == 1 ?"checked":""?> type="radio" value="1" name="status">啟用</label>
@@ -97,9 +130,35 @@
   </div>
 </div>
 
+
 <?php function js_section(){ ?>
-  
+
+
 <script src="<?=base_url("js/jquery-ui-1.12.1.custom/jquery-ui.min.js")?>"></script>
+
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="<?=base_url("js/load-image.all.min.js")?>"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="<?=base_url("js/canvas-to-blob.min.js")?>"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<?=base_url("js/jquery.iframe-transport.js")?>"></script>
+<!-- The basic File Upload plugin -->
+<script src="<?=base_url("js/jquery.fileupload.js")?>"></script>
+<!-- The File Upload processing plugin -->
+<script src="<?=base_url("js/jquery.fileupload-process.js")?>"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="<?=base_url("js/jquery.fileupload-image.js")?>"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="<?=base_url("js/jquery.fileupload-audio.js")?>"></script>
+<!-- The File Upload video preview plugin -->
+<script src="<?=base_url("js/jquery.fileupload-video.js")?>"></script>
+<!-- The File Upload validation plugin -->
+<script src="<?=base_url("js/jquery.fileupload-validate.js")?>"></script>
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+<!--[if (gte IE 8)&(lt IE 10)]>
+<script src="<?=base_url("js/jquery.xdr-transport.js")?>"></script>
+<![endif]-->
 
 <script src="<?=base_url("js/tinymce/tinymce.min.js")?>"></script>
 <script src="<?=base_url("js/tinymce/jquery.tinymce.min.js")?>"></script>
@@ -132,6 +191,96 @@ tinymce.init({
     remove_script_host : false,
     convert_urls : true,
  });
+
+
+    $('#fileupload').fileupload({
+        url: "<?=site_url("admin/livingroom/upload_image")?>",
+        dataType: 'json',
+        autoUpload: true,
+        formAcceptCharset:"utf-8",
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        maxFileSize: 100000 * 1000,
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator.userAgent),
+        previewMaxWidth: 100,
+        previewMaxHeight: 100,
+        previewCrop: true
+    }).on('fileuploadadd', function (e, data) {
+        data.context = $('<div/>');
+        data.context.appendTo('#files');
+        $.each(data.files, function (index, file) {
+            var node = $('<p id="'+file.file_id+'" />')
+                    .append($('<span class="file file-waiting" />').text(file.name));
+            if (!index) {
+                // node
+                //     .append('<br>')
+                //     .append(uploadButton.clone(true).data(data));
+            }
+            node.appendTo(data.context);
+        });
+    }).on('fileuploadprocessalways', function (e, data) {
+        var index = data.index,
+            file = data.files[index],
+            node = $(data.context.children()[index]);
+        if (file.error) {
+            node.find(".file-waiting").removeClass("file-waiting");
+            node
+                .append('<br>')
+                .append($('<span class="text-danger"/>').text(file.error));
+        }
+        if (index + 1 === data.files.length) {
+            data.context.find('button')
+                .text('Upload')
+                .prop('disabled', !!data.files.error);
+        }
+    }).on('fileuploadprogressall', function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .progress-bar').css(
+            'width',
+            progress + '%'
+        );
+    }).on('fileuploaddone', function (e, data) {
+        $.each(data.result.files, function (index, file) {
+            var $child = $(data.context.children()[index]);
+            $child.find(".file-waiting").removeClass("file-waiting");
+
+            if (file.url) {
+                var link = $('<a>')
+                    .attr('target', '_blank')
+                    .prop('href', file.url);
+                $(data.context.children()[index]).find(".file")
+                    .wrap(link);
+                $(data.context.children()[index]).append('&nbsp;&nbsp;&nbsp;&nbsp;<input type="hidden" name="fileids[]" value='+file.file_id+' /><button class="btn btn-delete btn-danger" data-fileid="'+file.file_id+'" >刪除檔案</button>')
+                
+            } else if (file.error) {
+                var error = $('<span class="text-danger"/>').text(file.error);
+                $(data.context.children()[index])
+                    .append('<br>')
+                    .append(error);
+            }
+        });
+    }).on('fileuploadfail', function (e, data) {
+        $.each(data.files, function (index) {
+            var error = $('<span class="text-danger"/>').text('File upload failed.');
+            $(data.context.children()[index])
+                .append('<br>')
+                .append(error);
+        });
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+
+    $("#files").on("click",".btn-delete",function(e){
+      var node = this;
+      if(window.confirm("確定要刪除嗎？")){
+        $(this).parent().remove();
+      }
+
+      e.preventDefault();
+    });        
 </script>
 <?php } ?>
 

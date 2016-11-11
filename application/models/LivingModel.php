@@ -3,6 +3,7 @@
 class LivingModel extends CI_Model {
 
   var $_table = "livingroom";
+  var $_table_livingroom_images = "livingroom_images";
 
   public function __construct()
   {
@@ -36,6 +37,11 @@ class LivingModel extends CI_Model {
     $this->db->insert($this->_table,$options);
     return $this->db->insert_id();
   }
+
+  public function insert_image($options){
+    $this->db->insert($this->_table_livingroom_images,$options);
+    return $this->db->insert_id(); 
+  }
   
   public function update($id,$options){
     $this->db->set($options);
@@ -49,4 +55,27 @@ class LivingModel extends CI_Model {
     $this->db->update($this->_table);
   }
   
+  public function handle_file_ids($living_id,$file_ids)
+  {
+
+    $this->db->set("livingroom_id",'null',false);
+    $this->db->where("livingroom_id",$living_id);
+    $this->db->update($this->_table_livingroom_images);
+    
+
+    if(count($file_ids)>0){
+      $this->db->set("livingroom_id",$living_id);
+      $this->db->where_in("id",$file_ids);
+      $this->db->update($this->_table_livingroom_images);
+    }
+    // die(var_dump([$living_id,$file_ids]));
+
+  }
+
+  public function get_images($living_id){
+    $this->db->where("livingroom_id",$living_id);
+    $q = $this->db->get($this->_table_livingroom_images);
+    return $q->result();
+
+  }
 }

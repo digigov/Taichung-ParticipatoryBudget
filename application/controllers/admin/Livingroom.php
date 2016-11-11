@@ -46,6 +46,7 @@ class Livingroom extends MY_ADMIN_Controller {
     $this->_load_view($this->_view_root."/edit",[
         "pageTitle" => "新增客廳會記錄 " ,
         "news" => $news,
+        "news_images" => [],
         "action" => admin_url("livingroom/adding")
     ]);
 
@@ -54,15 +55,20 @@ class Livingroom extends MY_ADMIN_Controller {
 
   public function adding(){
 
-
     $inserted_data = [];
 
     foreach($this->fields as $field){
       $inserted_data[$field] = $this->input->post($field);
     }
 
-    $this->livingModel->insert($inserted_data);
+    $living_id = $this->livingModel->insert($inserted_data);
+    $file_ids = $this->input->post("fileids");
+    $this->_handle_file_ids($living_id,$file_ids);
     redirect(admin_url($this->_view_root."/"));
+  }
+
+  public function _handle_file_ids($living_id,$file_ids){
+    $this->livingModel->handle_file_ids($living_id,$file_ids);
   }
 
   public function delete($id){
@@ -83,9 +89,12 @@ class Livingroom extends MY_ADMIN_Controller {
       return show_404();
     }
 
+    $living = $this->livingModel->get_images($id);
+
     $this->_load_view($this->_view_root."/edit",[
         "pageTitle" => "編輯活動 " ,
         "news" => $news,
+        "news_images" => $living,
         "action" => admin_url($this->_view_root."/editing")
     ]);
   }
@@ -98,11 +107,52 @@ class Livingroom extends MY_ADMIN_Controller {
     }
 
     $id = $this->input->post("id");
-    
+
     $this->livingModel->update($id,$update_data);
 
+    $file_ids = $this->input->post("fileids");
+    $this->_handle_file_ids($id,$file_ids);
     redirect(admin_url($this->_view_root."/"));
 
   }
+
+
+  public function upload_image() {
+      
+      $ret = $this->_upload("files","files","livingroom/".date("Ymd")."/");
+
+      if (!$ret->isSuccess) {
+        return [];
+      } 
+
+      
+      $data = $ret->data;
+
+      $file_name = iconv('UTF-8', 'UTF-8//IGNORE', ($data->original_name));
+
+      $info = new StdClass;
+      $info->name = $file_name;
+      $info->size = $data->file_size * 1024;
+      $info->url = $data->url;
+      $info->delete_type = 'DELETE';
+      $info->error = null;
+
+      $file_id = $this->livingModel->insert_image([
+          "filename" => $data->original_name,
+          "filetype" => "",
+          "filesize" => $data->file_size,
+          "filepath" => $data->folder.$data->name,
+          "url" => $data->url,
+          "type" => 1
+        ]
+      );
+      $info->delete_url = site_url("admin/livingroom/delete_image/".$file_id);
+      $info->url = $data->url;
+      $info->file_id = $file_id;
+
+      $files[] = $info;
+      echo json_encode(array("files" => $files));
+  }
+
 
 }

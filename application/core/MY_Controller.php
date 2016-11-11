@@ -39,8 +39,10 @@ class MY_Controller extends CI_Controller {
 
     return new ReturnMessage(true,null,null,(object)Array(
       "name" => $file_name.".".$file_ext ,
+      "original_name" => $name,
       "ext" => $file_ext,
       "folder" => $folder_path,
+      "file_size" => filesize($path),         
       "url" => S3_HOST.$allname
     ));
 
