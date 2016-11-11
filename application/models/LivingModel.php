@@ -55,8 +55,9 @@ class LivingModel extends CI_Model {
     $this->db->update($this->_table);
   }
   
-  public function handle_file_ids($living_id,$file_ids)
+  public function handle_file_ids($living_id,$file_ids,$file_major)
   {
+
 
     $this->db->set("livingroom_id",'null',false);
     $this->db->where("livingroom_id",$living_id);
@@ -68,6 +69,10 @@ class LivingModel extends CI_Model {
       $this->db->where_in("id",$file_ids);
       $this->db->update($this->_table_livingroom_images);
     }
+
+    $this->db->set("major_file",$file_major);
+    $this->db->where("id",$living_id);
+    $this->db->update($this->_table);
     // die(var_dump([$living_id,$file_ids]));
 
   }

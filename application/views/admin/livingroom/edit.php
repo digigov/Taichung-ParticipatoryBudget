@@ -88,6 +88,7 @@
                         &nbsp;
                         &nbsp;
                         &nbsp;
+                        <label><input type="radio" <?=($news->major_file == $file->id )?"checked":""?> name="file_major" value="<?=$file->id?>" />主要照片</label> 
                         <input type="hidden" name="fileids[]" value="<?=$file->id?>" />
                         <button class="btn btn-delete btn-danger" data-fileid="<?=h($file->id)?>" >刪除檔案</button>
                       </p>
@@ -253,7 +254,7 @@ tinymce.init({
                     .prop('href', file.url);
                 $(data.context.children()[index]).find(".file")
                     .wrap(link);
-                $(data.context.children()[index]).append('&nbsp;&nbsp;&nbsp;&nbsp;<input type="hidden" name="fileids[]" value='+file.file_id+' /><button class="btn btn-delete btn-danger" data-fileid="'+file.file_id+'" >刪除檔案</button>')
+                $(data.context.children()[index]).append('&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="file_major" value="'+file.file_id+'" />主要照片</label> <input type="hidden" name="fileids[]" value='+file.file_id+' /><button class="btn btn-delete btn-danger" data-fileid="'+file.file_id+'" >刪除檔案</button>')
                 
             } else if (file.error) {
                 var error = $('<span class="text-danger"/>').text(file.error);

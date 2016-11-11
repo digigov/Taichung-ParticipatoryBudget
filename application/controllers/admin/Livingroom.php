@@ -63,12 +63,18 @@ class Livingroom extends MY_ADMIN_Controller {
 
     $living_id = $this->livingModel->insert($inserted_data);
     $file_ids = $this->input->post("fileids");
-    $this->_handle_file_ids($living_id,$file_ids);
+
+    $file_major = $this->input->post("file_major");
+    if($file_major == null && count($file_ids) >0 ){
+      $file_major= $file_ids[0];
+    }
+
+    $this->_handle_file_ids($living_id,$file_ids,$file_major);
     redirect(admin_url($this->_view_root."/"));
   }
 
-  public function _handle_file_ids($living_id,$file_ids){
-    $this->livingModel->handle_file_ids($living_id,$file_ids);
+  public function _handle_file_ids($living_id,$file_ids,$file_major){
+    $this->livingModel->handle_file_ids($living_id,$file_ids,$file_major);
   }
 
   public function delete($id){
@@ -111,7 +117,13 @@ class Livingroom extends MY_ADMIN_Controller {
     $this->livingModel->update($id,$update_data);
 
     $file_ids = $this->input->post("fileids");
-    $this->_handle_file_ids($id,$file_ids);
+
+    $file_major = $this->input->post("file_major");
+    if($file_major == null && count($file_ids) >0 ){
+      $file_major= $file_ids[0];
+    }
+
+    $this->_handle_file_ids($id,$file_ids,$file_major);
     redirect(admin_url($this->_view_root."/"));
 
   }
