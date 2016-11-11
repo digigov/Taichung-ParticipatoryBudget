@@ -108,7 +108,7 @@
 
     var icons = {};
 
-    var icons_type = ["地方基礎設施", "文化教育", "道路維護", "生態綠化", "公園設施", "交通設施", "老人及社會福利", "產業發展", "社區營造", "治安防災", "都市環境", "清潔衛生"];
+    var icons_type = <?=json_encode(_get_case_types())?>;
 
     $.each(icons_type,function(ind,type){
       icons[type] = L.icon({
