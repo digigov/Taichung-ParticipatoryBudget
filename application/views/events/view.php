@@ -7,7 +7,6 @@
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
       <a href="<?=site_url("/news/")?>">最新消息</a> &gt; 
       <span class="now"><?=h($news->title)?></span>
-
     </div>
 
     <div  class="col-md-12" style="overflow: auto;">

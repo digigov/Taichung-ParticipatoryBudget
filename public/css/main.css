@@ -597,4 +597,17 @@ body {
     font-size:20px;
   }
 
+  /* map */
+
+  .menu-toggle,.gov-toggle{
+    cursor:pointer;
+  }
+
+  .menu-toggled,.gov-toggled{
+    font-weight: bold;
+  }
+
+  .menu-toggle:hover{
+    color:orange;
+  }
 

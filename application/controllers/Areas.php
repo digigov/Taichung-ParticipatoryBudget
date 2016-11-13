@@ -39,32 +39,67 @@ class Areas extends MY_Controller {
         "items" => $cases,
         "area_now" => $area
     ] );
-
   }
 
-  // public function view($undeName){
+  public function map(){
 
-  //   $datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
-  //   $name = rawurldecode($undeName);
+    $this->load->view('areas/map',[
+        "pageTitle" => "各區推動概況 - 地圖檢視"
+    ] );
+  }
 
+  public function detail(){
 
-  //   $item = null;
-  //   foreach($datas as $data){
-  //     $field = "建設(服務)案";
-  //     if($data->$field == $name){
-  //       $item = (array) $data;
-  //       break;
-  //     }
-  //   }
+    $datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
 
-  //   if($item == null){
-  //     return show_404();
-  //   }
+    $item = null;
+    foreach($datas as $data){
+      $field = "建設(服務)案";
+      if($data->$field == $name){
+        $item = (array) $data;
+        break;
+      }
+    }
 
-  //   $this->load->view('areas/view',[
-  //       "pageTitle" => "各區推動概況 - ".$data->$field,
-  //       "data" => $item
-  //   ] );
-  // }
+    if($item == null){
+      return show_404();
+    }
 
+    $this->load->view('areas/view',[
+        "pageTitle" => "各區推動概況 - ".$data->$field,
+        "data" => $item
+    ] );
+  }
+
+  public function ren_all_types(){
+    $types = _get_case_types();
+    foreach($types as $t){
+      $this->render_circle_image($t);
+    }
+  }
+
+  public function render_circle_image($type = "社區營造"){
+    $type = rawurldecode($type);
+        //this creates a pink rectangle of the same size
+    $img = imagecreatefrompng(__DIR__."/../../public/img/icons/".$type.".png");
+
+    list($imgwidth, $imgheight) = getimagesize(__DIR__."/../../public/img/icons/".$type.".png");
+    $mask = imagecreatetruecolor($imgwidth, $imgheight);
+    $pink = imagecolorallocate($mask, 255, 0, 255);
+    imagefill($mask, 0, 0, $pink);
+    //this cuts a hole in the middle of the pink mask
+    $black = imagecolorallocate($mask, 0, 0, 0);
+    imagecolortransparent($mask, $black);
+    // imagefilledellipse($mask,50,50, $imgwidth, $imgheight, $black);
+    imagefilledellipse($mask, $imgwidth/2, $imgheight/2, $imgwidth *0.8, $imgheight*0.8, $black);
+
+    //this merges the mask over the pic and makes the pink corners transparent
+    imagecopymerge($img, $mask, 0, 0, 0, 0, $imgheight, $imgheight,100);
+
+    imagecolortransparent($img, $pink);
+
+    header ('Content-Type: image/png');
+    imagepng($img,__DIR__."/../../public/img/icons/".$type."_circle.png");
+    imagepng($img);
+  }
 }
