@@ -27,7 +27,7 @@
   </div>
   <?php } ?>
   <div class="content-introduce">
-    <a href="<?=site_url("/pb/what")?>"><img style="width:100%;" src="<?=base_url("img/introduce.png")?>" /></a>
+    <a href="<?=site_url("/introduce")?>"><img style="width:100%;" src="<?=base_url("img/introduce.png")?>" /></a>
     <div style='clear:both;'></div>
   </div>
   <div class="cube cube-text cube-active cube-blue">
