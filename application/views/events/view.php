@@ -10,7 +10,7 @@
 
     </div>
 
-    <div class="col-md-10">
+    <div  class="col-md-12" style="overflow: auto;">
       <table class="table table-bordered table-striped ">
         <thead class="thead-inverse">
           <tr>
