@@ -15,9 +15,9 @@
       <h1>何謂參與式預算</h1>
   
       <div class="row">
-        <div class="col-md-4"><img style="width:100%;" src="<?=base_url("img/introduce_page.png")?>" /></div>
+        <div class="col-md-4 col-xs-5 col-sm-4 "><img style="width:100%;" src="<?=base_url("img/introduce_page.png")?>" /></div>
 
-        <div class="introduce-block col-md-8">
+        <div class="introduce-block col-md-8  col-xs-12">
           <h2>參與式預算定義</h2>
           <p>參與式預算是指由人民來決定一部份公共預算的支出。民眾和社區內所有群體的代表， 共同討論預算計畫，提出方案，並且投票決定支出的優先順序，取得「公共性」與「急迫性 」兩者的平衡。 </p>
           <p>
@@ -25,10 +25,10 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-md-offset-4"><img style="width:100%;" src="<?=base_url("img/introduce_plug.png")?>" />
+        <div class="col-md-4 col-md-offset-4 col-xs-offset-1 col-xs-6 col-sm-4"><img style="width:100%;" src="<?=base_url("img/introduce_plug.png")?>" />
         </div>
 
-        <div class="col-md-2 "><img style="width:100%;" src="<?=base_url("img/introduce_idea.png")?>" />
+        <div class="col-md-2 col-xs-4 col-sm-2"><img style="width:100%;" src="<?=base_url("img/introduce_idea.png")?>" />
         </div>
       </div>
       <div class="row">
@@ -57,13 +57,13 @@
   2. 投票原則（Vote）：結合發聲原則，透過比傳統代議政治更寬鬆的投票規定來涵納更多人的聲音。再者，投票也是直接民主的展現，因此也希望藉此達成增加公民權力（authority）的關鍵影響。
         </div>
       </div>
-      <div class="row" style="margin-top:30px;">
-        <div class="col-md-2 "><img style="width:100%;" src="<?=base_url("img/introduce_book.png")?>" />
+      <div class="row" style="margin-top:20px;">
+        <div class="col-md-2 col-xs-4 col-sm-2 "><img style="width:100%;margin-top:20px;margin-bottom:20px;" src="<?=base_url("img/introduce_book.png")?>" />
         </div>
-        <div class="col-md-4 ">
+        <div class="col-md-4 col-xs-12">
   3. 監督原則（Oversight）：相對於傳統的預算流程，參與式預算將公民帶入預算審議的流程中，使得政府必須更加開放、揭示更多資訊供大眾檢視與監督。
         </div>
-        <div class="col-md-4 ">
+        <div class="col-md-4 col-xs-12">
 
           4. 社會正義原則（Social Justice）：公共資源的分配應該以社會正義原則為依歸。從巴西愉港的案例來看，經過審議的過程，公民的確了解也願意把稅收花在最需要的地方，使公共資源有機會重分配，更符合社會正義。
         </div>
