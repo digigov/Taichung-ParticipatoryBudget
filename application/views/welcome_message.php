@@ -102,7 +102,7 @@
       </div>
     </div>
     <div class="cube-thumb">
-      <a href="#"><img alt="區域地圖" src="<?=base_url("img/home_map.png")?>" /></a>
+      <a href="<?=site_url("/areas/map")?>"><img alt="區域地圖" src="<?=base_url("img/home_map.png")?>" /></a>
     </div>
   </div>
   <div class="related-link">
