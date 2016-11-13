@@ -53,10 +53,9 @@ body {
 
 
 
-
 /* PB */
 .content-deep{
-  background:rgb(24,160,152);
+  background:white;
   padding-bottom:30px;
   padding-top:50px;
 }
@@ -175,7 +174,7 @@ body {
 /* News */
 
 .content-list{
-  background:rgb(226,238,196);
+  background:#d5edf7;
   padding:20px;
   padding-left:5%;
   padding-right:5%;

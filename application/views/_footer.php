@@ -1,5 +1,5 @@
-
 <div class="container"  style="max-width:960px;margin:0 auto;">
+  <hr style="margin: 0;"/>
   <div class="footer">
     <div class="footer-body"> 
       <div class="row">

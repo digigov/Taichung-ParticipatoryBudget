@@ -26,7 +26,4 @@
 
 </div>
 
-<div class="container">
-  <img src="<?=base_url("img/bg_city.png")?>" width="100%" />
-</div>
 <?php include(__DIR__."/../_footer.php"); ?>
