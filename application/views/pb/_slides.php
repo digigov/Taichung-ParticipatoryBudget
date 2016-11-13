@@ -26,7 +26,7 @@
 
 
   <?php if(count($slides) > 0){ ?>
-  <div class="slides" style="background:rgb(128,208,205);padding-top:20px;">
+  <div class="slides" style="background:rgb(128,208,205);">
 
     <div id="slides">
       <?php 

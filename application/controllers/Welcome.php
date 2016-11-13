@@ -26,10 +26,16 @@ class Welcome extends MY_Controller {
 
 		$slides = $this->sliderModel->get_active_now();
 
+		$this->load->database();
+		$this->load->model("newsModel");
+    $latest_news = $this->newsModel->get_latest_news_list(1,3);
+
+
 		$this->load->view('welcome_message',
 			[	
 				"pb" => "",
-				"slides" => $slides
+				"slides" => $slides,
+				"latest_news" => $latest_news
 			] );
 		session_write_close();
 	}

@@ -1,97 +1,11 @@
 <?php include(__DIR__."/_header.php"); ?>
 <?php function css_section(){ ?>
- <style>
-    body {
-      -webkit-font-smoothing: antialiased;
-      font: normal 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #232525;
-      /*padding-top:70px;*/
-    }
-
-    #slides {
-      display: none;
-      position:relative;
-    }
-
-    #slides .slidesjs-navigation {
-      margin-top:3px;
-      display:none;
-    }
-
-    #slides:hover .slidesjs-navigation{
-      display:block;
-    }
-
-    #slides .slidesjs-previous {
-      margin-right: 5px;
-      /*float: left; */
-      position:absolute;
-      top:120px;
-      z-index:100;
-    }
-
-    #slides .slidesjs-next {
-      margin-right: 5px;
-      position:absolute;
-      top:120px;
-      right:0px;
-      z-index:100;
-    }
-
-    .slidesjs-pagination {
-      margin: 6px 0 0;
-      float: right;
-      list-style: none;
-    }
-
-    .slidesjs-pagination li {
-      float: left;
-      margin: 0 1px;
-    }
-
-    .slidesjs-pagination li a {
-      display: block;
-      width: 13px;
-      height: 0;
-      padding-top: 13px;
-/*      background-image: url(/img/pagination.png);*/      background-position: 0 0;
-      float: left;
-      overflow: hidden;
-    }
-
-    .slidesjs-pagination li a.active,
-    .slidesjs-pagination li a:hover.active {
-      background-position: 0 -13px
-    }
-
-    .slidesjs-pagination li a:hover {
-      background-position: 0 -26px
-    }
-
-    #slides a:link,
-    #slides a:visited {
-      color: #333
-    }
-
-    #slides a:hover,
-    #slides a:active {
-      color: #9e2020
-    }
-
-    .navbar {
-      overflow: hidden
-    }
-
-    .slidesjs-play,.slidesjs-stop{
-      display:none !important;
-    }
-  </style>
 <?php } ?>
 
-<div class="container">
+<div class="container" style="max-width:960px;margin:0 auto;">
   
   <?php if(count($slides) > 0){ ?>
-  <div class="slides" style="background:rgb(128,208,205);padding-top:20px;">
+  <div class="slides" style="background:rgb(128,208,205);">
 
     <div id="slides">
       <?php 
@@ -112,17 +26,91 @@
     </div>
   </div>
   <?php } ?>
-  <div class="content-deep">
-    <div class="col-md-3 block-left">
-      <?php include(__DIR__."/_ph_menu.php") ?>
-    </div>
-    <div class="col-md-9 block-right">
-      <div>
-        <iframe width="100%" height="400" src="https://www.youtube.com/embed/g_fL0eYOxqE" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
+  <div class="content-introduce">
+    <img style="width:100%;" src="<?=base_url("img/introduce.png")?>" />
     <div style='clear:both;'></div>
   </div>
+  <div class="cube cube-text cube-active cube-blue">
+    <div class="cube-title">
+      活動快訊
+    </div>
+    <div class="cube-cover">
+    </div>
+    <div class="cube-content-container">
+      <div class="cube-content-pre ">
+      </div>
+      <div class="cube-content">
+        <?php foreach($latest_news as $news){ ?> 
+          <a href="<?=site_url("/news/view/".$news->id)?>">
+            <div class="news">
+              <div class="news-title"> 
+                <?=h($news->title)?>
+              </div>
+              <div class="news-desc"> 
+                <?=h(_truncate(strip_tags($news->content),30))?>
+              </div>
+              <div class="news-date"> 
+                <?=_date_format_utc($news->publish_date,"Y-m-d") ?>
+              </div>
+            </div>
+          </a>
+          <br />
+        <?php } ?>
+      </div>
+      <div class="cube-content-after">
+      </div>
+    </div>
+    <div class="cube-thumb">
+      <a href="<?=site_url("/news")?>"><img alt="相關新聞" src="<?=base_url("img/home_news.png")?>" /></a>
+    </div>
+  </div>
+  <div class="cube cube-red">
+    <div class="cube-title">
+      今年推動流程
+    </div>
+    <div class="cube-cover">
+      <a href="<?=site_url("/process")?>"><img alt="今年推動流程" src="<?=base_url("img/home_this_year.png")?>" /></a>
+    </div>
+    <div class="cube-content-container">
+      <div class="cube-content-pre ">
+      </div>
+      <div class="cube-content">
+        <a href="<?=site_url("/process")?>"><img src="<?=base_url("img/home_this_year_content.png")?>" /></a>
+      </div>
+      <div class="cube-content-after">
+      </div>
+    </div>
+    <div class="cube-thumb">
+      <a href="<?=site_url("/process")?>"><img alt="工作成果" src="<?=base_url("img/home_work_result.png")?>" /></a>
+    </div>
+  </div>
+
+  <div class="cube cube-orange">
+    <div class="cube-title">
+      歷年提案
+    </div>
+    <div class="cube-cover">
+      <a target="_blank" href="http://2015taichungivoting.weebly.com/"><img alt="歷年提案" src="<?=base_url("img/home_past_cases_cover.png")?>" /></a>
+    </div>
+    <div class="cube-content-container">
+      <div class="cube-content-pre ">
+      </div>
+      <div class="cube-content">
+        <a target="_blank" href="http://2015taichungivoting.weebly.com/"><img src="<?=base_url("img/home_past_cases.png")?>" /></a>
+      </div>
+      <div class="cube-content-after">
+      </div>
+    </div>
+    <div class="cube-thumb">
+      <a href="#"><img alt="區域地圖" src="<?=base_url("img/home_map.png")?>" /></a>
+    </div>
+  </div>
+  <div class="related-link">
+    <a href="#" >
+      -友站連結-
+    </a>
+  </div>
+  
 
 </div>
 
@@ -150,7 +138,4 @@
 </script>
 <?php } ?>
 
-<div class="container">
-  <img src="<?=base_url("img/bg_city.png")?>" width="100%" />
-</div>
 <?php include(__DIR__."/_footer.php"); ?>

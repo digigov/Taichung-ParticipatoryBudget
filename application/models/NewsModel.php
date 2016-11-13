@@ -28,7 +28,7 @@ class NewsModel extends CI_Model {
   }
 
   public function get_latest_news_list($pageIndex,$pageSize = 100){
-    $this->db->select("id,category,publish_date,title,clicks");
+    $this->db->select("id,category,publish_date,title,clicks,content");
     $this->db->limit($pageSize);
     $this->db->offset(($pageIndex-1) * $pageSize);
     $this->db->order_by("publish_date","desc");
