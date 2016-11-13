@@ -92,10 +92,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
           <div class="nav-social">
-              <a href="#"><img src="<?=base_url("img/social_fb.png")?>" /></a>
+              <a target="_blank" href="<?=site_url("https://www.facebook.com/pbtaichung/")?>"><img src="<?=base_url("img/social_fb.png")?>" /></a>
+              <?php if(0){ ?>
               <a href="#"><img src="<?=base_url("img/social_gplus.png")?>" /></a>
               <a href="#"><img src="<?=base_url("img/social_twitter.png")?>" /></a>
               <a href="#"><img src="<?=base_url("img/social_plurk.png")?>" /></a>
+              <?php } ?>
           </div>        
           <ul class="nav navbar-nav">
 
