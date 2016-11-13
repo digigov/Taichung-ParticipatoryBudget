@@ -1,4 +1,4 @@
-<div class="container"  style="max-width:960px;margin:0 auto;">
+<div class="container"  style="max-width:960px;margin:0 auto;margin-top:10px;">
   <hr style="margin: 0;"/>
   <div class="footer">
     <div class="footer-body"> 
