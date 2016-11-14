@@ -14,8 +14,10 @@
     <div class="col-md-12 col-sm-12 ">
       <table style="background:white;border-radius: 5px;" class="table table-bordered">
         <tr>
-          <td style="width:10%;text-align:center;">進入 <br /> i-Voting <br /> 二階</td>
-          <td>優先執行</td>
+          <td style="width:10%;text-align:center;">
+            進入<Br />第二階段<Br />
+            i-Voting</td>
+          <td>最終優先提案</td>
           <td>編號</td>
           <td>名稱</td>
           <td>提案人</td>
@@ -24,7 +26,6 @@
         <tr>
           <td style="text-align:center;"><?=h($item->step_ivoting_2?"V":"")?></td>
           <td><?=h($item->step_advance?"V":"")?></td>
-          <td><?=h($item->caseno)?></td>
           <td><?=h($item->caseno)?></td>
           <td><a href="<?=site_url("/cases/view/".$item->id)?>"><?=h($item->name)?></a></td>
           <td><?=h($item->author)?></td>
