@@ -18,7 +18,6 @@ class Cases extends MY_Controller {
     ] );
   }
 
-
   public function view($id)
   {
     session_write_close();

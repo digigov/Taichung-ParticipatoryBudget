@@ -32,6 +32,20 @@ class Cases extends MY_ADMIN_Controller {
     ]);
   }
 
+
+  public function area($area){
+
+    $this->load->database();
+    $this->load->model("caseModel");    
+    $latest_news = $this->caseModel->get_latest_by_area_and_page(rawurldecode($area),1,1000);
+
+    $this->_load_view('cases/index',[
+        "pageTitle" => rawurldecode($area)." 提案",
+        "all_items" => $latest_news
+    ] );
+  }
+
+
   public function add(){
 
     $news = new stdclass();

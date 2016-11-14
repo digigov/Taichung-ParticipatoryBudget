@@ -95,7 +95,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
-            <li><a class="nav-item" href="<?=site_url("/admin/cases")?>">提案管理</a></li>
+            <li class="dropdown">
+              <a href="<?=site_url("/admin/cases")?>" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">提案管理</a>
+              <ul class="dropdown-menu">
+                <?php foreach(_get_areas() as $area){ ?>
+                <li><a href="<?=site_url("/admin/cases/area/".$area)?>"><?=h($area)?></a></li>
+                <?php } ?>
+              </ul>
+            </li>
+
             <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">記錄區管理</a>

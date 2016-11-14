@@ -27,6 +27,20 @@ class NewsModel extends CI_Model {
     return $q->result();
   }
 
+
+  public function get_latest_list_by_type_and_area($area,$type,$pageIndex,$pageSize = 100){
+    $this->db->select("id,category,publish_date,title,clicks");
+    $this->db->where("area",$area);
+    $this->db->limit($pageSize);
+    $this->db->offset(($pageIndex-1) * $pageSize);
+    $this->db->order_by("publish_date","desc");
+    $this->db->where("type", $type);
+    $this->db->where("deleted",0);
+    $q = $this->db->get($this->_table);
+
+    return $q->result();
+  }
+
   public function get_latest_news_list($pageIndex,$pageSize = 100){
     $this->db->select("id,category,publish_date,title,clicks,content");
     $this->db->limit($pageSize);

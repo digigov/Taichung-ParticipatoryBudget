@@ -46,6 +46,20 @@ class CaseModel extends CI_Model {
     return ($q->result());
   }
 
+  public function get_latest_by_area_and_page($area,$page,$pageSize){
+    $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt");
+
+    $this->db->where("area",$area);
+    $this->db->where("deleted",0);
+
+    $this->db->order_by("id","desc");
+    $this->db->limit($pageSize);
+    $this->db->offset($pageSize*($page-1));
+
+    $q = $this->db->get($this->_table);
+    return ($q->result());
+  }
+
 
   public function get_public($id){
     $this->db->select("*");
