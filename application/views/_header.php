@@ -118,6 +118,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
               </ul>
             </li>
+            <li class="dropdown">
+
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">   各區推動概況 </a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-item" href="<?=site_url("/areas/map")?>">地圖顯示</a></li>
+                <li role="separator" class="divider"></li>
+                <?php foreach(_get_areas() as $area){ ?>
+                <li><a class="nav-item" href="<?=site_url("/process")?>"><?=h($area)?></a></li>
+                <?php } ?>
+              </ul>
+            </li>
             
 
             <li class="dropdown">
