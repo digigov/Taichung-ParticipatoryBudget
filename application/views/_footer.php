@@ -1,4 +1,11 @@
 <div class="container"  style="max-width:960px;margin:0 auto;margin-top:10px;">
+  <div class="qrcode">
+    <img src="<?=base_url("img/LineQRcode.png")?>" alt="line QR code" />
+    <div>
+      臺中市參與式預算
+      官方 line
+    </div>
+  </div>
   <hr style="margin: 0;"/>
   <div class="footer">
     <div class="footer-body"> 
@@ -16,12 +23,13 @@
             Email： empower.tccentral@gmail.com 
           </p>
         </div>
-        <div class="col-md-2" >
+        <div class="col-md-2 col-xs-4" >
           <a target="_blank" href="http://www.taichung.gov.tw/"><img style='width:100%;' alt="臺中市政府" src="<?=base_url("img/taichung_logo.png")?>" /></a>
         </div>
-        <div class="col-md-5" style="text-align:left;">
+        <div class="col-md-5 col-xs-12" style="margin-top:20px;text-align:left;">
           <div >
             <div class="fb-page" data-href="https://www.facebook.com/pbtaichung/"  data-tabs="timeline" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/pbtaichung/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/pbtaichung/">臺中市參與式預算</a></blockquote></div>
+            <div style='clear:both'></div>
           </div>
         </div>
       </div>
@@ -47,6 +55,18 @@
 
 </script>
 <div id="fb-root"></div>
+
+<script>
+  (function() {
+    var cx = '007911714527574581490:icxpm0qddwa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

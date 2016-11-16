@@ -164,5 +164,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+    <div class="search-container">
+      <div class="search">
+        <gcse:search></gcse:search>
+      </div>
+    </div>
   </div>
-
