@@ -61,27 +61,36 @@
       </div>
     </div>
     <div class="cube-thumb">
-      <a href="<?=site_url("/news")?>"><img alt="相關新聞" src="<?=base_url("img/home_news.png")?>" /></a>
+      <a href="<?=site_url("/news")?>">
+        <img class="on-active" alt="相關新聞" src="<?=base_url("img/home_news_close.png")?>" />
+        <img class="on-inactive"  alt="相關新聞" src="<?=base_url("img/home_news.png")?>" />
+      </a>
     </div>
   </div>
   <div class="cube cube-red">
     <div class="cube-title">
       今年推動流程
     </div>
-    <div class="cube-cover">
-      <a href="<?=site_url("/process")?>"><img alt="今年推動流程" src="<?=base_url("img/home_this_year.png")?>" /></a>
-    </div>
-    <div class="cube-content-container">
-      <div class="cube-content-pre ">
+    <div class="cube-content-all">
+      <div class="cube-cover">
+        <a href="<?=site_url("/process")?>"><img alt="今年推動流程" src="<?=base_url("img/home_this_year.png")?>" /></a>
       </div>
-      <div class="cube-content">
-        <a href="<?=site_url("/process")?>"><img src="<?=base_url("img/home_this_year_content.png")?>" /></a>
-      </div>
-      <div class="cube-content-after">
+      <div class="cube-content-container">
+        <div class="cube-content-pre ">
+        </div>
+        <div class="cube-content">
+          <a href="<?=site_url("/process")?>"><img src="<?=base_url("img/home_this_year_content.png")?>" /></a>
+        </div>
+        <div class="cube-content-after">
+        </div>
       </div>
     </div>
     <div class="cube-thumb">
-      <a href="<?=site_url("/process")?>"><img alt="工作成果" src="<?=base_url("img/home_work_result.png")?>" /></a>
+      <a href="<?=site_url("/process")?>">
+        <img class="on-inactive"  alt="工作成果" src="<?=base_url("img/home_work_result.png")?>" />
+        <img class="on-active" alt="工作成果" src="<?=base_url("img/home_work_close.png")?>" />
+
+      </a>
     </div>
   </div>
 
@@ -89,20 +98,28 @@
     <div class="cube-title">
       歷年提案
     </div>
-    <div class="cube-cover">
-      <a target="_blank" href="http://2015taichungivoting.weebly.com/"><img alt="歷年提案" src="<?=base_url("img/home_past_cases_cover.png")?>" /></a>
-    </div>
-    <div class="cube-content-container">
-      <div class="cube-content-pre ">
+    <div class="cube-content-all">
+      <div class="cube-cover">
+        <a target="_blank" href="http://2015taichungivoting.weebly.com/"><img alt="歷年提案" src="<?=base_url("img/home_past_cases_cover.png")?>" /></a>
       </div>
-      <div class="cube-content">
-        <a target="_blank" href="http://2015taichungivoting.weebly.com/"><img src="<?=base_url("img/home_past_cases.png")?>" /></a>
-      </div>
-      <div class="cube-content-after">
+      <div class="cube-content-container">
+        <div class="cube-content-pre ">
+        </div>
+        <div class="cube-content">
+          <a target="_blank" href="http://2015taichungivoting.weebly.com/">
+            <img alt="歷年提案" src="<?=base_url("img/home_past_cases.png")?>" />
+
+          </a>
+        </div>
+        <div class="cube-content-after">
+        </div>
       </div>
     </div>
     <div class="cube-thumb">
-      <a href="<?=site_url("/areas/map")?>"><img alt="區域地圖" src="<?=base_url("img/home_map.png")?>" /></a>
+      <a href="<?=site_url("/areas/map")?>">
+        <img class="on-active" alt="區域地圖" src="<?=base_url("img/home_map.png")?>" />
+        <img class="on-inactive" alt="區域地圖" src="<?=base_url("img/home_area_map.png")?>" />
+      </a>
     </div>
   </div>
   <div class="related-link">

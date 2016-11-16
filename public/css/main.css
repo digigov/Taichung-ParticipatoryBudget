@@ -42,15 +42,15 @@ body {
 }
 
 .breadcrumb,.breadcrumb a{
-  color:rgb(127,127,127);
+  color:#8e8f90;
   background:transparent;
 }
 .breadcrumb .now{
-  color:rgb(176,52,18);
+  color:#8d8f90;
 }
 
 .breadcrumb{
-  background:#ffdada;
+  background:#eefdf6;
   margin-top:6px;
 }
 
@@ -236,6 +236,10 @@ body {
   box-shadow: inset 0px -9px 8px -8px rgba(0,0,0,0.89);
   padding-bottom:4px;
 }
+.footer-text{
+  line-height: 120%;
+  font-size:14px;
+}
 
 .footer-body{
   padding-bottom:30px;
@@ -382,6 +386,10 @@ body {
     float:left;    
   }
 
+  .cube .on-active{
+    display:none;
+  }
+
   .cube , 
   .cube-title ,
   .cube-cover,
@@ -451,10 +459,13 @@ body {
     display:none;
   }
   
-  .cube:hover .cube-content-container{
+  .cube-content-all:hover .cube-content-container,
+    .cube-thumb:hover  .on-active
+    {
     display:block;
   }
-  .cube:hover .cube-cover{
+  .cube-content-all:hover .cube-cover,
+    .cube-thumb:hover .on-inactive{
     display:none;
   }
 
@@ -607,8 +618,28 @@ body {
     color:#7e8686;
     font-size:16px;
     margin-top:8px;
-    padding:10px;
-    padding-bottom:0;
+    padding:20px;
+  }
+  .introduce-block p{
+    line-height: 150%;
+  }
+  
+  .page-introduce .introduce-block h2{
+    margin-top:0;
+    margin-bottom:10px;
+  }
+  .page-introduce .introduce-define p{
+    margin-top:0;
+    margin-bottom:0;
+  }
+  .page-introduce .introduce-idea{
+    padding-top:30px;
+    padding-bottom:58px;
+  }
+  .page-introduce .title h1{
+    margin:0;
+    font-size:28px;
+    color:#8e8f90;
   }
   /* map */
 
