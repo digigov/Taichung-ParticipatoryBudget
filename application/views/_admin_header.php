@@ -61,6 +61,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       border-radius: 5px;
       cursor:pointer;
     }
+
+.navbar-nav>li>.dropdown-menu{
+  max-height: 300px;
+  overflow: scroll;
+}
+
   </style>
 
 <?php if(function_exists("css_section")) {

@@ -23,6 +23,20 @@ class LivingModel extends CI_Model {
     return ($q->result());
   }
 
+  public function get_all_by_area_page($area,$page,$pageSize){
+    $this->db->select("*");
+    $this->db->where("deleted",false);
+    $this->db->where("area",$area);
+
+    $this->db->order_by("id","desc");
+    $this->db->limit($pageSize);
+    $this->db->offset($pageSize*($page-1));
+
+    $q = $this->db->get($this->_table);
+    return ($q->result());
+
+  }
+
   public function get($id){
     $this->db->select("*");
     $this->db->limit(1);

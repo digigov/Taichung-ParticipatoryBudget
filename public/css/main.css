@@ -44,6 +44,11 @@ body {
   }
 }
 
+.navbar-nav>li>.dropdown-menu{
+  height: 300px;
+  overflow: scroll;
+}
+
 .nav-social{
   position:absolute;
   right:20px;

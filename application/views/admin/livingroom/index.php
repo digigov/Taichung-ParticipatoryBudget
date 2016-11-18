@@ -2,11 +2,22 @@
 
 
 <div class="container">
-  
+    <h1><?=$now_area?> 的查詢記錄</h1>
+    <p>
+      看看其他區域：
+        <a href="<?=site_url("/admin/livingroom")
+          ?>">全部</a>        
+        <?php foreach(_get_areas() as $area){ ?>
+        、<a href="<?=site_url("/admin/livingroom").
+          "?area=".$area?>"><?=$area?></a>
+        <?php }?>
+
+    </p>
     <table class="table table-bordered">
       <tr>
         <td>#</td>
         <td>狀態</td>
+        <td>區域</td>
         <td>類別</td>     
         <td>日期</td>
         <td>地點</td>
@@ -19,6 +30,7 @@
         <td>
           <?=$item->status=="1" ?"啟用":"草稿"?>
         </td>
+        <td><?=h($item->area)?></td>
         <td>
           <?=h($item->type)?>
         </td>

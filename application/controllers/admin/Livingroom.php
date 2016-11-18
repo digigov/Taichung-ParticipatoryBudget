@@ -21,11 +21,20 @@ class Livingroom extends MY_ADMIN_Controller {
 
     session_write_close();
 
-    $latest_items = $this->livingModel->get_all_by_page(1,1000);
+    $area= $this->input->get("area");
+
+    if($area == "全部" || $area == ""){
+      $latest_items = $this->livingModel->get_all_by_page(1,1000);
+    }else{
+      $latest_items = $this->livingModel->get_all_by_area_page($area,1,1000);
+    }
+
+    
 
     $this->_load_view($this->_view_root."/index",[
         "pageTitle" => "客廳會成果管理",
-        "all_items" => $latest_items
+        "all_items" => $latest_items,
+        "now_area" => $area == "" ?"全部":$area
     ]);
   }
 
