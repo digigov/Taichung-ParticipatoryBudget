@@ -135,8 +135,8 @@
 <script src="<?=base_url("/js/jquery.slides.min.js")?>"></script>
 <script>
   $('#slides').slidesjs({
-    width: 940,
-    height: 375,
+    width: 930,
+    height:465,
     navigation: false,
     play: {
       active: true,

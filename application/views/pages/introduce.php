@@ -7,7 +7,7 @@
   <div class="layout-content" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/introduce")?>">認識參與式預算</a> | 
+      <a  style='font-weight: bold;' href="<?=site_url("/introduce")?>">認識參與式預算</a> | 
       <a href="<?=site_url("/process")?>">推動流程</a> 
     </div>
   

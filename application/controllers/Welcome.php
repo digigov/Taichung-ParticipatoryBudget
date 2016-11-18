@@ -25,7 +25,7 @@ class Welcome extends MY_Controller {
 		$this->load->model("sliderModel");
 
 		$slides = $this->sliderModel->get_active_now();
-
+		
 		$this->load->database();
 		$this->load->model("newsModel");
     $latest_news = $this->newsModel->get_latest_news_list(1,3);
