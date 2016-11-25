@@ -101,7 +101,7 @@
       out.push("<p>辦理機關： "+item["填報部門"]+"<br />");
       out.push("計畫預算： "+( item["預算金額"] && (item["預算金額"]+ "  (約 "+convert(parseInt(item["預算金額"],10),true)+")" ) || "無資料")+"<br />");
       out.push("計畫期程： "+item["辦理期程"]+"</p>");
-      out.push("<div style='float:right;'><a href='/areas/view/"+item["建設(服務)案"]+"'>...瞭解更多</a></div>");
+      out.push("<div style='float:right;'><a href='/areas/detail/"+item["建設(服務)案"]+"'>...瞭解更多</a></div>");
       out.push("<div style='clear:both;'></div>");
       // for(var k in fields){
       //   out.push(fields[k]+":"+item[fields[k]]);

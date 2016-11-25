@@ -45,6 +45,12 @@
             </td>
           </tr>
           <tr>
+            <td>類型</td>
+            <td>
+              <?php _render_select(["公民","政府"],"gov_type",$news->gov_type) ?>
+            </td>
+          </tr>
+          <tr>
             <td class="field col-xs-2" >分區</td>
             <td class="col-xs-10" colspan="2">
               <?php _render_area_select("area",$news->area) ?>
@@ -55,6 +61,10 @@
             <td class="col-xs-10" colspan="2">
               <?php _render_select(_get_case_types(),"type",$news->type) ?>
             </td>
+          </tr>
+          <tr>
+            <td class="field col-xs-2" >辦理期程（民眾案不用填）</td>
+            <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="process" value="<?=h($news->process)?>" class="title"></td>
           </tr>
 
           <tr>
@@ -77,7 +87,7 @@
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >提案人</td>
+            <td class="field col-xs-2" >提案人（所屬機關）</td>
             <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="author" value="<?=h($news->author)?>" class="title"></td>
           </tr>
           
@@ -89,7 +99,7 @@
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >內容</td>
+            <td class="field col-xs-2" >內容（內容摘要）</td>
             <td class="col-xs-10" colspan="2">
             <textarea class="tinymce" name="content" style="width:770px; height:400px;resize:vertical;"><?=h($news->content)?></textarea>
             </td>

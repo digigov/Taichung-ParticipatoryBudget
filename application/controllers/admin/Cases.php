@@ -49,7 +49,12 @@ class Cases extends MY_ADMIN_Controller {
   public function add(){
 
     $news = new stdclass();
+    $news->gov_type ="";
+    $news->caseno ="";
+    $news->type ="";
+    $news->dm_file="";
     $news->area ="";
+    $news->process ="";
     $news->name ="";
     $news->purpose ="";
     $news->budget ="";

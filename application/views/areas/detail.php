@@ -15,6 +15,10 @@
     <div class="col-md-8" >
       <div id='cont' class="menu" data-name="<?=($data["建設(服務)案"])?>">
         <p>辦理機關： <?=$data["填報部門"]?></p>
+
+        <?php if($data["區"] !=""){ ?>
+        <p>所屬分區：<a href="/areas/location/<?=$data["區"]?>"><?=$data["區"]?></a> </p>
+        <?php } ?>
         <p>計畫分類：<?=$data["分類"]?> </p>
 
         <p>辦理期程： <?=$data["辦理期程"]?></p>
