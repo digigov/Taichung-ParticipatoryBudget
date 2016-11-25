@@ -64,7 +64,8 @@
           </tr>
           <tr>
             <td class="field col-xs-2" >辦理期程（民眾案不用填）</td>
-            <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="process" value="<?=h($news->process)?>" class="title"></td>
+            <td class="col-xs-10" colspan="2">            <textarea class="tinymce" name="process" style="width:770px; height:400px;resize:vertical;"><?=h($news->process)?></textarea>
+</td>
           </tr>
 
           <tr>
@@ -99,7 +100,7 @@
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >內容（內容摘要）</td>
+            <td class="field col-xs-2" >內容（）</td>
             <td class="col-xs-10" colspan="2">
             <textarea class="tinymce" name="content" style="width:770px; height:400px;resize:vertical;"><?=h($news->content)?></textarea>
             </td>
