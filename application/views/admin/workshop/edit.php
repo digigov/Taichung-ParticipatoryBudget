@@ -11,7 +11,7 @@
   <div class="content-list">
     <div class="breadcrumb">
       <a href="<?=site_url("/member/index")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/admin/livingroom/")?>">客廳會記錄管理</a> &gt; 
+      <a href="<?=site_url("/admin/".$_type)?>"><?=$_name?>記錄管理</a> &gt; 
       <span class="now"><?=$pageTitle?></span>
 
     </div>
@@ -24,15 +24,16 @@
         <hr style="clear:both;margin-top:20px;" />
         <table class="table table-bordered">
           <tbody>
+          
           <tr>
             <td class="field col-xs-2" >年度</td>
             <td class="col-xs-10" colspan="2">
               <?php 
-              $year = [];
+              $years = [];
               for($ind_y = date("Y"); $ind_y >= 2016;--$ind_y){
-                $year[] = $ind_y;
+                $years[] = $ind_y;
               }
-              _render_select($year,"year",$news->year);
+              _render_select($years,"year",$news->year);
               ?>
             </td>
           </tr>
@@ -43,37 +44,25 @@
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >提案分類</td>
-            <td class="col-xs-10" colspan="2">
-              <?php _render_select(_get_case_types(),"type",$news->type) ?>
-            </td>
-          </tr>
-          <tr>
-            <td class="field col-xs-2" >記錄日期</td>
+            <td class="field col-xs-2" >開始日期時間</td>
             <td class="col-xs-10" colspan="2">
               <input class="datepicker" type="text" name="record_date" value="<?=_date_format_utc($news->record_date,"Y/m/d")?>" />
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >記錄地點</td>
+            <td class="field col-xs-2" >結束日期時間</td>
+            <td class="col-xs-10" colspan="2">
+              <input class="datepicker" type="text" name="record_date_end" value="<?=_date_format_utc($news->record_date_end,"Y/m/d")?>" />
+            </td>
+          </tr>
+          <tr>
+            <td class="field col-xs-2" >地點</td>
             <td class="col-xs-10" colspan="2">
               <input type="text" style="width:100%;" name="location" value="<?=h($news->location)?>"/>
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >參與訪談者</td>
-            <td class="col-xs-10" colspan="2">
-              <input type="text" style="width:100%;" name="interviewer" value="<?=h($news->interviewer)?>"/>
-            </td>
-          </tr>
-          <tr>
-            <td class="field col-xs-2" >工作人員</td>
-            <td class="col-xs-10" colspan="2">
-              <input type="text" style="width:100%;" name="worker" value="<?=h($news->worker)?>"/>
-            </td>
-          </tr>
-          <tr>
-            <td class="field col-xs-2" >訪談內容</td>
+            <td class="field col-xs-2" >執行過程觀察</td>
             <td class="col-xs-10" colspan="2">
               <textarea class="tinymce" name="content" style="width:100%; height:400px;resize:vertical;"><?=h($news->content)?></textarea>
             </td>
@@ -127,7 +116,7 @@
       <button onclick="$('#form').attr('action','<?=site_url("member/posting/0")?>')" class="btn">暫存</button>&nbsp;&nbsp;&nbsp;
       <?php } ?>
       <button class="btn-primary btn">存檔</button>&nbsp;&nbsp;&nbsp;
-      <a href="<?=admin_url("/livingroom")?>">返回</a>
+      <a href="<?=admin_url($_type)?>">返回</a>
     </div>
   </form>
         <br />
