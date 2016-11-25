@@ -45,7 +45,7 @@
             </td>
           </tr>
           <tr>
-            <td>類型</td>
+            <td>政府提案或民間提案</td>
             <td>
               <?php _render_select(["公民","政府"],"gov_type",$news->gov_type) ?>
             </td>
