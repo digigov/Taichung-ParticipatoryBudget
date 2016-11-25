@@ -133,6 +133,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">今年提案</a>
               <ul class="dropdown-menu">
+                <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
+                <?php foreach($areas_list as $area){ ?>
+                <li><a class="nav-item"  href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
+                <?php } ?>
+              </ul>
+
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">各區推動概況</a>
+              <ul class="dropdown-menu">
                 <li>
                   <a class="nav-item" href="<?=site_url("areas/map")?>">地圖呈現</a>
                 </li>
@@ -140,10 +150,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
                 <?php foreach($areas_list as $area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
+                <li><a class="nav-item"  href="<?=site_url("/areas/location/".$area)?>"><?=$area?></a></li>
                 <?php } ?>
               </ul>
-
             </li>
             
   

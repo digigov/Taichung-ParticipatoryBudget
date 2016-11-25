@@ -65,7 +65,7 @@ body {
 }
 
 .navbar-nav{
-  width:626px;
+  /*width:626px;*/
   margin:0 auto;
   float:none;
 }
