@@ -22,7 +22,25 @@
         </div>
         <hr />
 
-        <h3>歷年提案一覽表</h3>
+        <h3>市府歷年建設與服務</h3>
+        <table style="background:white;border-radius: 5px;" class="table table-bordered">
+          <tr>
+            <td>填報局處</td>
+            <td>案件名稱</td>
+            <td>分類</td>
+          </tr>
+        <?php foreach($gov_items as $item){
+            $field = "建設(服務)案";
+         ?>
+          <tr>
+            <td><?=h($item["填報部門"])?></td>
+            <td><a href="<?=site_url("/areas/detail/".$item[$field])?>"><?=h($item[$field])?></a></td>
+            <td><?=h($item["分類"])?></td>
+          </tr>
+        <?php } ?>
+        </table>
+
+        <h3>歷年民眾提案一覽表</h3>
         
         <?php foreach($area_cases as $year => $datas){ ?>
         <p>

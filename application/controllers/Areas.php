@@ -55,21 +55,31 @@ class Areas extends MY_Controller {
     $this->load->model("areaModel");
     $this->load->model("caseModel");
     
+    $gov_datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
+
+    $gov_items = [];
+    foreach($gov_datas as $data){
+      if($data->區 == $area_name){
+        $gov_items[] = (array) $data;
+      }
+    }    
 
     $area_cases = [
-      "2016" => $this->caseModel->get_active_by_area($area_name)
+      "2016" => $this->caseModel->get_active_by_area(
+        $area_name)
     ];
     $area_item = $this->areaModel->find_by_name($area_name);
     $this->load->view('areas/location',[
         "pageTitle" => "各區介紹 - ".$area_name,
+        "gov_items" => $gov_items,
         "area_item" => $area_item,
         "area_name" => $area_name,
         "area_cases" => $area_cases
-    ] );
+    ]);
   }
 
-  public function detail(){
-
+  public function detail($unname){
+    $name = rawurldecode($unname);
     $datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
 
     $item = null;
@@ -85,8 +95,9 @@ class Areas extends MY_Controller {
       return show_404();
     }
 
-    $this->load->view('areas/view',[
+    $this->load->view('areas/detail',[
         "pageTitle" => "各區推動概況 - ".$data->$field,
+        "area_now" => $data, 
         "data" => $item
     ] );
   }
