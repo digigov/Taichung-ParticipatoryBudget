@@ -123,7 +123,7 @@
     </div>
   </div>
   <div class="related-link">
-    <a href="#" >
+    <a href="<?=site_url("links")?>" >
       -友站連結-
     </a>
   </div>

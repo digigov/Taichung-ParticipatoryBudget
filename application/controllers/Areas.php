@@ -48,6 +48,26 @@ class Areas extends MY_Controller {
     ] );
   }
 
+  public function location($un_area_name){
+    $area_name = rawurldecode($un_area_name);
+
+    $this->load->database();
+    $this->load->model("areaModel");
+    $this->load->model("caseModel");
+    
+
+    $area_cases = [
+      "2016" => $this->caseModel->get_active_by_area($area_name)
+    ];
+    $area_item = $this->areaModel->find_by_name($area_name);
+    $this->load->view('areas/location',[
+        "pageTitle" => "各區介紹 - ".$area_name,
+        "area_item" => $area_item,
+        "area_name" => $area_name,
+        "area_cases" => $area_cases
+    ] );
+  }
+
   public function detail(){
 
     $datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));

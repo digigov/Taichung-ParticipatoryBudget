@@ -63,4 +63,8 @@ class Welcome extends MY_Controller {
 		$this->load->view('pages/introduce',["pageTitle" => "認識參與式預算"]);
 	}
 
+	public function links(){
+		session_write_close();
+		$this->load->view('pages/links',["pageTitle" => "友站連結"]);
+	}
 }

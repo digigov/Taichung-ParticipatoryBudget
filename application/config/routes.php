@@ -58,4 +58,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route["process"] = "welcome/process";
 $route["QA"] = "welcome/qa";
 $route["introduce"] = "welcome/introduce";
+$route["links"] = "welcome/links";
 
