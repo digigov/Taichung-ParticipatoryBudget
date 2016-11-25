@@ -105,8 +105,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 最新消息 </a>
               <ul class="dropdown-menu">
-                <li><a href="<?=site_url("/news")?>">相關新聞</a></li>
-                <li><a href="<?=site_url("/events")?>">活動快訊</a></li>
+                <li><a class="nav-item" href="<?=site_url("/news")?>">相關新聞</a></li>
+                <li><a class="nav-item"  href="<?=site_url("/events")?>">活動快訊</a></li>
               </ul>
             </li>
 
@@ -134,13 +134,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">今年提案</a>
               <ul class="dropdown-menu">
                 <li>
-                  <li><a href="<?=site_url("areas/map")?>">地圖呈現</a></li>
+                  <a class="nav-item" href="<?=site_url("areas/map")?>">地圖呈現</a>
                 </li>
                 <li class="divider">
                 </li>
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
                 <?php foreach($areas_list as $area){ ?>
-                <li><a href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
+                <li><a class="nav-item"  href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
                 <?php } ?>
               </ul>
 
@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">歷年提案</a>
               <ul class="dropdown-menu">
-                <li><a href="http://2015taichungivoting.weebly.com/">2015</a></li>
+                <li><a  class="nav-item"  href="http://2015taichungivoting.weebly.com/">2015</a></li>
               </ul>
             </li>
 
