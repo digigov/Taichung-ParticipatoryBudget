@@ -46,7 +46,11 @@ body {
 
 .navbar-nav>li>.dropdown-menu{
   max-height: 300px;
-  overflow: scroll;
+  overflow: auto;
+}
+
+.gsc-search-box-tools .gsc-search-box .gsc-input{
+  height:16px !important;
 }
 
 .nav-social{
