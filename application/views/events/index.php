@@ -5,8 +5,9 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
+      <a href="<?=site_url("/news")?>">最新消息</a> &gt; 
       <span class="now">活動快訊</span>
-
+      
     </div>
 
     <div class="event-list col-md-12">

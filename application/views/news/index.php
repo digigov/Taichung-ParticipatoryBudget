@@ -13,7 +13,8 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <span class="now">最新消息</span>
+      <a href="<?=site_url("/news")?>">最新消息</a> &gt; 
+      <span class="now">相關新聞</span>
     </div>
 
     <table class="table table-bordered table-striped">

@@ -27,7 +27,7 @@
         <div class="col-md-2 col-xs-4 col-sm-2" >
           <a target="_blank" href="http://www.taichung.gov.tw/"><img style='width:100%;' alt="臺中市政府" src="<?=base_url("img/taichung_logo.png")?>" /></a>
         </div>
-        <div class="col-md-5 col-xs-12 col-sm-5" style="margin-top:20px;text-align:left;">
+        <div class="col-md-5 col-xs-12 col-sm-5" style="text-align:left;">
           <div >
             <div class="fb-page" data-href="https://www.facebook.com/pbtaichung/"  data-tabs="timeline" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/pbtaichung/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/pbtaichung/">臺中市參與式預算</a></blockquote></div>
             <div style='clear:both'></div>
