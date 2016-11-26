@@ -27,7 +27,7 @@
           <?=$item->status=="1" ?"啟用":"草稿"?>
         </td>
         <td>
-          <?=_date_format_utc($item->record_date)?>
+          <?=_date_format($item->record_date)?>
         </td>
         <td>
           <?=h($item->location)?>

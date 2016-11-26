@@ -145,9 +145,6 @@
           var gis = project["地圖"][k];
           if(gis.type == 0 || gis.latlngs.length == 1){
             gis.latlngs.forEach(function(p){
-              if(!icons[project["分類"]]){
-                console.log(project,project["分類"]);
-              }
               var props = icons[project["分類"]+"_"+project["gov_type"]] && {icon:icons[project["分類"]+"_"+project["gov_type"]],zIndexOffset:100} || {zIndexOffset:100};
               var marker = L.marker(p.latlng,props).addTo(mymap)
                 .bindPopup(renderText(project));

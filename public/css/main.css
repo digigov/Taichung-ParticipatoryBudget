@@ -287,6 +287,18 @@ body {
 }
 
 
+@media screen and (max-width: 760px) {
+  .footer{
+    text-align: center;
+  }
+  .footer img{
+    margin:0 auto;
+  }
+  .fb-page-container{
+    margin-top:20px;
+  }
+}
+
 .footer .fb_iframe_widget{
   float:left;
 }

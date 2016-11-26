@@ -98,19 +98,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav" style="">
             <li><a href="<?=site_url("/")?>">網站首頁</a></li>
           <?php if($is_login){ ?>
-            <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
-            <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
-            <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                首頁與新聞內容管理
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
+                <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
+                <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
+                <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
+              </ul>
+            </li>
             <li class="dropdown">
               <a href="<?=site_url("/admin/cases")?>" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">提案管理</a>
               <ul class="dropdown-menu">
-                <?php foreach(_get_areas() as $area){ ?>
-                <li><a href="<?=site_url("/admin/cases/area/".$area)?>"><?=h($area)?></a></li>
+                <?php foreach($_areas as $area){ ?>
+                <li><a href="<?=site_url("/admin/cases/area/".$area->id)?>"><?=h($area->name)?></a></li>
                 <?php } ?>
               </ul>
             </li>
-
-            <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">記錄區管理</a>
               <ul class="dropdown-menu">
@@ -118,8 +124,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?=site_url("/admin/hosttrain/")?>">主持人培訓記錄管理</a></li>
                 <li><a href="<?=site_url("/admin/workshop/")?>">工作坊記錄管理</a></li>
                 <li><a href="<?=site_url("/admin/seminar/")?>">地區說明會管理</a></li>
+                <li><a href="<?=site_url("/admin/servant/")?>">公務員培訓管理</a></li>
               </ul>
             </li>
+            <li><a href="<?=site_url("/admin/area/")?>">區域管理</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/password")?>">變更密碼</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/logout")?>">登出</a></li>
           <?php }else{ ?>

@@ -26,84 +26,28 @@
           <tbody>
           
           <tr>
-            <td class="field col-xs-2" >年度</td>
+            <td class="field col-xs-2" >名稱(ex.豐原市)</td>
             <td class="col-xs-10" colspan="2">
-              <?php 
-              $years = [];
-              for($ind_y = date("Y"); $ind_y >= 2016;--$ind_y){
-                $years[] = $ind_y;
-              }
-              _render_select($years,"year",$news->year);
-              ?>
+              <input type="text" style="width:100%;" name="name" value="<?=h($news->name)?>"/>
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >地區</td>
+            <td class="field col-xs-2" >縣市</td>
             <td class="col-xs-10" colspan="2">
-              <?php _render_area_select("area",$news->area); ?>
+              <input type="text" style="width:100%;" name="city" value="<?=h($news->city)?>"/>
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >說明會名稱</td>
+            <td class="field col-xs-2" >地區介紹</td>
             <td class="col-xs-10" colspan="2">
-              <input type="text" style="width:100%;" name="title" value="<?=h($news->title)?>"/>
+              <textarea class="tinymce" name="intro" style="width:100%; height:400px;resize:vertical;"><?=h($news->intro)?></textarea>
+            </td>
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >日期時間</td>
+            <td class="field col-xs-2" >開放資料連結</td>
             <td class="col-xs-10" colspan="2">
-              <input class="datepicker" type="text" name="record_date" value="<?=_date_format_utc($news->record_date,"Y/m/d")?>" />
-            </td>
-          </tr>
-          <tr>
-            <td class="field col-xs-2" >地點</td>
-            <td class="col-xs-10" colspan="2">
-              <input type="text" style="width:100%;" name="location" value="<?=h($news->location)?>"/>
-            </td>
-          </tr>
-          <tr>
-            <td class="field col-xs-2" >問題與討論</td>
-            <td class="col-xs-10" colspan="2">
-              <textarea class="tinymce" name="content" style="width:100%; height:400px;resize:vertical;"><?=h($news->content)?></textarea>
-            </td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              上傳照片
-            </td>
-            <td>
-              <div class="form-group">
-                <p>
-                  <span class="btn btn-success fileinput-button">
-                      <i class="glyphicon glyphicon-plus"></i>
-                      <span>上傳檔案</span>
-                      <!-- The file input field used as target for the file upload widget -->
-                      <input type="file" id="fileupload" name="files" multiple />
-                      <div id="files" >
-                      <?php foreach($news_images as $file){  ?>
-                      <p id="file_<?=$file->id?>">
-                        <a target='_blank' href="<?=$file->url?>"><?=h($file->filename)?>
-                        </a>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        <label><input type="radio" <?=($news->major_file == $file->id )?"checked":""?> name="file_major" value="<?=$file->id?>" />主要照片</label> 
-                        <input type="hidden" name="fileids[]" value="<?=$file->id?>" />
-                        <button class="btn btn-delete btn-danger" data-fileid="<?=h($file->id)?>" >刪除檔案</button>
-                      </p>
-                    <?php }?>
-                      </div>
-                  </span>
-                </p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>啟用</td>
-            <td>
-              <label><input <?=$news->status == 1 ?"checked":""?> type="radio" value="1" name="status">啟用</label>
-              <label><input <?=$news->status == 0 ?"checked":""?> type="radio" value="0" name="status">草稿</label>
+              <input type="text" style="width:100%;" name="opendata_link" value="<?=h($news->opendata_link)?>"/>
             </td>
           </tr>
         </tbody>
@@ -112,9 +56,6 @@
     </div>
     <div class="button pull-right" >
       <input type="hidden" name="id" value="<?=h($news->id)?>" />
-      <?php if(0) { ?>  <a href="">預覽</a>&nbsp;&nbsp;&nbsp; 
-      <button onclick="$('#form').attr('action','<?=site_url("member/posting/0")?>')" class="btn">暫存</button>&nbsp;&nbsp;&nbsp;
-      <?php } ?>
       <button class="btn-primary btn">存檔</button>&nbsp;&nbsp;&nbsp;
       <a href="<?=admin_url($_type)?>">返回</a>
     </div>

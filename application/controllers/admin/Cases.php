@@ -33,14 +33,17 @@ class Cases extends MY_ADMIN_Controller {
   }
 
 
-  public function area($area){
+  public function area($areaID){
+    $area = $this->areaModel->get($areaID);
+    if($area == null){
+      return show_404();
+    }
 
-    $this->load->database();
     $this->load->model("caseModel");    
-    $latest_news = $this->caseModel->get_latest_by_area_and_page(rawurldecode($area),1,1000);
+    $latest_news = $this->caseModel->get_latest_by_area_and_page($area->id,1,1000);
 
     $this->_load_view('cases/index',[
-        "pageTitle" => rawurldecode($area)." 提案",
+        "pageTitle" => $area->name." 提案",
         "all_items" => $latest_news
     ] );
   }
@@ -185,6 +188,7 @@ class Cases extends MY_ADMIN_Controller {
 
     $news = $this->caseModel->get($id);
 
+    $area = $this->areaModel->get($news->area_id);
     if($news == null){
       return show_404();
     }
@@ -195,6 +199,7 @@ class Cases extends MY_ADMIN_Controller {
 
     $this->load->view('cases/view',[
         "pageTitle" => $news->year." 年提案 [".$news->name." ]" ,
+        "area"=> $area,
         "news" => $news,
         "advices" => $advices
     ] );

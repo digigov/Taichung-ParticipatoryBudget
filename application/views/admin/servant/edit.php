@@ -44,7 +44,7 @@
             </td>
           </tr>
           <tr>
-            <td class="field col-xs-2" >說明會名稱</td>
+            <td class="field col-xs-2" >訓練名稱</td>
             <td class="col-xs-10" colspan="2">
               <input type="text" style="width:100%;" name="title" value="<?=h($news->title)?>"/>
             </td>
@@ -112,9 +112,6 @@
     </div>
     <div class="button pull-right" >
       <input type="hidden" name="id" value="<?=h($news->id)?>" />
-      <?php if(0) { ?>  <a href="">預覽</a>&nbsp;&nbsp;&nbsp; 
-      <button onclick="$('#form').attr('action','<?=site_url("member/posting/0")?>')" class="btn">暫存</button>&nbsp;&nbsp;&nbsp;
-      <?php } ?>
       <button class="btn-primary btn">存檔</button>&nbsp;&nbsp;&nbsp;
       <a href="<?=admin_url($_type)?>">返回</a>
     </div>

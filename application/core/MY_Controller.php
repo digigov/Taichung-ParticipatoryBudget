@@ -121,7 +121,13 @@ class MY_ADMIN_Controller extends MY_Controller {
 
     $mem = null;
 
+    $this->load->database();
+    $this->load->model("areaModel");
 
+    $areas = $this->areaModel->get_area_simple_list();
+    $this->_areas = $areas;
+
+    $this->load->vars([ "_areas" => $areas ]);
     if(true){
 
       // $mem_sn = $this->_get_user_sn();

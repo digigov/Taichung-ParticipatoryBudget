@@ -118,24 +118,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
               </ul>
             </li>
-            <!-- 
-            <li class="dropdown">
-              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">   各區推動概況 </a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-item" href="<?=site_url("/areas/map")?>">地圖顯示</a></li>
-                <li role="separator" class="divider"></li>
-                <?php foreach(_get_areas() as $area){ ?>
-                <li><a class="nav-item" href="<?=site_url("/process")?>"><?=h($area)?></a></li>
-                <?php } ?>
-              </ul>
-            </li>
-            -->
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">今年提案</a>
               <ul class="dropdown-menu">
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
-                <?php foreach($areas_list as $area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/view/".$area)?>"><?=$area?></a></li>
+                <?php foreach($areas_list as $____area){ ?>
+                <li><a class="nav-item"  href="<?=site_url("/areas/view/".$____area)?>"><?=$____area?></a></li>
                 <?php } ?>
               </ul>
 
@@ -149,8 +137,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="divider">
                 </li>
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
-                <?php foreach($areas_list as $area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/location/".$area)?>"><?=$area?></a></li>
+                <?php foreach($areas_list as $___area){ ?>
+                <li><a class="nav-item"  href="<?=site_url("/areas/location/".$___area)?>"><?=$___area?></a></li>
                 <?php } ?>
               </ul>
             </li>

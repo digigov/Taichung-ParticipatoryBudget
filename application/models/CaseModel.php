@@ -22,9 +22,9 @@ class CaseModel extends CI_Model {
   }
 
 
-  public function get_active_by_area($area){
+  public function get_active_by_area($area_id){
     $this->db->select("*");
-    $this->db->where("area",$area);
+    $this->db->where("area_id",$area_id);
     $this->db->where("publish_date <= timezone('utc'::text, now()) ");
     $this->db->where("deleted",0);
     $this->db->order_by("caseno","asc");
@@ -46,10 +46,10 @@ class CaseModel extends CI_Model {
     return ($q->result());
   }
 
-  public function get_latest_by_area_and_page($area,$page,$pageSize){
+  public function get_latest_by_area_and_page($areaID,$page,$pageSize){
     $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt");
 
-    $this->db->where("area",$area);
+    $this->db->where("area_id",$areaID);
     $this->db->where("deleted",0);
 
     $this->db->order_by("id","desc");
@@ -62,7 +62,7 @@ class CaseModel extends CI_Model {
 
 
   public function get_public($id){
-    $this->db->select("*");
+    $this->db->select("*,(select a.name from areas as a where cases.area_id = a.id) as area");
     $this->db->limit(1);
     $this->db->where("id",$id);
     $this->db->where("publish_date <= timezone('utc'::text, now()) ");
@@ -72,7 +72,7 @@ class CaseModel extends CI_Model {
   }
 
   public function get($id){
-    $this->db->select("*");
+    $this->db->select("*,(select a.name from areas as a where cases.area_id = a.id) as area");
     $this->db->limit(1);
     $this->db->where("id",$id);
     $this->db->where("deleted",0);

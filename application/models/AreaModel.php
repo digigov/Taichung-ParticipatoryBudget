@@ -10,6 +10,16 @@ class AreaModel extends CI_Model {
     parent::__construct();
   }
 
+  public function get_area_simple_list(){
+    $this->db->select("id,name,city");
+    $this->db->where("deleted",false);
+
+    $this->db->order_by("id","desc");
+
+    $q = $this->db->get($this->_table);
+    return ($q->result());
+  }
+
   public function get_all_by_page($page,$pageSize){
     $this->db->select("*");
     $this->db->where("deleted",false);

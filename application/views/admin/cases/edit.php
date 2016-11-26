@@ -53,7 +53,9 @@
           <tr>
             <td class="field col-xs-2" >分區</td>
             <td class="col-xs-10" colspan="2">
-              <?php _render_area_select("area",$news->area) ?>
+              <?php 
+              _render_object_select(_convert_area_options($_areas),"area",$news->area_id);
+              ?>
             </td>
           </tr>
           <tr>
@@ -64,7 +66,7 @@
           </tr>
           <tr>
             <td class="field col-xs-2" >辦理期程（民眾案不用填）</td>
-            <td class="col-xs-10" colspan="2">            <textarea class="tinymce" name="process" style="width:770px; height:400px;resize:vertical;"><?=h($news->process)?></textarea>
+            <td class="col-xs-10" colspan="2">            <textarea class="tinymce" name="process" style="width:100%; height:200px;resize:vertical;"><?=h($news->process)?></textarea>
 </td>
           </tr>
 

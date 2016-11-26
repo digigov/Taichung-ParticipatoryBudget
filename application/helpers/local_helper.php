@@ -21,6 +21,25 @@ foreach($options as $area){ ?>
   <?php 
 }
 
+function _convert_area_options($areas){
+  $ret = [];
+  foreach($areas as $a){
+    $ret[$a->id] = $a->name;
+  }
+  return $ret;
+}
+
+function _render_object_select($options,$name,$val){
+  ?>
+<select name="<?=h($name)?>">
+<?php 
+foreach($options as $key => $area){ ?>
+  <option  value="<?=$key?>" <?=$key==$val?"selected":""?>><?=$area?></option>
+<?php } ?>
+</select>
+  <?php 
+}
+
 function _render_area_select($name = "area",$val){
   return _render_select(_get_areas(),$name,$val);
 }
