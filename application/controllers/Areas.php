@@ -49,19 +49,21 @@ class Areas extends MY_Controller {
     $this->load->database();
     $this->load->model("areaModel");
     $this->load->model("caseModel");
+
+    $current_area = $this->areaModel->find_by_name($area_name);
     
     $gov_datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
 
     $gov_items = [];
     foreach($gov_datas as $data){
-      if($data->區 == $area_name){
+      if($data->區 == $current_area->name){
         $gov_items[] = (array) $data;
       }
     }    
 
     $area_cases = [
       "2016" => $this->caseModel->get_active_by_area(
-        $area_name)
+        $current_area->id)
     ];
     $area_item = $this->areaModel->find_by_name($area_name);
     $this->load->view('areas/location',[
