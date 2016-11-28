@@ -30,8 +30,12 @@ class MY_Controller extends CI_Controller {
 
     // die(var_dump($folder_path));
     $allname = $folder_path.$file_name.".".$file_ext;
+    // $all_org_name = $folder_path.$file_name."_org.".$file_ext;
     $this->load->library("s3");
+    // $result = $this->s3->uploadGZ($this->_toGzip($path),$all_org_name);
+    
     $result = $this->s3->uploadGZ($this->_toGzip($path),$allname);
+
 
     if(!isset($result['ObjectURL'])){
       throw new ReturnMessage(false,100,'Failed to move uploaded file.');

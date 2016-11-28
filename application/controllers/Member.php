@@ -10,6 +10,14 @@ class Member extends MY_Controller {
   var $_mem = null;
 
   public function index(){
+
+    $this->load->database();
+    $this->load->model("areaModel");
+
+    $areas = $this->areaModel->get_area_simple_list();
+    $this->_areas = $areas;
+
+    $this->load->vars([ "_areas" => $areas ]);    
     $this->load->view("member/index",["pageTitle" => "管理者首頁"]);
   }
 
