@@ -54,7 +54,7 @@
             <td class="field col-xs-2" >分區</td>
             <td class="col-xs-10" colspan="2">
               <?php 
-              _render_object_select(_convert_area_options($_areas),"area",$news->area_id);
+              _render_object_select(_convert_area_options($_areas),"area_id",$news->area_id);
               ?>
             </td>
           </tr>
