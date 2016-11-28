@@ -8,7 +8,7 @@ class Cases extends MY_ADMIN_Controller {
     "purpose","content","budget_desc","advice",
     "step_source","step_expert",
     "step_ivoting_1","step_ivoting_2",
-    "step_advance","step_running","area",
+    "step_advance","step_running","area_id",
     "caseno","type","process","gov_type"
     ];
 
