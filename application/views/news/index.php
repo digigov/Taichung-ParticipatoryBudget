@@ -9,36 +9,44 @@
   }
 </style>
 
-<div class="container">
-  <div class="content-list" style="min-height:450px;">
+<div class="container page-news">
+  <div  style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
       <a href="<?=site_url("/news")?>">最新消息</a> &gt; 
       <span class="now">相關新聞</span>
     </div>
-
-    <table class="table table-bordered table-striped">
-      <thead class="thead-inverse">
-        <tr>
-          <th style="width:120px;text-align:center;">公告類別</th>
-          <th>公告事項</th>
-          <th>公告日期</th>
-          <th>閱讀數</th>
-        </tr>
-      </thead>
-
-      <?php foreach($all_news as $new){ ?>
-
-      <tr>
-        <td style="text-align:center;" class="category">[<?=h($new->category)?>]</td>
-        <td class="title"><a style='color:black;' href="<?=site_url("news/view/".$new->id)?>"><?=h($new->title)?></a></td>
-        <td><?=_date_format_utc($new->publish_date,"Y-m-d")?></td>
-        <td><?=h($new->clicks)?></td>
-      </tr>
-      <?php } ?>
-    </table>
     
+    <div class="news-list clearfix">
+      <div class="col-md-2 labels">
+        <h3>相關類別</h3>
+        <ul>
+          <li>培訓</li>
+          <li>說明會</li>
+          <li>推廣活動</li>
+          <li>住民會議</li>
+        </ul>
+      </div>
+      <div class="col-md-10 news-items clearfix">
 
+        <?php foreach($all_news as $new){ ?>
+
+        <div class="news-item row">
+          <div class="col-xs-2 img">
+            <a  href="<?=site_url("news/view/".$new->id)?>"><img style='width:100%;' alt="<?=h($new->title)?> 照片" src="<?=base_url("img/news_default.png")?>" /></a>
+          </div>
+          <div class="col-xs-10 content-container">
+            <div class="title" ><a  href="<?=site_url("news/view/".$new->id)?>"><?=h($new->title)?></a>
+              <span class="pull-right"><?=_date_format_utc($new->publish_date,"Y-m-d")?></span>
+            </div>
+            <div class="content">
+              <a  href="<?=site_url("news/view/".$new->id)?>"><?=_truncate(strip_tags($new->content),60)?></a>
+            </div>
+          </div>
+        </div>
+        <?php } ?>
+      
+    </div>
   </div>
 </div>
 
