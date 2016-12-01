@@ -9,7 +9,8 @@ class Cases extends MY_ADMIN_Controller {
     "step_source","step_expert",
     "step_ivoting_1","step_ivoting_2",
     "step_advance","step_running","area_id",
-    "caseno","type","process","gov_type"
+    "caseno","type","process","gov_type",
+    "location_urls"
     ];
 
   var $advice_fields = [
