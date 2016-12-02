@@ -42,6 +42,8 @@ class News extends MY_ADMIN_Controller {
     $content = $this->input->post("content");
     $postid = $this->input->post("postid");
     $cagegory = $this->input->post("category");
+    $year = $this->input->post("year");
+    $is_video = $this->input->post("is_video");
 
     $match = [];
     $img_match = preg_match("/<[^>]+src=['\"](.*?)['\"][^>]+/", $content,$match);
@@ -54,7 +56,7 @@ class News extends MY_ADMIN_Controller {
 
     $this->load->database();
     $this->load->model("newsModel");
-    $this->newsModel->insert_news($title,$content,$img,$cagegory);
+    $this->newsModel->insert_news($title,$content,$img,$cagegory,$year,$is_video);
 
     redirect(admin_url("news/"));
   }
@@ -94,6 +96,8 @@ class News extends MY_ADMIN_Controller {
     $content = $this->input->post("content");
     $postid = $this->input->post("postid");
     $cagegory= $this->input->post("category");
+    $year = $this->input->post("year");
+    $is_video = $this->input->post("is_video");
 
     $match = [];
     $img_match = preg_match("/<[^>]+src=['\"](.*?)['\"][^>]+/", $content,$match);
@@ -106,7 +110,7 @@ class News extends MY_ADMIN_Controller {
 
     $this->load->database();
     $this->load->model("newsModel");
-    $this->newsModel->update_news($postid,$title,$content,$img,$cagegory);
+    $this->newsModel->update_news($postid,$title,$content,$img,$cagegory,$year,$is_video);
 
     redirect(admin_url("news/"));
   }

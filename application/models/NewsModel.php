@@ -103,13 +103,15 @@ class NewsModel extends CI_Model {
     $this->db->update($this->_table);
   }
 
-  public function update_news($post_id,$title,$content,$img,$category){
+  public function update_news($post_id,$title,$content,$img,$category,$year,$is_video){
 
     $this->db->set("title",$title);
     $this->db->set("content",$content);
     $this->db->set("image",$img);
     $this->db->set("mtime", db_current_gmt_date() );
     $this->db->set("category" , $category);
+    $this->db->set("year" , $year);
+    $this->db->set("is_video" , $is_video);
 
     $this->db->where("id",$post_id);
     $this->db->where("deleted",0);
@@ -120,13 +122,15 @@ class NewsModel extends CI_Model {
   }
 
 
-  public function insert_news($title,$content,$img,$category){
+  public function insert_news($title,$content,$img,$category,$year,$is_video){
     $this->db->insert($this->_table,[
       "title" => $title,
       "content" => $content,
       "image" => $img,
       "category" => $category,
-      "type" => $this->TYPE_NEWS
+      "type" => $this->TYPE_NEWS,
+      "year" => $year,
+      "is_video" => $is_video
     ]);
     return $this->db->insert_id();
   }
