@@ -5,7 +5,7 @@
   <div class="content-list">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/news/")?>">最新消息</a> &gt; 
+      最新消息 &gt; 
       <span class="now"><?=h($news->title)?></span>
     </div>
 

@@ -13,7 +13,7 @@
   <div  style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/news")?>">最新消息</a> &gt; 
+      最新消息 &gt; 
       <span class="now">活動快訊</span>
     </div>
     <div class="news-list news-event-list clearfix">
