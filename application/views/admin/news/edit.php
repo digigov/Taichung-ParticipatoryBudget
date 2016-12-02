@@ -18,7 +18,21 @@
         <hr style="clear:both;margin-top:20px;" />
         <table class="table table-bordered">
           <tbody>
-
+          <tr>
+            <td class="field col-xs-2" >提案年度</td>
+            <td class="col-xs-10" colspan="2">
+              <select name="year">
+                <?php 
+                $now_year = date("Y");
+                for($ind=$now_year;$ind >= 2014 ; --$ind){
+                ?>
+                  <option <?=$ind==$news->year?"selected":""?>><?=$ind?></option>
+                <?php
+                }
+                ?>
+              </select>
+            </td>
+          </tr>  
           <tr>
             <td class="field col-xs-2" >文章標題：</td>
             <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="title" value="<?=h($news->title)?>" class="title"></td>
@@ -45,6 +59,11 @@
             <td class="col-xs-10" colspan="2"> 
               <textarea class="tinymce" name="content" style="width:770px; height:600px;resize:vertical;"><?=h($news->content)?></textarea>
             </td>
+          </tr>
+
+          <tr>
+            <td class="field col-xs-2" >影音區 </td>
+            <td class="col-xs-10" colspan="2"><input type="checkbox" name="is_video" value="1" <?=h($news->is_video ?"checked":"")?> class="title"></td>
           </tr>
           <?php if(0){ ?>
           <tr>
