@@ -85,14 +85,16 @@ var fixpos = function(){
   $(".qa-right-middle").css("height",($(".qa-center-middle").height()+3+"px"));
 
   $(".qa-center-middle").css("width",
-    ($(".qa-header2").width() - 39) +
+    ($(".qa-header2").width() - 40) +
     "px");
 
   $(".qa-center-top").css("width",
-    ($(".qa-header2").width() - 85) +
+    ($(".qa-header2").width() - 86) +
     "px");
 };
 fixpos();
+
+$(window).on("resize",fixpos);
 
 setTimeout(fixpos,3000);
 </script>
