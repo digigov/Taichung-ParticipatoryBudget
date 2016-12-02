@@ -852,6 +852,25 @@ body {
   padding-left:20px;
   padding-right:20px;
 }
+
+.qa-center-bottom{
+  width:100%;
+  height:28px;
+  background:url("../img/qa_center_bottom.png") repeat-x;  
+}
+
+.qa-left-bottom img{
+  height:28px;
+  position:absolute;
+  left:-18px;
+}
+
+.qa-right-bottom img{
+  height:28px;
+  position:absolute;
+  right:-17px;
+}
+
 .qa-header2{
   background:#1c3a30; 
 }
