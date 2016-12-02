@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Servant extends MY_ADMIN_Controller {
 
   var $_view_root = "servant";
-  var $fields = ["year","area","title", "record_date", "location", 
+  var $fields = ["year","area_id","title", "record_date", "location", 
        "status", "content"];
 
   var $_name = "公務員培訓";

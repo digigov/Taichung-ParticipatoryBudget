@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Workshop extends MY_ADMIN_Controller {
 
   var $_view_root = "workshop";
-  var $fields = ["year","area","title", "record_date","record_date_end", "location", 
+  var $fields = ["year","area_id","title", "record_date","record_date_end", "location", 
        "status", "content"];
 
   var $_name = "工作坊";

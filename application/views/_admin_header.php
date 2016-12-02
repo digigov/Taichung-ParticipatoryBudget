@@ -120,11 +120,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">記錄區管理</a>
               <ul class="dropdown-menu">
-                <li><a href="<?=site_url("/admin/livingroom/")?>">客廳會管理</a></li>
+                <li><a href="<?=site_url("/admin/livingroom/")?>">客廳會紀錄管理</a></li>
                 <li><a href="<?=site_url("/admin/hosttrain/")?>">主持人培訓記錄管理</a></li>
                 <li><a href="<?=site_url("/admin/workshop/")?>">工作坊記錄管理</a></li>
-                <li><a href="<?=site_url("/admin/seminar/")?>">地區說明會管理</a></li>
-                <li><a href="<?=site_url("/admin/servant/")?>">公務員培訓管理</a></li>
+                <li><a href="<?=site_url("/admin/seminar/")?>">地區說明會紀錄管理</a></li>
+                <li><a href="<?=site_url("/admin/servant/")?>">公務員培訓紀錄管理</a></li>
+                <li><a href="<?=site_url("/admin/speech/")?>">講座紀錄管理</a></li>
               </ul>
             </li>
             <li><a href="<?=site_url("/admin/area/")?>">區域管理</a></li>

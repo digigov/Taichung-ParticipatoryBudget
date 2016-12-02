@@ -12,7 +12,7 @@ class BaseRecordModel extends CI_Model {
   }
 
   public function get_all_by_page($page,$pageSize){
-    $this->db->select("*");
+    $this->db->select("*,(select name from areas where areas.id = livingroom.area_id) as area");
     $this->db->where("deleted",false);
     $this->db->where("record_type",$this->_type);
 
@@ -25,16 +25,19 @@ class BaseRecordModel extends CI_Model {
   }
 
   public function get_all_by_area_page($area,$page,$pageSize){
-    $this->db->select("*");
-    $this->db->where("deleted",false);
-    $this->db->where("area",$area);
-    $this->db->where("record_type",$this->_type);
+    $this->db->select("n.*,a.name as area");
+    $this->db->where("n.deleted",false);
 
-    $this->db->order_by("id","desc");
+
+    $this->db->where("a.name",$area);
+    $this->db->where("n.record_type",$this->_type);
+
+    $this->db->join("areas a","a.id = n.area_id");
+    $this->db->order_by("n.id","desc");
     $this->db->limit($pageSize);
     $this->db->offset($pageSize*($page-1));
 
-    $q = $this->db->get($this->_table);
+    $q = $this->db->get($this->_table." n");
     return ($q->result());
 
   }

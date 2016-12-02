@@ -40,7 +40,7 @@
         <td>
           <a class="btn btn-default" href="<?=admin_url("sliders/edit/".$item->id)?>">編輯</a>
 
-          <a class="btn btn-default" href="<?=admin_url("sliders/delete/".$item->id)?>">刪除</a>
+          <a class="btn btn-default danger" href="<?=admin_url("sliders/delete/".$item->id)?>">刪除</a>
         </td>
       </tr>
     <?php }?>

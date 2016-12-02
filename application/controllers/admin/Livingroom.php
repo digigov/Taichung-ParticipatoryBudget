@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Livingroom extends MY_ADMIN_Controller {
 
   var $_view_root = "livingroom";
-  var $fields = ["year","area", "type", "record_date", "location", 
+  var $fields = ["year","area_id", "type", "record_date", "location", 
       "interviewer", "worker", "status", "content"];
 
   public function __construct()

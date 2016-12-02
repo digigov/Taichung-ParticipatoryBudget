@@ -46,7 +46,7 @@
         <td>
           <a class="btn btn-default" href="<?=admin_url("livingroom/edit/".$item->id)?>">編輯</a>
 
-          <a class="btn btn-default" href="<?=admin_url("livingroom/delete/".$item->id)?>">刪除</a>
+          <a class="btn btn-default danger" href="<?=admin_url("livingroom/delete/".$item->id)?>">刪除</a>
         </td>
       </tr>
     <?php }?>
