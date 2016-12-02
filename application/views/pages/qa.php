@@ -80,16 +80,21 @@
 <?php function js_section(){ ?>
 
 <script>
-$(".qa-left-middle").css("height",($(".qa-center-middle").height()+5+"px"));
-$(".qa-right-middle").css("height",($(".qa-center-middle").height()+3+"px"));
+var fixpos = function(){
+  $(".qa-left-middle").css("height",($(".qa-center-middle").height()+5+"px"));
+  $(".qa-right-middle").css("height",($(".qa-center-middle").height()+3+"px"));
 
-$(".qa-center-middle").css("width",
-  ($(".qa-header2").width() - 39) +
-  "px");
+  $(".qa-center-middle").css("width",
+    ($(".qa-header2").width() - 39) +
+    "px");
 
-$(".qa-center-top").css("width",
-  ($(".qa-header2").width() - 85) +
-  "px");
+  $(".qa-center-top").css("width",
+    ($(".qa-header2").width() - 85) +
+    "px");
+};
+fixpos();
+
+setTimeout(fixpos,3000);
 </script>
 <?php } ?>
 
