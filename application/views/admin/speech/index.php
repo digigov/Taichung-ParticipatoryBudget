@@ -2,15 +2,6 @@
 
 <div class="container">
     <h1><?=$now_area?> <?=h($_name)?>查詢記錄</h1>
-    <p> 
-      看看其他區域：
-        <a href="<?=site_url("/admin/".$_type)
-          ?>">全部</a>        
-        <?php foreach(_get_areas() as $area){ ?>
-        、<a href="<?=site_url("/admin/".$_type).
-          "?area=".$area?>"><?=$area?></a>
-        <?php }?>
-    </p>
     <table class="table table-bordered">
       <tr>
         <td>#</td>
