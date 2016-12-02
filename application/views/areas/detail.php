@@ -7,7 +7,7 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/areas/")?>">各區推動概況</a> &gt;
+      各區推動概況 &gt;
       <?php $field = "建設(服務)案"; ?>
       <span class="now"><?=h($data[$field])?></span>
     </div>

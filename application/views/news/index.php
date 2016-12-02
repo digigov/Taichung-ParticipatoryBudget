@@ -13,7 +13,7 @@
   <div  style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/news")?>">最新消息</a> &gt; 
+      最新消息 &gt; 
       <span class="now">相關新聞</span>
     </div>
     
@@ -21,10 +21,10 @@
       <div class="col-md-2 labels">
         <h3>相關類別</h3>
         <ul>
-          <li>培訓</li>
-          <li>說明會</li>
-          <li>推廣活動</li>
-          <li>住民會議</li>
+          <li class="label-1">培訓</li>
+          <li class="label-2">說明會</li>
+          <li class="label-3">推廣活動</li>
+          <li class="label-1">住民會議</li>
         </ul>
       </div>
       <div class="col-md-10 news-items clearfix">
@@ -33,7 +33,7 @@
 
         <div class="news-item row">
           <div class="col-xs-2 img">
-            <a  href="<?=site_url("news/view/".$new->id)?>"><img style='width:100%;' alt="<?=h($new->title)?> 照片" src="<?=base_url("img/news_default.png")?>" /></a>
+            <a  href="<?=site_url("news/view/".$new->id)?>"><img style='width:100%;' alt="<?=h($new->title)?> 照片" src="<?=_get_news_image_url($new->image)?>" /></a>
           </div>
           <div class="col-xs-10 content-container">
             <div class="title" ><a  href="<?=site_url("news/view/".$new->id)?>"><?=h($new->title)?></a>

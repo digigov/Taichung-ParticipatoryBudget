@@ -50,3 +50,18 @@ function _get_case_types(){
     "觀光遊憩", "都市環境","治安防災","清潔衛生","社會福利", "產業發展", 
     "其它" ];
 }
+
+
+function _get_news_image_url($img){
+  if($img == null){
+    return base_url("img/news_default.png");
+  }
+  // https://www.youtube.com/embed/tH6qirvqCbg
+
+  if(strpos($img,"/embed/") != FALSE){
+    $token = explode("/embed/", $img);
+    return "https://img.youtube.com/vi/".$token[1]."/0.jpg";
+  }
+
+  return $img;
+}

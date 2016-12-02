@@ -7,7 +7,7 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a href="<?=site_url("/areas/")?>">各區介紹</a> &gt;
+      各區推動概況 &gt;
       <span class="now"><?=h($area_name)?></span>
     </div>
   
