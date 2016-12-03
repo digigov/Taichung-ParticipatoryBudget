@@ -10,6 +10,20 @@ function _get_areas(){
   return ["中區", "東區", "南區", "西區", "北區", "西屯區", "南屯區", "北屯區", "豐原區", "東勢區", "大甲區", "清水區", "沙鹿區", "梧棲區", "后里區", "神岡區", "潭子區", "大雅區", "新社區", "石岡區", "外埔區", "大安區", "烏日區", "大肚區", "龍井區", "霧峰區", "太平區", "大里區", "和平區"];;
 }
 
+function _get_record_types(){
+  return [
+    (object)["enable"=> false,"name" => "地區說明會", "key" => "seminar"],
+    (object)["enable"=> false,"name" => "客廳說明會", "key" => "livingroom"],
+    (object)["enable"=> false,"name" => "工作坊", "key" => "workshop"],
+    (object)["enable"=> false,"name" => "住民會議", "key" => "resident"],
+    (object)["enable"=> false,"name" => "審議主持人培訓", "key" => "hosttrain"],
+    (object)["enable"=> false,"name" => "公務員培訓", "key" => "servant"],
+    (object)["enable"=> false,"name" => "擺攤記錄", "key" => "stall"],
+    (object)["enable"=> false,"name" => "影音區", "key" => "video"],
+    (object)["enable"=> false,"name" => "講座", "key" => "speech"],
+  ];
+}
+
 function _render_select($options,$name,$val){
   ?>
 <select name="<?=h($name)?>">
@@ -64,4 +78,14 @@ function _get_news_image_url($img){
   }
 
   return $img;
+}
+
+function _check_year($year){
+
+  for($ind_y = date("Y"); $ind_y >= 2015;--$ind_y){
+    if($ind_y == $year){
+      return true;
+    }
+  }
+  return false;
 }

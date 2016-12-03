@@ -891,3 +891,69 @@ body {
   color:white;
 }
 
+
+/* records */
+
+.page-records .records .record{
+  padding:80px;
+  padding-left:0px;
+  padding-right:0px;
+  text-align: center;
+  background:#dfdede;
+  margin-bottom:30px;
+  position: relative;
+}
+.page-records .records .record .name,
+  .page-records .records .record .icon{
+    z-index:100;
+    position: relative;
+  }
+.page-records .records .record .name{
+  font-size:18px;
+  margin-top:10px;
+  color:black;
+}
+.page-records .records .record .icon img{
+  height:40px;
+}
+
+.page-records .record-enabled .record-even{
+  background:#fdfff6;
+}
+
+.page-records .record-enabled .record-odd{
+  background:#fff2f2;
+}
+.page-records .record-enabled .background{
+  display:none;
+  position:absolute;
+  border-color: #fdfff6 #fff7e9 #fdfff6 #fff7e9;
+  border-style: solid solid solid solid;
+  border-width: 119px 134px 119px 134px;
+  /*269 237*/
+  top:0;
+  height:0;
+  z-index:0;
+  /* 設定 width、height 可更好理解原理 */
+  height: 0px;
+  width: 0px;  
+}
+.page-records .record-enabled a:hover .background{
+  display:block;
+}
+.page-records .record-enabled .record-0 .background{
+  border-color: #fff2f2 #fff2f2 #ffe2e2 #ffe2e2;
+}
+.page-records .record-enabled .record-2 .background{
+  border-color: #ffe2e2 #fff2f2 #fff2f2 #ffe2e2;
+}
+.page-records .record-enabled .record-4 .background{
+  border-color: #fff2f2 #ffe2e2 #fff2f2 #ffe2e2;
+}
+
+.page-records .record-enabled .record-6 .background{
+  border-color:  #fff2f2 #ffe2e2 #ffe2e2 #fff2f2;
+}
+.page-records .record-enabled .record-8 .background{
+  border-color: #ffe2e2 #ffe2e2 #fff2f2 #fff2f2;
+}
