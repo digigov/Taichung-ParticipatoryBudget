@@ -49,7 +49,8 @@ class Welcome extends MY_Controller {
 		$this->load->view('pages/qa',
 			[
 				"pageTitle" => "問與答",
-				"qas" => $qas
+				"qas" => $qas,
+        "og_image" => base_url("img/qa_og.png")
 			]);
 			
 	}

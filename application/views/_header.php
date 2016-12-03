@@ -51,6 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="icon" href="<?=cdn_url("sys_images/favicon.ico") ?>" type="image/x-icon" />
 <?php } ?>
 
+    <!--給FB看的設定-->
+    <?php if(isset($og_image)){ ?>
+<meta property="og:image" content="<?=$og_image?>" />
+    <?php } ?>
+
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="<?=base_url("bootstrap/css/bootstrap.min.css")?>" />
 
