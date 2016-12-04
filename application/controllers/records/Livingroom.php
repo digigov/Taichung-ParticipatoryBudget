@@ -26,7 +26,7 @@ class Livingroom extends MY_Record_Controller {
 
     $areas = $this->areaModel->get_area_simple_list();
 
-    $area_counts = $this->livingModel->get_all_by_area_id_and_year($year);
+    $area_counts = $this->livingModel->get_area_counts_by_year($year);
 
     foreach($areas as $a){
       $a->link = site_url("/records/livingroom/area/".$a->id."?year=".$year);
