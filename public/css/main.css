@@ -11,6 +11,9 @@ body {
 }
 /* Common */
 
+td{
+  padding:5px;
+}
 
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
@@ -95,6 +98,7 @@ body {
 .breadcrumb{
   background:#eefdf6;
   margin-top:6px;
+  margin-bottom:6px;
 }
 
 
@@ -225,6 +229,7 @@ body {
   border:20px solid #f8dd97;
   background:#fdecc1;
   padding-right: 20px;
+  padding-left:20px;
 }
 
 .news-event-list{
@@ -240,7 +245,7 @@ body {
 }
 .news-list .news-items .news-item .img,
 .news-list .news-items .news-item .content-container{
-  min-height: 100px;
+  min-height: 120px;
   background:white;
 }
 .news-list .news-items .news-item .img{
@@ -957,3 +962,88 @@ body {
 .page-records .record-enabled .record-8 .background{
   border-color: #ffe2e2 #ffe2e2 #fff2f2 #fff2f2;
 }
+
+
+/* records-area-lists */
+
+.page-area-list .area-container{
+  background:#fafbe4;
+  padding-bottom:30px;  
+}
+.page-area-list .area-container .area-header {
+  text-align: center;
+  padding-bottom:12px;
+  padding-top:16px;
+  color:gray;
+  font-size:18px;
+}
+.page-area-list .area-container .area-header img{
+  height:40px;
+}
+
+
+.page-area-list .area-container .area-item{
+  padding-left:0;
+  padding-right:0;
+}
+.page-area-list .area-container .area-item-header{
+  padding-top:30px;
+  padding-bottom:30px;
+  text-align: center;
+  color:black;
+}
+
+.page-area-list .area-container .area-item-bg-0{
+  background:#f9a0b1;
+}
+.page-area-list .area-container .area-item-bg-1{
+  background:#eebf8c;
+}
+.page-area-list .area-container .area-item-bg-2{
+  background:#8dbee5;
+}
+.page-area-list .area-container .area-item-bg-3{
+  background:#a0c74c;
+}
+
+.page-area-list .area-item-photo img{
+  width:100%;
+  height:232px;
+}
+
+.page-area-view .breadcrumb{
+  margin-bottom:4px;
+}
+
+.page-area-view .news-items .news-item .img,
+  .page-area-view .news-item .content-container
+{
+  min-height: 142px !important;
+}
+
+.record-container{
+  border:20px solid #f8dd97;
+  background:white;
+  padding:20px 0 20px 0;
+}
+
+.record-container .record-header{
+  border-bottom:3px solid #dddddd;
+  padding-bottom:12px;
+}
+
+.record-container .row{
+  padding-left:20px;
+  padding-right:20px;
+  margin-bottom:12px;
+  vertical-align: bottom;        
+}
+
+.record-container .header-text{
+  font-size:16px;
+}
+
+.record-container .record-content{
+  font-size:16px;
+}
+

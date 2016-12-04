@@ -11,7 +11,7 @@ class AreaModel extends CI_Model {
   }
 
   public function get_area_simple_list(){
-    $this->db->select("id,name,city");
+    $this->db->select("id,name,city,pic");
     $this->db->where("deleted",false);
 
     $this->db->order_by("id","desc");

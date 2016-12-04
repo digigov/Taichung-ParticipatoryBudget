@@ -50,6 +50,15 @@
               <input type="text" style="width:100%;" name="opendata_link" value="<?=h($news->opendata_link)?>"/>
             </td>
           </tr>
+          <tr>
+            <td class="field col-xs-2" >區域照片圖檔</td>
+            <td class="col-xs-10" colspan="2">
+              <?php if($news->pic != null){ ?>
+              <a href="<?=($news->pic)?>">現在圖檔</a>
+              <?php }?>
+              <input type="file" name="pic" />
+            </td>
+          </tr>
         </tbody>
       </table>
 

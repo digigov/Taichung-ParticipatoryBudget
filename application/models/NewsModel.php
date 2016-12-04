@@ -151,5 +151,13 @@ class NewsModel extends CI_Model {
     $this->db->where("id",$post_id);
     $this->db->update($this->_table);
   }
+
+  public function get_all_by_year($year){
+    $this->db->where("year",$year);
+    $this->db->where("is_video",true);
+
+    $q = $this->db->get($this->_table);
+    return $q->result();
+  }
   
 }

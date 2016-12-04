@@ -24,7 +24,6 @@ class Area extends MY_ADMIN_Controller {
   {
     session_write_close();
 
-
     $latest_news = $this->_model->get_all_by_page(1,1000);
     $this->_load_view($this->_type."/index",[
         "pageTitle" => "所有地區一覽",
@@ -59,7 +58,14 @@ class Area extends MY_ADMIN_Controller {
       $inserted_data[$field] = $this->input->post($field);
     }
 
-    $this->_model->insert($inserted_data);
+    $id = $this->_model->insert($inserted_data);
+
+    $upload = $this->_upload("area","pic","area/".$id."/");
+    if($upload->isSuccess){
+      $update_data = [];
+      $update_data["pic"] = $upload->data->url;
+      $this->_model->update($id,$update_data);
+    }
 
     redirect(admin_url($this->_type."/"));
   }
@@ -95,7 +101,14 @@ class Area extends MY_ADMIN_Controller {
       $update_data[$field] = $this->input->post($field);
     }
 
+
     $id = $this->input->post("id");
+
+    
+    $upload = $this->_upload("area","pic","area/".$id."/");
+    if($upload->isSuccess){
+      $update_data["pic"] = $upload->data->url;
+    }
 
     $this->_model->update($id,$update_data);
 

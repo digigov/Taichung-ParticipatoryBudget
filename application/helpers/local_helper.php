@@ -12,15 +12,15 @@ function _get_areas(){
 
 function _get_record_types(){
   return [
-    (object)["enable"=> false,"name" => "地區說明會", "key" => "seminar"],
-    (object)["enable"=> false,"name" => "客廳說明會", "key" => "livingroom"],
-    (object)["enable"=> false,"name" => "工作坊", "key" => "workshop"],
+    (object)["enable"=> true,"name" => "地區說明會", "key" => "seminar"],
+    (object)["enable"=> true,"name" => "客廳說明會", "key" => "livingroom"],
+    (object)["enable"=> true,"name" => "工作坊", "key" => "workshop"],
     (object)["enable"=> false,"name" => "住民會議", "key" => "resident"],
-    (object)["enable"=> false,"name" => "審議主持人培訓", "key" => "hosttrain"],
-    (object)["enable"=> false,"name" => "公務員培訓", "key" => "servant"],
-    (object)["enable"=> false,"name" => "擺攤記錄", "key" => "stall"],
-    (object)["enable"=> false,"name" => "影音區", "key" => "video"],
-    (object)["enable"=> false,"name" => "講座", "key" => "speech"],
+    (object)["enable"=> true,"name" => "審議主持人培訓", "key" => "hosttrain"],
+    (object)["enable"=> true,"name" => "公務員培訓", "key" => "servant"],
+    (object)["enable"=> true,"name" => "擺攤記錄", "key" => "stall"],
+    (object)["enable"=> true,"name" => "影音區", "key" => "video"],
+    (object)["enable"=> true,"name" => "講座", "key" => "speech"],
   ];
 }
 
@@ -88,4 +88,20 @@ function _check_year($year){
     }
   }
   return false;
+}
+
+function _render_breadcrumb($breadcrumb){
+?>
+<div class="breadcrumb">
+  <a href="<?=site_url("/")?>">首頁</a> 
+  <?php foreach($breadcrumb as $ind => $bread){ ?>
+    &gt; 
+    <?php if($ind == count($breadcrumb) -1){ ?>
+      <span class="now"><?=h($bread['name'])?></span>
+    <?php }else{ ?>
+      <a href="<?=$bread["url"]?>"><?=h($bread['name'])?></a>
+    <?php } ?>
+  <?php } ?>
+</div>
+<?php 
 }

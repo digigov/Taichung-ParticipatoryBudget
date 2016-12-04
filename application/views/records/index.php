@@ -16,13 +16,11 @@
   <div >
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <span class="now"> 工作成果 </span> &gt; 
-      <span class="now"> <?=$year?> 年 </span>
+      <span class="now">  工作成果與提案記錄 - <?=$year?>   </span> 
     </div>
 
     <div class="col-md-12 records" style="">
       <?php foreach(_get_record_types() as $ind => $record){ 
-          $record->enable = true;
         ?>
       <div class="col-md-4 <?=$record->enable?"record-enabled":""?>">
       <?php if($record->enable){ ?>

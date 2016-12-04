@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Records extends MY_Controller {
+class Record extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.

@@ -174,3 +174,5 @@ class ReturnMessage{
     $this->data = $data;
   }
 }
+
+include("MY_Record_Controller.php");
