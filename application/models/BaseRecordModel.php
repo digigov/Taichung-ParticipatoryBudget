@@ -82,6 +82,7 @@ class BaseRecordModel extends CI_Model {
   }
 
   public function get($id,$public = null){
+    $public = null;
     $this->db->select("*");
     $this->db->limit(1);
     $this->db->where("id",$id);

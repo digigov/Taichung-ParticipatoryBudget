@@ -11,6 +11,7 @@ class Livingroom extends MY_Record_Controller {
 
     $this->load->database();
     $this->load->model("livingModel");
+    $this->load->model("areaModel");
   }
 
   public function index($year)
@@ -93,11 +94,10 @@ class Livingroom extends MY_Record_Controller {
     session_write_close();
 
 
-    $this->load->database();
-    $this->load->model("areaModel");
-
     $item = $this->livingModel->get($view_id,"1");
-
+    if($item == null){
+      return show_404();
+    }
     $area = $this->areaModel->get($item->area_id);
     if($area == null){
       return show_404();
