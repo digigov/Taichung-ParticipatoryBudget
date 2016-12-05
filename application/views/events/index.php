@@ -32,14 +32,14 @@
 
         <div class="news-item row">
           <div class="col-xs-2 img">
-            <a  href="<?=site_url("news/view/".$new->id)?>"><img style='width:100%;' alt="<?=h($new->title)?> 照片" src="<?=_get_news_image_url($new->image)?>" /></a>
+            <a  href="<?=site_url("events/view/".$new->id)?>"><img style='width:100%;' alt="<?=h($new->title)?> 照片" src="<?=_get_news_image_url($new->image)?>" /></a>
           </div>
           <div class="col-xs-10 content-container">
-            <div class="title" ><a  href="<?=site_url("news/view/".$new->id)?>"><?=h($new->title)?></a>
+            <div class="title" ><a  href="<?=site_url("events/view/".$new->id)?>"><?=h($new->title)?></a>
               <span class="pull-right"><?=_date_format_utc($new->publish_date,"Y-m-d")?></span>
             </div>
             <div class="content">
-              <a  href="<?=site_url("news/view/".$new->id)?>"><?=_truncate(strip_tags($new->content),60)?></a>
+              <a  href="<?=site_url("events/view/".$new->id)?>"><?=_truncate(strip_tags($new->content),60)?></a>
             </div>
           </div>
         </div>
