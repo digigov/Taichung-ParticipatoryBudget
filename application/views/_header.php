@@ -155,8 +155,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li><a class="nav-item" href="http://pb.taichung.gov.tw/news/view/34">票選系統</a></li>
 
             <li class="dropdown">
-              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">歷年提案</a>
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">工作成果與提案記錄</a>
               <ul class="dropdown-menu">
+                <li><a  class="nav-item"  href="<?=site_url("/record/year/2016")?>">2016</a></li>
                 <li><a  class="nav-item"  href="http://2015taichungivoting.weebly.com/">2015</a></li>
               </ul>
             </li>
