@@ -16,7 +16,7 @@ class BaseRecordModel extends CI_Model {
     $this->db->where("deleted",false);
     $this->db->where("record_type",$this->_type);
 
-    $this->db->order_by("id","desc");
+    $this->db->order_by("record_date","desc");
     $this->db->limit($pageSize);
     $this->db->offset($pageSize*($page-1));
 

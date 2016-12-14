@@ -48,7 +48,7 @@
         <div class="row">
           <div class="col-xs-12 record-header">
             <div class="col-xs-12 header-text">
-              訪談內容
+              問題與討論
             </div>
             <div class="col-xs-12 record-content">
               <br />
