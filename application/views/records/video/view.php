@@ -7,6 +7,10 @@
   .table .title{
     
   }
+
+  .record-content img{
+    max-width:100%;
+  }
 </style>
 
 <div class="container page-livingroom-view">
