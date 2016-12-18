@@ -15,7 +15,7 @@ function _get_record_types(){
     (object)["enable"=> true,"name" => "地區說明會", "key" => "seminar"],
     (object)["enable"=> true,"name" => "客廳說明會", "key" => "livingroom"],
     (object)["enable"=> true,"name" => "工作坊", "key" => "workshop"],
-    (object)["enable"=> false,"name" => "住民會議", "key" => "resident"],
+    (object)["enable"=> true,"name" => "住民會議", "key" => "citizenconf"],
     (object)["enable"=> true,"name" => "審議主持人培訓", "key" => "hosttrain"],
     (object)["enable"=> true,"name" => "公務員培訓", "key" => "servant"],
     (object)["enable"=> true,"name" => "擺攤記錄", "key" => "stall"],

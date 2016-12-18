@@ -127,6 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?=site_url("/admin/servant/")?>">公務員培訓紀錄管理</a></li>
                 <li><a href="<?=site_url("/admin/speech/")?>">講座紀錄管理</a></li>
                 <li><a href="<?=site_url("/admin/stall/")?>">擺攤紀錄管理</a></li>
+                <li><a href="<?=site_url("/admin/citizenconf/")?>">住民會議紀錄管理</a></li>
               </ul>
             </li>
             <li><a href="<?=site_url("/admin/area/")?>">區域管理</a></li>

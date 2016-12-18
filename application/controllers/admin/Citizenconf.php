@@ -1,19 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Livingroom extends MY_ADMIN_Controller {
+class Citizenconf extends MY_ADMIN_Controller {
 
-  var $_view_root = "livingroom";
-  var $fields = ["year","area_id", "type", "record_date", "location", 
-      "interviewer", "worker", "status", "content"];
+  var $_view_root = "citizenconf";
+  var $fields = ["area_id","year","title", "record_date", "location", 
+       "status", "content"];
+
+  var $_name = "住民會議";
 
   public function __construct()
   {
     parent::__construct();
 
     $this->load->database();
-    $this->load->model("livingModel");
+    $this->load->model("citizenconfModel");
 
+    $this->_model = $this->citizenconfModel;
+    $this->load->vars([
+      "_name" => $this->_name,
+      "_type" => $this->_model->_type
+    ]);
   }
 
   public function index()
@@ -24,14 +31,15 @@ class Livingroom extends MY_ADMIN_Controller {
     $area= $this->input->get("area");
 
     if($area == "全部" || $area == ""){
-      $latest_items = $this->livingModel->get_all_by_page(1,1000);
+      $latest_items = $this->_model->get_all_by_page(1,1000);
     }else{
-      $latest_items = $this->livingModel->get_all_by_area_page($area,1,1000);
+      $latest_items = $this->_model->get_all_by_area_page($area,1,1000);
     }
 
+    
 
     $this->_load_view($this->_view_root."/index",[
-        "pageTitle" => "客廳會成果管理",
+        "pageTitle" => $this->_name." 成果管理",
         "all_items" => $latest_items,
         "now_area" => $area == "" ?"全部":$area
     ]);
@@ -42,8 +50,10 @@ class Livingroom extends MY_ADMIN_Controller {
     $news = new stdclass();
 
     $news->area ="";
+    $news->area_id = "";
     $news->type ="";
     $news->record_date = gmdate("Y-m-d\TH:i:s");
+    $news->record_date_end = gmdate("Y-m-d\TH:i:s");
     $news->location = "";
     $news->interviewer = "";
     $news->worker = "";
@@ -51,12 +61,13 @@ class Livingroom extends MY_ADMIN_Controller {
     $news->content = "";
     $news->id = -1;
     $news->year = "";
+    $news->title = "";
 
     $this->_load_view($this->_view_root."/edit",[
-        "pageTitle" => "新增客廳會記錄 " ,
+        "pageTitle" => "新增". $this->_name."記錄 " ,
         "news" => $news,
         "news_images" => [],
-        "action" => admin_url("livingroom/adding")
+        "action" => admin_url($this->_view_root."/adding")
     ]);
 
   }
@@ -64,13 +75,13 @@ class Livingroom extends MY_ADMIN_Controller {
 
   public function adding(){
 
-    $inserted_data = ["record_type" => "livingroom"];
+    $inserted_data = [];
 
     foreach($this->fields as $field){
       $inserted_data[$field] = $this->input->post($field);
     }
 
-    $living_id = $this->livingModel->insert($inserted_data);
+    $living_id = $this->_model->insert($inserted_data);
     $file_ids = $this->input->post("fileids");
 
     $file_major = $this->input->post("file_major");
@@ -83,13 +94,13 @@ class Livingroom extends MY_ADMIN_Controller {
   }
 
   public function _handle_file_ids($living_id,$file_ids,$file_major){
-    $this->livingModel->handle_file_ids($living_id,$file_ids,$file_major);
+    $this->_model->handle_file_ids($living_id,$file_ids,$file_major);
   }
 
   public function delete($id){
     session_write_close();
 
-    $news = $this->livingModel->delete($id);
+    $news = $this->_model->delete($id);
     redirect(admin_url($this->_view_root."/"));
   }
 
@@ -98,16 +109,16 @@ class Livingroom extends MY_ADMIN_Controller {
     session_write_close();
 
 
-    $news = $this->livingModel->get($id);
+    $news = $this->_model->get($id);
 
     if($news == null){
       return show_404();
     }
 
-    $living = $this->livingModel->get_images($id);
+    $living = $this->_model->get_images($id);
 
     $this->_load_view($this->_view_root."/edit",[
-        "pageTitle" => "編輯活動 " ,
+        "pageTitle" => "編輯 ". $this->_name ,
         "news" => $news,
         "news_images" => $living,
         "action" => admin_url($this->_view_root."/editing")
@@ -123,7 +134,7 @@ class Livingroom extends MY_ADMIN_Controller {
 
     $id = $this->input->post("id");
 
-    $this->livingModel->update($id,$update_data);
+    $this->_model->update($id,$update_data);
 
     $file_ids = $this->input->post("fileids");
 
@@ -158,7 +169,7 @@ class Livingroom extends MY_ADMIN_Controller {
       $info->delete_type = 'DELETE';
       $info->error = null;
 
-      $file_id = $this->livingModel->insert_image([
+      $file_id = $this->_model->insert_image([
           "filename" => $data->original_name,
           "filetype" => "",
           "filesize" => $data->file_size,
@@ -167,7 +178,7 @@ class Livingroom extends MY_ADMIN_Controller {
           "type" => 1
         ]
       );
-      $info->delete_url = site_url("admin/livingroom/delete_image/".$file_id);
+      $info->delete_url = site_url("admin/".$this->_view_root."/delete_image/".$file_id);
       $info->url = $data->url;
       $info->file_id = $file_id;
 
