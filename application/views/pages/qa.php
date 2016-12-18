@@ -11,6 +11,9 @@
     font-size:24px;
     color:rgb(14,115,185);
   }
+  .answer a{
+    color:#AAEECC;
+  }
 </style>
 <div class="container">
   <div class="content-list">

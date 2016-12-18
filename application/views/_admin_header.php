@@ -107,6 +107,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
                 <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
                 <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
+                <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=友站連結&key=reference_link&year=-1")?>">友站連結管理上稿</a></li>
+                <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=何謂參與式預算&key=introduce&year=-1")?>">何謂參與式預算上稿</a></li>
+                <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=推動流程&key=process&year=-1")?>">推動流程上稿</a></li>
               </ul>
             </li>
             <li class="dropdown">

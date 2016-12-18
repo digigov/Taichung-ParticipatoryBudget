@@ -5,6 +5,14 @@ function admin_url($url){
   return site_url("admin/".$url);
 }
 
+function _get_years(){
+    $years = [];
+    for($ind_y = date("Y"); $ind_y >= 2016;--$ind_y){
+      $years[] = $ind_y;
+    }
+    return $years;
+}
+
 
 function _get_areas(){
   return ["中區", "東區", "南區", "西區", "北區", "西屯區", "南屯區", "北屯區", "豐原區", "東勢區", "大甲區", "清水區", "沙鹿區", "梧棲區", "后里區", "神岡區", "潭子區", "大雅區", "新社區", "石岡區", "外埔區", "大安區", "烏日區", "大肚區", "龍井區", "霧峰區", "太平區", "大里區", "和平區"];;

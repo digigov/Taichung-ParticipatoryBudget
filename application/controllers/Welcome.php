@@ -67,6 +67,10 @@ class Welcome extends MY_Controller {
 
 	public function links(){
 		session_write_close();
-		$this->load->view('pages/links',["pageTitle" => "友站連結"]);
+		$this->load->database();
+		$this->load->model("pageModel");
+    $page = $this->pageModel->get(-1,"reference_link");
+		$this->load->view('pages/links',["pageTitle" => "友站連結",
+			"page" => $page]);
 	}
 }

@@ -12,6 +12,7 @@
 
     <div class="col-md-12" style="border:1px solid rgb(110,134,172);padding:5%;border-radius:20px;background:white;">
       
+      <?php if(0){ ?>
       <h2>臺灣經驗</h2>
 
       <ul>
@@ -41,6 +42,8 @@
 <li><a target='_blank' href='http://www.participatorybudgeting.org/'>美國：The Participatory Budgeting Project</a></li>
 <li><a target='_blank' href='http://participedia.net/en'>加拿大：Participedia</a></li>
       </ul>
+      <?php }?>
+      <?=$page->content?>
     </div>
     <div style="clear:both"></div>
 
