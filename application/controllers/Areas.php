@@ -12,7 +12,7 @@ class Areas extends MY_Controller {
     ] );
   }
 
-  public function view($unArea = null){
+  public function view($unArea = null,$year = null){
     
     if($unArea == null){
       return show_404();
@@ -28,7 +28,7 @@ class Areas extends MY_Controller {
     $this->load->database();
     $this->load->model("caseModel");
 
-    $cases = $this->caseModel->get_active_by_area($current_area->id);
+    $cases = $this->caseModel->get_active_by_area($year,$current_area->id);
     $this->load->view('areas/view',[
         "pageTitle" => "各區推動概況 - ".$current_area->name,
         "items" => $cases,
@@ -62,7 +62,7 @@ class Areas extends MY_Controller {
     }    
 
     $area_cases = [
-      "2016" => $this->caseModel->get_active_by_area(
+      "2016" => $this->caseModel->get_active_by_area("2016",
         $current_area->id)
     ];
     $area_item = $this->areaModel->find_by_name($area_name);

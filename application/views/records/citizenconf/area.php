@@ -30,7 +30,7 @@
               <span class="pull-right"><?=_date_format_utc($new->record_date,"Y-m-d")?></span>
             </div>
             <div class="content">
-              <a  href="<?=site_url("records/seminar/view/".$new->id)?>"><?=_truncate(strip_tags($new->content),60)?>
+              <a  href="<?=site_url("records/citizenconf/view/".$new->id)?>"><?=_truncate(strip_tags($new->content),60)?>
               </a>
             </div>
           </div>

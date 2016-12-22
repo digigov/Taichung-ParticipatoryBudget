@@ -22,9 +22,21 @@ class CaseModel extends CI_Model {
   }
 
 
-  public function get_active_by_area($area_id){
+  public function get_active_by_area($year,$area_id){
+
+    if($year == null){
+      $this->db->select("max(year) as year");
+      $q = $this->db->get($this->_table);
+      $res = array_first_item($q->result());
+
+      if($res != null){
+        $year = $res->year;
+      }
+    }
+
     $this->db->select("*");
     $this->db->where("area_id",$area_id);
+    $this->db->where("year",$year);
     $this->db->where("publish_date <= timezone('utc'::text, now()) ");
     $this->db->where("deleted",0);
     $this->db->order_by("caseno","asc");

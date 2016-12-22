@@ -83,7 +83,7 @@ class BaseRecordModel extends CI_Model {
 
   public function get($id,$public = null){
     $public = null;
-    $this->db->select("*");
+    $this->db->select("*,(select name from areas where areas.id = livingroom.area_id) as area");
     $this->db->limit(1);
     $this->db->where("id",$id);
     $this->db->where("record_type",$this->_type);
