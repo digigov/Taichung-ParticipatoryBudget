@@ -60,6 +60,8 @@ class Seminar extends MY_Record_Controller {
     $this->load->database();
     $this->load->model("areaModel");
 
+
+
     $area = $this->areaModel->get($area_id);
     if($area == null){
       return show_404();
@@ -99,7 +101,9 @@ class Seminar extends MY_Record_Controller {
     $this->load->model("areaModel");
 
     $item = $this->_model->get($view_id,"1");
-
+    if($item == null){
+      return show_404();
+    }
     $area = $this->areaModel->get($item->area_id);
     if($area == null){
       return show_404();

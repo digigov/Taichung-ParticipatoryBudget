@@ -89,7 +89,9 @@ function _get_news_image_url($img){
 }
 
 function _check_year($year){
-
+  if(!is_numeric($year)){
+    return false;
+  }
   for($ind_y = date("Y"); $ind_y >= 2015;--$ind_y){
     if($ind_y == $year){
       return true;

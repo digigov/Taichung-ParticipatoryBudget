@@ -15,6 +15,7 @@ class MY_Record_Controller extends MY_Controller {
       return false;
     }
 
+
     if($year == "2015"){
       redirect('http://2015taichungivoting.weebly.com/');
       return false;

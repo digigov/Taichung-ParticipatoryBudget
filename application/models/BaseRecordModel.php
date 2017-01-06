@@ -82,6 +82,10 @@ class BaseRecordModel extends CI_Model {
   }
 
   public function get($id,$public = null){
+
+    if(!is_numeric($id)){
+      return null;
+    }
     $public = null;
     $this->db->select("*,(select name from areas where areas.id = livingroom.area_id) as area");
     $this->db->limit(1);
