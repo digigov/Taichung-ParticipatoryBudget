@@ -51,6 +51,10 @@ class Areas extends MY_Controller {
     $this->load->model("caseModel");
 
     $current_area = $this->areaModel->find_by_name($area_name);
+
+    if($current_area == null){
+      return show_404();
+    }
     
     $gov_datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
 

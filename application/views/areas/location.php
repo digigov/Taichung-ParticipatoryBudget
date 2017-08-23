@@ -14,7 +14,7 @@
     <div class="col-md-12" >
       <div id='cont' class="menu">
           
-        <h1><?=($area_name)?></h1>
+        <h1><?=h($area_name)?></h1>
 
         <h3>地區介紹</h3>
         <div>
