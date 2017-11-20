@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container"  style="max-width:960px;margin:0 auto;">
     <div style="position:relative;min-height:117px;"> 
       <div style="width:100%;">
-        <a href="<?=site_url("/")?>"><img style='max-width:100%;display:block;margin:0 auto;' src="<?=base_url("img/header_logo.png")?>" /></a>
+        <a href="<?=site_url("/")?>"><img style='width:40%;max-width:100%;display:block;margin:0 auto;' src="<?=base_url("img/header_logo.png")?>" /></a>
       </div>
     </div>
 
