@@ -14,16 +14,15 @@
         <div class="col-md-6 footer-text col-sm-5">
           <p>主辦單位：臺中市政府民政局</p>
           <p>
-            地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：40701臺中市西屯區臺灣大道三段99號惠中樓6樓
+            地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：402 臺中市南區忠明南路758號17樓
           </p>
           <p>
-            電&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;話：04-22289111 </p>
-          <p> 辦公時間 : 8:00-17:00<br />(中午休息時間：12:00~13:00，彈性上下班時間：8:00~8:30、13:00~13:30、17:00~17:30)</p>
-
-	  <p> 傳&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真：04-22204414
+            電&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;話：04-22609641 </p>
+          <p> 辦公時間 : 09:00-18:00<br />(中午休息時間：12:00~13:00)</p>
+      	  <p> 傳&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真：04-22609368
           </p>
           <p>
-            Email： empower.tccentral@gmail.com 
+            Email： deliberamos@gmail.com
           </p>
         </div>
         <div class="col-md-2 col-md-offset-0 col-xs-offset-4 col-xs-4  col-sm-2" >
