@@ -11,14 +11,16 @@
   <div class="footer">
     <div class="footer-body"> 
       <div class="row">
-        <div class="col-md-5 footer-text col-sm-5">
+        <div class="col-md-6 footer-text col-sm-5">
           <p>主辦單位：臺中市政府民政局</p>
-          <p>承辦單位：臺中市參與式預算推動專案辦公室</p>
           <p>
-            地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：臺中市中區中山路 69 號4樓(中區再生基地樓上)
+            地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：40701臺中市西屯區臺灣大道三段99號惠中樓6樓
           </p>
           <p>
-            電&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;話：04-22221712
+            電&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;話：04-22289111 </p>
+          <p> 辦公時間 : 8:00-17:00<br />(中午休息時間：12:00~13:00，彈性上下班時間：8:00~8:30、13:00~13:30、17:00~17:30)</p>
+
+	  <p> 傳&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真：04-22204414
           </p>
           <p>
             Email： empower.tccentral@gmail.com 
@@ -27,7 +29,7 @@
         <div class="col-md-2 col-md-offset-0 col-xs-offset-4 col-xs-4  col-sm-2" >
           <a target="_blank" href="http://www.taichung.gov.tw/"><img style='width:100%;' alt="臺中市政府" src="<?=base_url("img/taichung_logo.png")?>" /></a>
         </div>
-        <div class="fb-page-container col-md-5 col-xs-12 col-sm-5" style="text-align:left;">
+        <div class="fb-page-container col-md-4 col-xs-12 col-sm-5" style="text-align:left;">
           <div >
             <div class="fb-page" data-href="https://www.facebook.com/pbtaichung/"  data-tabs="timeline" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/pbtaichung/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/pbtaichung/">臺中市參與式預算</a></blockquote></div>
             <div style='clear:both'></div>

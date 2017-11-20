@@ -98,10 +98,12 @@ class Member extends MY_Controller {
   public function _remap($method, $params = [])
   {
 
+/*
     if( $this->_enable_cookie_write_methods == null ||
        ! in_array($method,$this->_enable_cookie_write_methods)){
       $this->_sesison_close();
     }
+*/
 
     $mem = null;
 

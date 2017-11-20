@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">今年提案</a>
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">105年提案</a>
               <ul class="dropdown-menu">
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
                 <?php foreach($areas_list as $____area){ ?>

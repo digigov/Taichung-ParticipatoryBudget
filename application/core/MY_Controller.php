@@ -117,12 +117,12 @@ class MY_ADMIN_Controller extends MY_Controller {
   // have to rewrite the enable_cookie_write_methods also.
   public function _remap($method, $params = [])
   {
-
+/*
     if( $this->_enable_cookie_write_methods == null ||
        ! in_array($method,$this->_enable_cookie_write_methods)){
       session_write_close();
     }
-
+*/
     $mem = null;
 
     $this->load->database();
