@@ -63,7 +63,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
   <link rel="stylesheet" href="<?=base_url("css/main.css")?>" />
   <style>
-    
+
+      .logo-img{
+        width:40%;max-width:100%;display:block;margin:0 auto;
+      }
+      
+      @media only screen and (max-device-width: 500px) {
+          max-width:100%;
+          width:auto;
+      }
+
   </style>
 
 <?php if(function_exists("css_section")) {
@@ -75,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container"  style="max-width:960px;margin:0 auto;">
     <div style="position:relative;min-height:117px;"> 
       <div style="width:100%;">
-        <a href="<?=site_url("/")?>"><img style='width:40%;max-width:100%;display:block;margin:0 auto;' src="<?=base_url("img/header_logo.png")?>" /></a>
+        <a href="<?=site_url("/")?>"><img class='logo-img' src="<?=base_url("img/header_logo.png")?>" /></a>
       </div>
     </div>
 
