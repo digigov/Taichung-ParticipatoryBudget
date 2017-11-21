@@ -69,8 +69,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }
       
       @media only screen and (max-device-width: 500px) {
+        .logo-img{
           max-width:100%;
           width:auto;
+        }
       }
 
   </style>
