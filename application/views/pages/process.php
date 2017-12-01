@@ -9,7 +9,7 @@
       <a style='font-weight: bold;' href="<?=site_url("/process")?>">推動流程</a> 
     </div>
     <div class="conten-inner" style="background:rgb(244,249,233)">
-      <p><img style="width:100%;" src="<?=base_url("img/process.png")?>" /></p>
+      <p><img style="width:100%;" src="<?=base_url("img/process-01.png")?>" /></p>
     </div>
   </div>
 </div>

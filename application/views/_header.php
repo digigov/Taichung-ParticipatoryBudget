@@ -163,8 +163,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!--
             <li><a class="nav-item" href="<?=site_url("/areas")?>">各區推動概況</a></li>
             -->
-            <li><a class="nav-item" href="http://pb.taichung.gov.tw/news/view/34">票選系統</a></li>
-
+            <!--<li><a class="nav-item" href="http://pb.taichung.gov.tw/news/view/34">票選系統</a></li>
+            -->
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">工作成果與提案記錄</a>
               <ul class="dropdown-menu">
