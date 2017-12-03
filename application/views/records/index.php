@@ -19,6 +19,17 @@
       <span class="now">  工作成果與提案記錄 - <?=$year?>   </span> 
     </div>
 
+    <div class="col-md-12 " style="">
+
+      <h3>該年度各區域提案紀錄</h3>
+      <ul >
+            <?php foreach($_areas as $_area){ ?>
+        <li><a href="<?=site_url("/areas/view/".rawurlencode($_area->name)."/".$year)?>"><?=$_area->name?></a></li>
+        <?php } ?>
+      </ul>
+      <hr />
+    </div>
+
     <div class="col-md-12 records" style="">
       <?php foreach(_get_record_types() as $ind => $record){ 
         ?>

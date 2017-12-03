@@ -7,14 +7,14 @@
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <span class="now"><?=h($area_now)?>提案狀況</a>
+      <span class="now"><?=h($area_now)?> <?=h($current_year)?> 年提案狀況</a>
 
     </div>
   
     <div class="col-md-12 col-sm-12 ">
       <table style="background:white;border-radius: 5px;" class="table table-bordered">
         <tr>
-          <td style="width:10%;text-align:center;">
+          <td style="width:15%;text-align:center;">
             進入<Br />第二階段<Br />
             i-Voting</td>
           <td>最終優先提案</td>
@@ -22,6 +22,12 @@
           <td>名稱</td>
           <td>提案人</td>
         </tr>
+
+        <?php if(count($items) == 0 ){ ?>
+          <tr>
+            <td colspan="10">尚無該年度提案資料</td>
+          </tr>
+        <?php } ?>
       <?php foreach($items as $item){ ?>
         <tr>
           <td style="text-align:center;"><?=h($item->step_ivoting_2?"V":"")?></td>

@@ -17,6 +17,11 @@ class Areas extends MY_Controller {
     if($unArea == null){
       return show_404();
     }
+
+    if($year == null){
+      $year = LAST_YEAR;
+    }
+    
     $area = rawurldecode($unArea);
     $this->load->database();
     $this->load->model("areaModel");
@@ -29,8 +34,10 @@ class Areas extends MY_Controller {
     $this->load->model("caseModel");
 
     $cases = $this->caseModel->get_active_by_area($year,$current_area->id);
+    
     $this->load->view('areas/view',[
         "pageTitle" => "各區推動概況 - ".$current_area->name,
+        "current_year" => $year,
         "items" => $cases,
         "area_now" => $current_area->name
     ] );

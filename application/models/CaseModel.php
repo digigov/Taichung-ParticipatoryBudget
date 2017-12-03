@@ -36,7 +36,7 @@ class CaseModel extends CI_Model {
 
     $this->db->select("*");
     $this->db->where("area_id",$area_id);
-    $this->db->where("year",$year);
+    $this->db->where("year","".$year);
     $this->db->where("publish_date <= timezone('utc'::text, now()) ");
     $this->db->where("deleted",0);
     $this->db->order_by("caseno","asc");

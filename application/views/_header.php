@@ -136,11 +136,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                106年提案
+                <?=LAST_YEAR-1911?> 年提案
               </a>
               <ul class="dropdown-menu">
                 <?php foreach($_areas as $_area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($_area->name))?>"><?=$_area->name?></a></li>
+                <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($_area->name)."/".LAST_YEAR)?>"><?=$_area->name?></a></li>
                 <?php } ?>
               </ul>
 
@@ -153,7 +153,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 <li class="divider">
                 </li>
-                <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
                 <?php foreach($_areas as $_area){ ?>
                 <li><a class="nav-item"  href="<?=site_url("/areas/location/".rawurlencode($_area->name))?>"><?=$_area->name?></a></li>
                 <?php } ?>
