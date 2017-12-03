@@ -2,6 +2,8 @@
 composer.lock
 
 application/config/constant.php
+application/config/constants.php
+
 application/config/facebook.php
 
 application/config/database.php
