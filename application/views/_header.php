@@ -135,11 +135,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">105年提案</a>
+              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                106年提案
+              </a>
               <ul class="dropdown-menu">
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
                 <?php foreach($areas_list as $____area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/view/".$____area)?>"><?=$____area?></a></li>
+                <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($____area))?>"><?=$____area?></a></li>
                 <?php } ?>
               </ul>
 
@@ -168,6 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown">
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">工作成果與提案記錄</a>
               <ul class="dropdown-menu">
+                <li><a  class="nav-item"  href="<?=site_url("/record/year/2017")?>">2017</a></li>              
                 <li><a  class="nav-item"  href="<?=site_url("/record/year/2016")?>">2016</a></li>
                 <li><a  class="nav-item"  href="http://2015taichungivoting.weebly.com/">2015</a></li>
               </ul>
