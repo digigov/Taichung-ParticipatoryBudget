@@ -63,7 +63,7 @@ class NewsModel extends CI_Model {
     $this->db->where("type",$this->TYPE_EVENT);
     $this->db->where("deleted",0);
     $this->db->where("year",$year);
-    
+
     $q = $this->db->get($this->_table);
 
     return $q->result();
@@ -95,11 +95,12 @@ class NewsModel extends CI_Model {
     $this->db->update($this->_table);
   }
 
-  public function update_event($post_id,$title,$content,$img){
+  public function update_event($post_id,$title,$content,$img,$year){
     $this->db->set("title",$title);
     $this->db->set("content",$content);
     $this->db->set("image",$img);
     $this->db->set("mtime", db_current_gmt_date() );
+    $this->db->set("year",$year);
     $this->db->where("id",$post_id);
     $this->db->where("deleted",0);
     $this->db->where("type",$this->TYPE_EVENT);
@@ -138,12 +139,13 @@ class NewsModel extends CI_Model {
     return $this->db->insert_id();
   }
 
-  public function insert_event($title,$content,$img){
+  public function insert_event($title,$content,$img,$year){
     $this->db->insert($this->_table,[
       "title" => $title,
       "content" => $content,
       "image" => $img,
       "type" => $this->TYPE_EVENT,
+      "year"=> $year, 
       "category" => "活動快訊"
     ]);
     return $this->db->insert_id();

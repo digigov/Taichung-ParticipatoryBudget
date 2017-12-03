@@ -41,6 +41,7 @@ class Events extends MY_ADMIN_Controller {
     $title = $this->input->post("title");
     $content = $this->input->post("content");
     $postid = $this->input->post("postid");
+    $year = $this->input->post("year");
 
     $match = [];
     $img_match = preg_match("/<[^>]+src=['\"](.*?)['\"][^>]+/", $content,$match);
@@ -53,7 +54,7 @@ class Events extends MY_ADMIN_Controller {
 
     $this->load->database();
     $this->load->model("newsModel");
-    $this->newsModel->update_event($postid,$title,$content,$img);
+    $this->newsModel->update_event($postid,$title,$content,$img,$year);
 
     redirect(admin_url("events/"));
   }
@@ -84,6 +85,7 @@ class Events extends MY_ADMIN_Controller {
     $title = $this->input->post("title");
     $content = $this->input->post("content");
     $postid = $this->input->post("postid");
+    $year = $this->input->post("year");
 
     $match = [];
     $img_match = preg_match("/<[^>]+src=['\"](.*?)['\"][^>]+/", $content,$match);
@@ -96,7 +98,7 @@ class Events extends MY_ADMIN_Controller {
 
     $this->load->database();
     $this->load->model("newsModel");
-    $this->newsModel->insert_event($title,$content,$img);
+    $this->newsModel->insert_event($title,$content,$img,$year);
 
     redirect(admin_url("events/"));
   }

@@ -17,7 +17,24 @@
      <div class="form_post">
         <hr style="clear:both;margin-top:20px;" />
         <table class="table table-bordered">
-          <tbody><tr>
+          <tbody>
+          <tr>
+            <td class="field col-xs-2" >提案年度</td>
+            <td class="col-xs-10" colspan="2">
+              <select name="year">
+                <?php 
+                $now_year = date("Y");
+                for($ind=$now_year;$ind >= 2014 ; --$ind){
+                ?>
+                  <option <?=$ind==$news->year?"selected":""?>><?=$ind?></option>
+                <?php
+                }
+                ?>
+              </select>
+            </td>
+          </tr>              
+          
+          <tr>
             <td class="field col-xs-2" >文章標題：</td>
             <td class="col-xs-10" colspan="2"><input  style='width:100%;' type="text" name="title" value="<?=h($news->title)?>" class="title"></td>
           </tr>
