@@ -41,12 +41,13 @@ class NewsModel extends CI_Model {
     return $q->result();
   }
 
-  public function get_latest_news_list($pageIndex,$pageSize = 100){
+  public function get_latest_news_list($year,$pageIndex,$pageSize = 100){
     $this->db->select("id,category,image,publish_date,title,clicks,content");
     $this->db->limit($pageSize);
     $this->db->offset(($pageIndex-1) * $pageSize);
     $this->db->order_by("publish_date","desc");
     $this->db->where("type",$this->TYPE_NEWS);
+    $this->db->where("year",$year);
     $this->db->where("deleted",0);
     $q = $this->db->get($this->_table);
 
@@ -54,13 +55,15 @@ class NewsModel extends CI_Model {
   }
 
 
-  public function get_latest_event_list($pageIndex,$pageSize = 100){
+  public function get_latest_event_list($year,$pageIndex,$pageSize = 100){
     $this->db->select("id,category,publish_date,title,clicks,image,content");
     $this->db->limit($pageSize);
     $this->db->offset(($pageIndex-1) * $pageSize);
     $this->db->order_by("publish_date","desc");
     $this->db->where("type",$this->TYPE_EVENT);
     $this->db->where("deleted",0);
+    $this->db->where("year",$year);
+    
     $q = $this->db->get($this->_table);
 
     return $q->result();

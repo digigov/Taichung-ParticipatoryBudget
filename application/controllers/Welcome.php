@@ -28,7 +28,7 @@ class Welcome extends MY_Controller {
 		
 		$this->load->database();
 		$this->load->model("newsModel");
-    $latest_news = $this->newsModel->get_latest_news_list(1,3);
+    	$latest_news = $this->newsModel->get_latest_news_list(LAST_YEAR,1,3);
 
 
 		$this->load->view('welcome_message',

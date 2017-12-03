@@ -60,3 +60,6 @@ $route["QA"] = "welcome/qa";
 $route["introduce"] = "welcome/introduce";
 $route["links"] = "welcome/links";
 
+
+$route["news/list/(:any)"] = "news/index/$1";
+$route["events/list/(:any)"] = "events/index/$1";

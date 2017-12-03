@@ -10,7 +10,7 @@ class Events extends MY_ADMIN_Controller {
     $this->load->database();
     $this->load->model("newsModel");
 
-    $latest_news = $this->newsModel->get_latest_event_list(1,100);
+    $latest_news = $this->newsModel->get_latest_event_list(LAST_YEAR,1,100);
 
     $this->_load_view("events/index",[
         "pageTitle" => "所有活動一覽",

@@ -3,15 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class News extends MY_Controller {
 
-  public function index()
+  public function index($current_year = LAST_YEAR)
   {
     session_write_close();
 
     $this->load->database();
     $this->load->model("newsModel");
 
-    $latest_news = $this->newsModel->get_latest_news_list(1,100);
+    $latest_news = $this->newsModel->get_latest_news_list($current_year,1,100);
     $this->load->view('news/index',[
+        "current_year" => $current_year,
         "pageTitle" => "最新消息",
         "all_news" => $latest_news
     ] );

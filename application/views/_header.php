@@ -139,9 +139,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 106年提案
               </a>
               <ul class="dropdown-menu">
-                <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
-                <?php foreach($areas_list as $____area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($____area))?>"><?=$____area?></a></li>
+                <?php foreach($_areas as $_area){ ?>
+                <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($_area->name))?>"><?=$_area->name?></a></li>
                 <?php } ?>
               </ul>
 
@@ -155,8 +154,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="divider">
                 </li>
                 <?php $areas_list = ["中區","大里區","清水區","豐原區"]; ?>
-                <?php foreach($areas_list as $___area){ ?>
-                <li><a class="nav-item"  href="<?=site_url("/areas/location/".$___area)?>"><?=$___area?></a></li>
+                <?php foreach($_areas as $_area){ ?>
+                <li><a class="nav-item"  href="<?=site_url("/areas/location/".rawurlencode($_area->name))?>"><?=$_area->name?></a></li>
                 <?php } ?>
               </ul>
             </li>

@@ -230,6 +230,7 @@ td{
   background:#fdecc1;
   padding-right: 20px;
   padding-left:20px;
+  min-height:400px;
 }
 
 .news-event-list{
@@ -277,10 +278,17 @@ td{
 
 .labels li{
   padding-left:15px;
-  background:#ccff18;
   list-style:none;
+  margin-top:20px;
+}
+
+.labels li a{
+  background:#f9a0b1;
   border-radius: 0 20px 20px 0;
   margin-top:20px;
+  width:100%;
+  height:100%;
+  display:block;
 }
 
 .labels .label-1{

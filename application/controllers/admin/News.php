@@ -10,7 +10,7 @@ class News extends MY_ADMIN_Controller {
     $this->load->database();
     $this->load->model("newsModel");
 
-    $latest_news = $this->newsModel->get_latest_news_list(1,100);
+    $latest_news = $this->newsModel->get_latest_news_list(LAST_YEAR,1,100);
 
     $this->_load_view("news/index",[
         "pageTitle" => "所有新聞一覽",

@@ -19,15 +19,23 @@
     
     <div class="news-list clearfix">
       <div class="col-md-2 labels">
-        <h3>相關類別</h3>
+        <h3>歷年新聞</h3>
         <ul>
-          <li class="label-1">培訓</li>
+          <?php foreach($_years as $year){ ?>
+          <li><a style='width:100%;' class="label-1" href="/news/list/<?=$year?>" /><?=$year?></a></li>
+          <?php } ?>
+          <!-- <li class="label-1">培訓</li>
           <li class="label-2">說明會</li>
           <li class="label-3">推廣活動</li>
-          <li class="label-1">住民會議</li>
+          <li class="label-1">住民會議</li> -->
         </ul>
       </div>
       <div class="col-md-10 news-items clearfix">
+        <h3><?=$current_year?>年最新消息</h3>
+
+        <?php if(count($all_news) == 0){ ?>
+          <p><?=$current_year?> 年該年度尚無最新消息</p>
+        <?php }?>
 
         <?php foreach($all_news as $new){ ?>
 
