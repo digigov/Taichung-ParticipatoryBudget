@@ -14,19 +14,19 @@
         <div class="col-sm-12">
           <div class="col-md-6">
             <div class="panel panel-default">
-              <div class="panel-heading">主辦單位：臺中市政府民政局</div>
+              <div class="panel-heading">主辦單位:臺中市政府民政局</div>
               <div class="panel-body">
-                <p>地址：407 臺中市西屯區臺灣大道三段99號惠中樓6樓</p>
-                <p>電話：04-22289111</p>
-                <p>傳真：04-22204414</p>
-                <p>辦公時間：8:00-17:00，中午休息時間：12:00~13:00</p>
+                <p>地址:407 臺中市西屯區臺灣大道三段99號惠中樓6樓</p>
+                <p>電話:04-22289111</p>
+                <p>傳真:04-22204414</p>
+                <p>辦公時間:8:00-17:00，中午休息時間:12:00-13:00</p>
                 <p>&nbsp;</p>
               </div>
             </div>
           </div>
           <div class=" col-md-5 col-md-offset-1">
             <div class="panel panel-default">
-              <div class="panel-heading">執行單位：臺中市參與式預算辦公室</div>
+              <div class="panel-heading">執行單位:臺中市參與式預算辦公室</div>
               <div class="panel-body">
                 <p>地 址:402臺中市南區忠明南路758號17樓</p>
                 <p>電 話:04-22609641</p>
