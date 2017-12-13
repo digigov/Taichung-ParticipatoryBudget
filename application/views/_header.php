@@ -167,8 +167,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 <li class="divider">
                 </li>
-                <?php foreach($_areas as $_area){ ?>
+
+                <?php 
+
+                $LLyear = LAST_YEAR;
+                $area_ind = 0;
+                foreach($_areas as $_area){
+                  if(!isset($_area->years) || $_area->years == null || !isset($_area->years->$LLyear) ){
+                    continue;
+                  }
+                  
+                  $area_ind++;
+                ?>
                 <li><a class="nav-item"  href="<?=site_url("/areas/location/".rawurlencode($_area->name))?>"><?=$_area->name?></a></li>
+                <?php } ?>
+
+                <?php if($area_ind == 0 ){ ?>
+                <li> <a href="#" class='nav-item' >暫無資料</a> </li>
                 <?php } ?>
               </ul>
             </li>
