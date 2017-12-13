@@ -67,6 +67,7 @@
       </a>
     </div>
   </div>
+  <?php if(0){ ?>
   <div class="cube cube-red">
     <div class="cube-title">
       今年推動流程
@@ -93,6 +94,8 @@
       </a>
     </div>
   </div>
+  <?php } ?>
+  
 
   <div class="cube cube-orange">
     <div class="cube-title">
