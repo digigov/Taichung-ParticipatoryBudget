@@ -25,8 +25,8 @@ class Seminar extends MY_Record_Controller {
     $this->load->database();
     $this->load->model("areaModel");
 
-    $areas = $this->areaModel->get_area_simple_list();
-
+    $areas = $this->areaModel->get_area_simple_list($year);
+    
     $area_counts = $this->_model->get_area_counts_by_year($year);
 
     foreach($areas as $a){

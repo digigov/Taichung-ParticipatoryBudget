@@ -10,14 +10,28 @@ class AreaModel extends CI_Model {
     parent::__construct();
   }
 
-  public function get_area_simple_list(){
+  public function get_area_simple_list($year = null){
     $this->db->select("id,name,city,pic,years");
     $this->db->where("deleted",false);
 
     $this->db->order_by("id","desc");
 
     $q = $this->db->get($this->_table);
-    return $this->_convert_all($q->result());
+    $res= $this->_convert_all($q->result());
+
+    if($year != null){
+      $res2= [];
+
+      foreach($res as $a){
+        if($a->years != null && isset( $a->years->$year ) && $a->years->$year == "1"){
+          $res2[] = $a;
+        }
+      }
+      return $res2;
+    }
+
+    return $res;
+
   }
 
   public function get_all_by_page($page,$pageSize){
