@@ -101,14 +101,20 @@ class Area extends MY_ADMIN_Controller {
       $update_data[$field] = $this->input->post($field);
     }
 
-
     $id = $this->input->post("id");
-
     
     $upload = $this->_upload("area","pic","area/".$id."/");
     if($upload->isSuccess){
       $update_data["pic"] = $upload->data->url;
     }
+
+    $years = $this->input->post("years");
+
+    $year_res = [];
+    foreach($years as $year){
+      $year_res[$year] = 1;
+    }
+    $update_data["years"] = json_encode($year_res);
 
     $this->_model->update($id,$update_data);
 

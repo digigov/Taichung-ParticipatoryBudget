@@ -139,8 +139,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?=LAST_YEAR-1911?> 年提案
               </a>
               <ul class="dropdown-menu">
-                <?php foreach($_areas as $_area){ ?>
+                <?php 
+                $area_ind = 0;
+                foreach($_areas as $_area){
+                  if(!isset($_area->years[LAST_YEAR])  ){
+                    continue;
+                  }
+                  $area_ind++;
+                ?>
                 <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($_area->name)."/".LAST_YEAR)?>"><?=$_area->name?></a></li>
+                <?php } ?>
+
+                <?php if($area_ind == 0 ){ ?>
+                <li> <a href="#" class='nav-item' >暫無資料</a> </li>
                 <?php } ?>
               </ul>
 

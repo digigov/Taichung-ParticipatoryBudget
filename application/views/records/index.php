@@ -23,8 +23,19 @@
 
       <h3>該年度各區域提案紀錄</h3>
       <ul >
-            <?php foreach($_areas as $_area){ ?>
+            <?php 
+              $year_ind = 0;
+              foreach($_areas as $_area){
+                if(!isset($_area->years[$year])){
+                  continue;
+                }
+                $year_ind++;
+              ?>
         <li><a href="<?=site_url("/areas/view/".rawurlencode($_area->name)."/".$year)?>"><?=$_area->name?></a></li>
+        <?php } ?>
+        
+        <?php if($year_ind == 0) { ?>
+          <li>無區域提案紀錄</li>
         <?php } ?>
       </ul>
       <hr />

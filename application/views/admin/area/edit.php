@@ -59,6 +59,17 @@
               <input type="file" name="pic" />
             </td>
           </tr>
+          <tr>
+                <td>所屬年份</td>
+                <td>
+                <?php for($year_ind = START_YEAR ; $year_ind <= LAST_YEAR ; ++ $year_ind) { ?>
+                    <label>
+                        <input type="checkbox" name="years[]" value="<?=h($year_ind)?>" />
+                        <?=h($year_ind)?>
+                    </label>
+                <?php } ?> 
+                </td>
+          </tr>
         </tbody>
       </table>
 

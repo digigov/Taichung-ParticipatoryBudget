@@ -10,7 +10,7 @@ class Events extends MY_Controller {
     $this->load->database();
     $this->load->model("newsModel");
 
-    $latest_news = $this->newsModel->get_latest_event_list($current_year,$current_year,1,100);
+    $latest_news = $this->newsModel->get_latest_event_list($current_year,1,100);
     $this->load->view('events/index',[
         "current_year" => $current_year,
         "pageTitle" => "活動快訊",
