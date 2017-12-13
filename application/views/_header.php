@@ -140,11 +140,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </a>
               <ul class="dropdown-menu">
                 <?php 
+
+                $LLyear = LAST_YEAR;
                 $area_ind = 0;
                 foreach($_areas as $_area){
-                  if(!isset($_area->years[LAST_YEAR])  ){
+                  if(!isset($_area->years) || $_area->years == null || !isset($_area->years->$LLyear) ){
                     continue;
                   }
+                  
                   $area_ind++;
                 ?>
                 <li><a class="nav-item"  href="<?=site_url("/areas/view/".rawurlencode($_area->name)."/".LAST_YEAR)?>"><?=$_area->name?></a></li>

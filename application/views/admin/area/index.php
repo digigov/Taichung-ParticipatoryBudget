@@ -7,7 +7,9 @@
         <td>#</td>
         <td>縣市名稱</td>
         <td>區域名稱</td>
+        <td>所屬年份</td>
         <td>建立日期</td>
+        <td>最後更新日期</td>
         <td>&nbsp;</td>
       </tr>
     <?php foreach($all_items as $ind => $item){  ?>
@@ -20,7 +22,22 @@
           <?=h($item->name)?>
         </td>
         <td>
-          <?=_date_format($item->ctime)?>
+          <?php 
+          if($item->years == null ){
+            echo "無";
+          }else{
+            $years = [];
+            foreach($item->years as $key => $val ){
+              $years[] = $key;
+            }
+            echo join("，",$years);
+          }?>
+        </td>
+        <td>
+          <?=_date_format_utc($item->ctime)?>
+        </td>
+        <td>
+          <?=_date_format_utc($item->mtime)?>
         </td>
         <td>
           <a class="btn btn-default" href="<?=admin_url($_type."/edit/".$item->id)?>">編輯</a>

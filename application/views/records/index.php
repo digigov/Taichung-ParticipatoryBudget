@@ -26,7 +26,7 @@
             <?php 
               $year_ind = 0;
               foreach($_areas as $_area){
-                if(!isset($_area->years[$year])){
+                if(!isset($_area->years) || $_area->years == null || !isset($_area->years->$year) ){
                   continue;
                 }
                 $year_ind++;

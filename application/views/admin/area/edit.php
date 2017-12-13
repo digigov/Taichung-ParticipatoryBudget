@@ -26,15 +26,15 @@
           <tbody>
           
           <tr>
-            <td class="field col-xs-2" >名稱(ex.豐原市)</td>
-            <td class="col-xs-10" colspan="2">
-              <input type="text" style="width:100%;" name="name" value="<?=h($news->name)?>"/>
-            </td>
-          </tr>
-          <tr>
             <td class="field col-xs-2" >縣市</td>
             <td class="col-xs-10" colspan="2">
               <input type="text" style="width:100%;" name="city" value="<?=h($news->city)?>"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="field col-xs-2" >行政區</td>
+            <td class="col-xs-10" colspan="2">
+              <input type="text" style="width:100%;" name="name" value="<?=h($news->name)?>"/>
             </td>
           </tr>
           <tr>
@@ -64,7 +64,7 @@
                 <td>
                 <?php for($year_ind = START_YEAR ; $year_ind <= LAST_YEAR ; ++ $year_ind) { ?>
                     <label>
-                        <input type="checkbox" name="years[]" value="<?=h($year_ind)?>" />
+                        <input type="checkbox" <?=$news->years != null && isset($news->years->$year_ind) && $news->years->$year_ind == "1" ?"checked":""?> name="years[]" value="<?=h($year_ind)?>" />
                         <?=h($year_ind)?>
                     </label>
                 <?php } ?> 

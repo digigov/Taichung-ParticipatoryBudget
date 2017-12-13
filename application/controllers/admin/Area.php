@@ -40,6 +40,9 @@ class Area extends MY_ADMIN_Controller {
     $news->intro ="";
     $news->opendata_link ="";
     $news->id = -1;
+    $news->pic = null;
+    $news->years = null;
+    
 
     $this->_load_view($this->_type."/edit",[
         "pageTitle" => "新增 ".$this->_name ,
@@ -57,6 +60,16 @@ class Area extends MY_ADMIN_Controller {
     foreach($this->fields as $field){
       $inserted_data[$field] = $this->input->post($field);
     }
+
+
+    $years = $this->input->post("years");
+    
+    $year_res = [];
+    foreach($years as $year){
+      $year_res[$year] = 1;
+    }
+    $inserted_data["years"] = json_encode($year_res);
+    
 
     $id = $this->_model->insert($inserted_data);
 

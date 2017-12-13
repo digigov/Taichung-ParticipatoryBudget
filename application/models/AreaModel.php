@@ -11,25 +11,25 @@ class AreaModel extends CI_Model {
   }
 
   public function get_area_simple_list(){
-    $this->db->select("id,name,city,pic");
+    $this->db->select("id,name,city,pic,years");
     $this->db->where("deleted",false);
 
     $this->db->order_by("id","desc");
 
     $q = $this->db->get($this->_table);
-    return ($q->result());
+    return $this->_convert_all($q->result());
   }
 
   public function get_all_by_page($page,$pageSize){
     $this->db->select("*");
     $this->db->where("deleted",false);
 
-    $this->db->order_by("id","desc");
+    $this->db->order_by("mtime","desc");
     $this->db->limit($pageSize);
     $this->db->offset($pageSize*($page-1));
 
     $q = $this->db->get($this->_table);
-    return ($q->result());
+    return $this->_convert_all($q->result());
   }
 
   public function get_all_by_area_page($area,$page,$pageSize){
@@ -42,8 +42,22 @@ class AreaModel extends CI_Model {
     $this->db->offset($pageSize*($page-1));
 
     $q = $this->db->get($this->_table);
-    return ($q->result());
 
+    return $this->_convert_all($q->result());
+
+  }
+
+
+  public function _convert_all($items){
+    if($items == null){
+      return null;
+    }
+    foreach($items as $item){
+      if(isset($item->years) && $item->years != null){
+        $item->years = json_decode($item->years);
+      }
+    }
+    return $items;
   }
 
   public function get($id){
@@ -52,7 +66,7 @@ class AreaModel extends CI_Model {
     $this->db->where("id",$id);
     $this->db->where("deleted",false);
     $q = $this->db->get($this->_table);
-    return array_first_item($q->result());
+    return array_first_item($this->_convert_all($q->result()));
   }
 
   public function find_by_name($name){
@@ -75,6 +89,7 @@ class AreaModel extends CI_Model {
 
   public function update($id,$options){
     $this->db->set($options);
+    $this->db->set("mtime","now() at time zone 'utc'",false);
     $this->db->where("id",$id);
     $this->db->update($this->_table);
   }
