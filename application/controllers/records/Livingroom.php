@@ -42,7 +42,7 @@ class Livingroom extends MY_Record_Controller {
 
     $this->_render_area_list([
       [ "url" => site_url("/record/year/".$year),
-          "name" => "工作成果與提案記錄 - 2016"
+          "name" => "工作成果與提案記錄 - ".$year
       ],
       ["name" => "客廳說明會"]
     ]
@@ -72,7 +72,7 @@ class Livingroom extends MY_Record_Controller {
     $breadcrumb = [
       [ 
         "url" => site_url("/record/year/".$year),
-        "name" => "工作成果與提案記錄 - 2016"
+        "name" => "工作成果與提案記錄 - ".$year
       ],
       ["name" => "客廳說明會",
         "url" => site_url("/records/livingroom/index/".$year)

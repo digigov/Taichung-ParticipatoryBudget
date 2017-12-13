@@ -32,7 +32,7 @@ class Hosttrain extends MY_Record_Controller {
     $breadcrumb = [
       [ 
         "url" => site_url("/record/year/".$year),
-        "name" => "工作成果與提案記錄 - 2016"
+        "name" => "工作成果與提案記錄 - ".$year
       ],
       ["name" => $this->_name,
         "url" => site_url("/records/".$this->_view_root."/index/".$year)
