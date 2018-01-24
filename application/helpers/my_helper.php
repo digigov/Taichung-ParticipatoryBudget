@@ -194,3 +194,32 @@ function _truncate($string, $limit, $break=".", $pad="......")
   return mb_substr($string,0,$limit).$pad;
 }
 
+
+
+function _parse_fiddle_text($text){
+
+//  $info = json_decode($item->map_infos);
+  // http://mapfiddle.org/api/marker/mk5a61621e4424b/geojson
+  $fiddles = preg_split("/[\n, ]/",$text);
+
+  $markers = [];
+  foreach($fiddles as $fiddle){
+    $tokens = explode("/",$fiddle);
+    $key = $tokens[count($tokens)-1];
+    if(strlen($key) == 0){
+      continue;
+    }
+
+    $api = json_decode(file_get_contents("http://mapfiddle.org/api/marker/".$key."/geojson"));
+
+
+    foreach($api->features as $feature){
+      $markers[] = $feature->geometry;
+    }
+    
+  }
+
+  return $markers;
+
+  
+}

@@ -95,18 +95,15 @@
     });
 
     var renderText = function(item){
-      var fields = ["填報部門", "填報部門單位", "填報人", "填報人聯絡方式", "區", "起始年度", "結束年度", "分類", "建設(服務)案", "地點", "預算金額", "預算狀態", "中央補助款金額", "預算說明", "內容摘要", "辦理期程", "計畫聯絡科室", "分機", "備註", "區list"];
 
       var out = [];
-      out.push("<h2>"+item["建設(服務)案"]+"</h2>");
-      out.push("<p>辦理機關： "+item["填報部門"]+"<br />");
-      out.push("計畫預算： "+( item["預算金額"] && (item["預算金額"]+ "  (約 "+convert(parseInt(item["預算金額"],10),true)+")" ) || "無資料")+"<br />");
-      out.push("計畫期程： "+item["辦理期程"]+"</p>");
-      out.push("<div style='float:right;'><a href='/areas/detail/"+item["建設(服務)案"]+"'>...瞭解更多</a></div>");
+      out.push("<h2>"+item["name"]+"</h2>");
+      out.push("<p>辦理機關： "+item["unit"]+"<br />");
+      out.push("計畫預算： "+( item["budget"] && (item["budget"]+ "  (約 "+convert(parseInt(item["budget"],10),true)+")" ) || "無資料")+"<br />");
+      out.push("計畫期程： "+item["schedule_abstract"]+"</p>");
+      out.push("<div style='float:right;'><a href='/areas/detail/"+item["id"]+"'>...瞭解更多</a></div>");
       out.push("<div style='clear:both;'></div>");
-      // for(var k in fields){
-      //   out.push(fields[k]+":"+item[fields[k]]);
-      // }
+      
       return out.join("");
     };
 
@@ -139,25 +136,24 @@
 
     var markers = [];
     // menu-toggle
-    $.get("/js/cleaned_data.json",function(data){
+    $.get("<?=site_url("areas/api_data")?>",function(data){
       $.each(data,function(ind,project){
         project["gov_type"] ="gov";
-        for(var k in project["地圖"]){
-          var gis = project["地圖"][k];
-          if(gis.type == 0 || gis.latlngs.length == 1){
-            gis.latlngs.forEach(function(p){
-              var props = icons[project["分類"]+"_"+project["gov_type"]] && {icon:icons[project["分類"]+"_"+project["gov_type"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap)
+
+        project.map_infos.markers.forEach((item)=>{
+
+          if(item.type == "Point"){
+            var props = icons[project["type"]+"_"+project["gov_type"]] && {icon:icons[project["type"]+"_"+project["gov_type"]],zIndexOffset:100} || {zIndexOffset:100};
+
+            var latlng = [item.coordinates[1],item.coordinates[0]];
+            var marker = L.marker(latlng ,props).addTo(mymap)
                 .bindPopup(renderText(project));
               marker.data = project;
               markers.push(marker);
-            });
           }
           
-        }
+        });
       });
-        
-
     });
 
     var rerender = function(){

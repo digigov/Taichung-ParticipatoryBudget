@@ -73,6 +73,7 @@ class Cases extends MY_ADMIN_Controller {
     $news->step_ivoting_2 = false;
     $news->step_advance = false;
     $news->step_running = false;
+    $news->area_id = null;
 
     $news->step_source_files = null;
     $news->step_expert_files = null;

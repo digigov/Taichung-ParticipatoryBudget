@@ -50,6 +50,20 @@ class Areas extends MY_Controller {
     ] );
   }
 
+  public function api_data(){
+
+		$this->load->model("govProjModel");
+		$all = $this->govProjModel->find();
+
+    header('Content-Type: application/json');
+
+    foreach($all as &$item){
+      $item->map_infos = json_decode($item->map_infos);
+      
+    }
+    die(json_encode($all));
+  }
+
   public function location($un_area_name){
     $area_name = rawurldecode($un_area_name);
 
@@ -63,14 +77,9 @@ class Areas extends MY_Controller {
       return show_404();
     }
     
-    $gov_datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
 
-    $gov_items = [];
-    foreach($gov_datas as $data){
-      if($data->區 == $current_area->name){
-        $gov_items[] = (array) $data;
-      }
-    }    
+		$this->load->model("govProjModel");
+    $gov_datas = $this->govProjModel->find_by_area($current_area->id);
 
     $area_cases = [
       "2016" => $this->caseModel->get_active_by_area("2016",
@@ -79,33 +88,25 @@ class Areas extends MY_Controller {
     $area_item = $this->areaModel->find_by_name($area_name);
     $this->load->view('areas/location',[
         "pageTitle" => "各區介紹 - ".$area_name,
-        "gov_items" => $gov_items,
+        "gov_items" => $gov_datas ,
         "area_item" => $area_item,
         "area_name" => $area_name,
         "area_cases" => $area_cases
     ]);
   }
 
-  public function detail($unname){
-    $name = rawurldecode($unname);
-    $datas = json_decode(file_get_contents(__DIR__."/../../public/js/cleaned_data.json"));
+  public function detail($id){
 
-    $item = null;
-    foreach($datas as $data){
-      $field = "建設(服務)案";
-      if($data->$field == $name){
-        $item = (array) $data;
-        break;
-      }
-    }
+		$this->load->model("govProjModel");
+    $item = $this->govProjModel->get($id);
 
     if($item == null){
       return show_404();
     }
 
     $this->load->view('areas/detail',[
-        "pageTitle" => "各區推動概況 - ".$data->$field,
-        "area_now" => $data, 
+        "pageTitle" => "各區推動概況 - ".$item->name,
+        "area_now" => $item->area_id, 
         "data" => $item
     ] );
   }

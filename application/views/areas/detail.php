@@ -9,23 +9,23 @@
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
       各區推動概況 &gt;
       <?php $field = "建設(服務)案"; ?>
-      <span class="now"><?=h($data[$field])?></span>
+      <span class="now"><?=h($data->name)?></span>
     </div>
   
     <div class="col-md-8" >
-      <div id='cont' class="menu" data-name="<?=($data["建設(服務)案"])?>">
-        <p>辦理機關： <?=$data["填報部門"]?></p>
+      <div id='cont' class="menu" data-id="<?=h($data->id)?>" data-name="<?=($data->name)?>">
+        <p>辦理機關： <?=$data->unit?></p>
 
-        <?php if($data["區"] !=""){ ?>
-        <p>所屬分區：<a href="/areas/location/<?=$data["區"]?>"><?=$data["區"]?></a> </p>
+        <?php if($data->area !=""){ ?>
+        <p>所屬分區：<a href="/areas/location/<?=$data->area?>"><?=$data->area?></a> </p>
         <?php } ?>
-        <p>計畫分類：<?=$data["分類"]?> </p>
+        <p>計畫分類：<?=$data->type?> </p>
 
-        <p>辦理期程： <?=$data["辦理期程"]?></p>
+        <p>辦理期程： <?=$data->schedule_abstract?></p>
         
-        <p>計畫預算： <?=$data["預算金額"]?></p>
-        <p>計畫地點： <?=$data["地點"]?></p>
-        <p>內容摘要： <?=$data["內容摘要"]?></p>
+        <p>計畫預算： <?=$data->budget?></p>
+        <p>計畫地點： <?=$data->location?></p>
+        <p>內容摘要： <?=$data->content_abstract?></p>
         
         <hr />
         <div id="mapid" style="width: 100%; height: 500px"></div>
@@ -35,11 +35,11 @@
       <div class="menu">
         <p>計畫聯絡科室</p>
 
-        <?php if($data["計畫聯絡科室"] !=""){ ?>
+        <?php if($data->unit_contact !=""){ ?>
         <p>
-          <?=$data["計畫聯絡科室"]?>
+          <?=$data->unit_contact?>
         </p>
-        <p><?=$data["分機"]?></p>
+        <p><?=$data->unit_contact_phone?></p>
         <?php } else { ?>
         <p>無資料</p>
         <?php } ?>
@@ -49,6 +49,10 @@
 
     <div style="clear:both"></div>
 
+    <script>
+      window.data = <?=json_encode($data)?>;
+      window.data.map_infos = JSON.parse(window.data.map_infos);
+    </script>
   </div>
 </div>
 
@@ -129,40 +133,23 @@
     });
     
 
-    $.get("/js/cleaned_data.json").then(function(data){
-      var dataw = [];
-      var name = decodeURIComponent($("#cont").data("name"));
+    var project = window.data;
+    project["gov_type"] ="gov";
 
-      $.each(data,function(ind,proj){
-        if(proj["建設(服務)案"] == name) {
-          dataw.push(proj);
-        }
-      });
-      data = dataw;
-      $.each(data,function(ind,project){
-        for(var k in project["地圖"]){
-          var gis = project["地圖"][k];
-          if(gis.type == 0 || gis.latlngs.length == 1){
-            gis.latlngs.forEach(function(p){
-              var props = icons[project["分類"]] && {icon:icons[project["分類"]],zIndexOffset:100} || {zIndexOffset:100};
-              var marker = L.marker(p.latlng,props).addTo(mymap);
-                // .bindPopup(renderText(project));
-            });
-          }else if(gis.type == 1){
-            var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-            var polyline = L.polyline(latlngs, {color: 'red',zIndexOffset:50}).addTo(mymap);
-              // .bindPopup(renderText(project));
-          }else if(gis.type == 2){
-            var latlngs = gis.latlngs.map(function(p){ return p.latlng ;});
-            latlngs.push(latlngs[0]);
-            var polyline = L.polyline(latlngs, {color: 'red'}).addTo(mymap);
-              // .bindPopup(renderText(project));
-          }
-        }
-      });
-        
+    project.map_infos.markers.forEach((item)=>{
 
+      if(item.type == "Point"){
+        var props = icons[project["type"]+"_"+project["gov_type"]] && {icon:icons[project["type"]+"_"+project["gov_type"]],zIndexOffset:100} || {zIndexOffset:100};
+
+        var latlng = [item.coordinates[1],item.coordinates[0]];
+        var marker = L.marker(latlng ,props).addTo(mymap);
+        marker.data = project;
+
+        mymap.setView(latlng, 11)
+      }
+      
     });
+
 
     // var ggl = new L.Google();
     var ggl2 = new L.Google('roadmap');

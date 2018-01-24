@@ -30,12 +30,11 @@
             <td>分類</td>
           </tr>
         <?php foreach($gov_items as $item){
-            $field = "建設(服務)案";
          ?>
           <tr>
-            <td><?=h($item["填報部門"])?></td>
-            <td><a href="<?=site_url("/areas/detail/".$item[$field])?>"><?=h($item[$field])?></a></td>
-            <td><?=h($item["分類"])?></td>
+            <td><?=h($item->unit)?></td>
+            <td><a href="<?=site_url("/areas/detail/".$item->id)?>"><?=h($item->name)?></a></td>
+            <td><?=h($item->type)?></td>
           </tr>
         <?php } ?>
         </table>
