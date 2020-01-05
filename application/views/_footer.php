@@ -15,7 +15,7 @@
     <div class="footer-body"> 
       <div class="row">
         <div class="col-sm-12">
-          <div class="col-md-6">
+          <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
               <div class="panel-heading">主辦單位:臺中市政府民政局</div>
               <div class="panel-body">
@@ -27,26 +27,12 @@
               </div>
             </div>
           </div>
-          <div class=" col-md-5 col-md-offset-1">
-            <div class="panel panel-default">
-              <div class="panel-heading">執行單位:臺中市參與式預算辦公室</div>
-              <div class="panel-body">
-                <p>地 址:402臺中市中區中山路69號四樓</p>
-                <p>電 話:04-2222-1712</p>
-                <p></p>
-                <p>辦公時間:09:00-18:00</p>
-                <p>E-mail:2018pb.taichung@gmail.com</p>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="col-md-2 col-md-offset-4 col-xs-offset-4 col-xs-4  col-sm-2" >
+        <div class="col-md-2 col-md-offset-5 col-xs-offset-4 col-xs-4  col-sm-2" >
           <a target="_blank" href="http://www.taichung.gov.tw/"><img style='width:100%;' alt="臺中市政府" src="<?=base_url("img/taichung_logo.png")?>" /></a>
         </div>
         <div class="fb-page-container col-md-4 col-xs-12 col-sm-5" style="text-align:left;">
           <div >
-            <div class="fb-page" data-href="https://www.facebook.com/pbtaichung/"  data-tabs="timeline" data-height="100" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/pbtaichung/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/pbtaichung/">臺中市參與式預算</a></blockquote></div>
-            <div style='clear:both'></div>
           </div>
         </div>
       </div>

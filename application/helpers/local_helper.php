@@ -32,6 +32,16 @@ function _get_record_types(){
   ];
 }
 
+function _get_record_type_map(){
+	$types = _get_record_types();
+	$ret = [];
+	foreach($types as $type){
+		$ret[$type->key] = $type;
+        }
+
+	return $ret;
+}
+
 function _render_select($options,$name,$val){
   ?>
 <select name="<?=h($name)?>">

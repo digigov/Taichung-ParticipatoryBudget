@@ -113,6 +113,9 @@ class NewsModel extends CI_Model {
     $this->db->set("content",$content);
     $this->db->set("image",$img);
     $this->db->set("mtime", db_current_gmt_date() );
+
+    $this->db->set("publish_date", db_current_gmt_date() );
+
     $this->db->set("category" , $category);
     $this->db->set("year" , $year);
     $this->db->set("is_video" , $is_video);

@@ -40,6 +40,8 @@ class Welcome extends MY_Controller {
 		session_write_close();
 	}
 
+
+	/*
 	public function QA(){
 		session_write_close();
 		$this->load->database();
@@ -54,11 +56,14 @@ class Welcome extends MY_Controller {
 			]);
 			
 	}
+	*/
 
+	/*
 	public function process(){
 		session_write_close();
 		$this->load->view('pages/process',["pageTitle" => "臺中市參與式預算推動流程"]);
 	}
+	*/
 
 	public function introduce(){
 		session_write_close();

@@ -1,8 +1,9 @@
 <?php include(__DIR__."/../_header.php"); ?>
 
 <?php function css_section(){ ?>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
 <?php } ?>
+
+
 <div class="container">
   <div class="content-list" style="min-height:450px;">
     <div class="breadcrumb">
@@ -44,18 +45,41 @@
       <?php } ?>
       </table>
     </div>
+	
 
     <div style="clear:both"></div>
-    
 
+	<?php if(1){ ?>
+    <div class="col-md-12 col-sm-12 ">
+	<h2>該年度相關訪談及活動紀錄</h2>
+	
+	<?php $typeMap = _get_record_type_map() ; ?>
+	<table class="table table-bordered" style='background:white;'>
+		<tr><td>日期</td><td>名稱</td></tr>
+        <?php foreach($records as $record){ ?>
+		<tr>
+		    <td><?=_date_format($record->record_date,"Y-m-d") ?> </td>
+		    <td>
+			 <a href="/records/<?=$record->record_type?>/view/<?=$record->id?>">
+			 <?=$record->type?>
+				<?= isset($typeMap[$record->record_type] ) ? $typeMap[$record->record_type]->name : "" ?>	
+				 紀錄 
+			</a>
+		    </td>
+		</tr>	
+        <?php } ?>  
+	</table>
+    </div>
+	<div style='clear:both'></div>
+	<?php } ?>
   </div>
 </div>
 
 <?php function js_section(){ ?>
 
-  <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
   <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script> 
-  
+
+<?php if(0){ ?>  
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSIFJslwcgjr4ttFgt0TX3KSG6sqLkzY8"
         ></script>
   <script src="<?=base_url("js/google_tile.js")?>"></script>
@@ -172,6 +196,8 @@
     mymap.addControl(new L.Control.Layers( {'Google':ggl2,'OSM':osm}, {}));
 
   </script>
+<?php } ?>
+
 <?php } ?>
 
 

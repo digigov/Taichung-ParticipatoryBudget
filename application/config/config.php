@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://pb.taichung.gov.tw/';
-// $config['base_url'] ='http://210.69.115.29/';
+//$config['base_url'] ='http://192.168.2.90/';
 
 //  $config['base_url'] ='http://pb.local/';
 

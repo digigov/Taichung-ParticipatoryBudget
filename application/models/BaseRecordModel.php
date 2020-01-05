@@ -14,7 +14,10 @@ class BaseRecordModel extends CI_Model {
   public function get_all_by_page($page,$pageSize){
     $this->db->select("*,(select name from areas where areas.id = livingroom.area_id) as area");
     $this->db->where("deleted",false);
-    $this->db->where("record_type",$this->_type);
+
+    if($this->_type != null ){
+       $this->db->where("record_type",$this->_type);
+    }
 
     $this->db->order_by("record_date","desc");
     $this->db->limit($pageSize);
@@ -31,7 +34,9 @@ class BaseRecordModel extends CI_Model {
     $this->db->where("n.area_id",$area_id);
     $this->db->where("n.year",$year);
 
+ if($this->_type != null ){        
     $this->db->where("n.record_type",$this->_type);
+ }
     $this->db->order_by("n.record_date","desc");
 
     $q = $this->db->get($this->_table." n");
@@ -44,7 +49,10 @@ class BaseRecordModel extends CI_Model {
     $this->db->where("n.deleted",false);
     $this->db->where("n.year",$year);
 
+ if($this->_type != null ){        
     $this->db->where("n.record_type",$this->_type);
+ }
+
     $this->db->order_by("n.record_date","desc");
 
     $q = $this->db->get($this->_table." n");
@@ -56,7 +64,10 @@ class BaseRecordModel extends CI_Model {
     $this->db->select("n.area_id,count(*) as cnt");
     $this->db->where("n.deleted",false);
     $this->db->where("n.year",$year);
+
+ if($this->_type != null ){        
     $this->db->where("n.record_type",$this->_type);
+ }
     $this->db->group_by("n.area_id");
 
     $q = $this->db->get($this->_table." n");
@@ -69,7 +80,10 @@ class BaseRecordModel extends CI_Model {
 
 
     $this->db->where("a.name",$area);
+
+ if($this->_type != null ){        
     $this->db->where("n.record_type",$this->_type);
+ }
 
     $this->db->join("areas a","a.id = n.area_id");
     $this->db->order_by("n.id","desc");

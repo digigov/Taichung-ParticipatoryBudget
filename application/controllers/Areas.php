@@ -29,17 +29,19 @@ class Areas extends MY_Controller {
     if($current_area == null){
       return show_404();
     }
-
-    $this->load->database();
     $this->load->model("caseModel");
 
     $cases = $this->caseModel->get_active_by_area($year,$current_area->id);
     
+    $this->load->model("allBaseRecordModel");
+    $records = $this->allBaseRecordModel->get_all_by_area_id_and_year($current_area->id, $year);
+
     $this->load->view('areas/view',[
         "pageTitle" => "各區推動概況 - ".$current_area->name,
         "current_year" => $year,
         "items" => $cases,
-        "area_now" => $current_area->name
+        "area_now" => $current_area->name,
+        "records" => $records
     ] );
   }
 

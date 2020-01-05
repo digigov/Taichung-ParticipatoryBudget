@@ -1,14 +1,13 @@
 <?php include(__DIR__."/../_header.php"); ?>
 
 <?php function css_section(){ ?>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
 <?php } ?>
+
 <div class="container page-introduce">
   <div class="layout-content" style="min-height:450px;">
     <div class="breadcrumb">
       <a href="<?=site_url("/")?>">首頁</a> &gt; 
-      <a  style='font-weight: bold;' href="<?=site_url("/introduce")?>">認識參與式預算</a> | 
-      <a href="<?=site_url("/process")?>">推動流程</a> 
+      <a  style='font-weight: bold;' href="<?=site_url("/introduce")?>">認識參與式預算</a>
     </div>
   
     <div class="col-md-12 col-sm-12">

@@ -107,9 +107,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
-          <div class="nav-social">
+          <div class="nav-social">	
+		<?php if(0){ ?>
               <a target="_blank" href="<?=h("https://www.facebook.com/pbtaichung/")?>"><img src="<?=base_url("img/social_fb.png")?>" /></a>
-              <?php if(0){ ?>
+              
               <a href="#"><img src="<?=base_url("img/social_gplus.png")?>" /></a>
               <a href="#"><img src="<?=base_url("img/social_twitter.png")?>" /></a>
               <a href="#"><img src="<?=base_url("img/social_plurk.png")?>" /></a>
@@ -131,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">   認識參與式預算 </a>
               <ul class="dropdown-menu">
                 <li><a class="nav-item" href="<?=site_url("/introduce")?>">何謂參與式預算</a></li>
-                <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li>
+<?php if(0){ ?>      <li><a class="nav-item" href="<?=site_url("/process")?>">推動流程</a></li> <?php } ?>
               </ul>
             </li>
             <li class="dropdown">
@@ -211,12 +212,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </ul>
             </li>
 
+<?php if(0){ ?>
             <li><a class="nav-item" href="<?=site_url("/QA")?>"> Q &amp; A</a></li>
             
             
             <!--
             <li><a class="nav-item" href="<?=site_url("/")?>"> 記錄區 </a></li>
             -->
+
+<?php } ?>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
