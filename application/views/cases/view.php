@@ -181,12 +181,17 @@
           <?php 
           $status = [
             ["住民會議提案", "step_source" ],
-            ["專家學者意見", "step_expert" ],
-            ["第一階段 ivoting ", "step_ivoting_1" ],
-            ["第二階段 ivoting ", "step_ivoting_2" ],
-            ["優先執行", "step_advance" ],
-            ["執行進度", "step_running" ]
-          ];
+            ["專家學者意見", "step_expert" ]
+	  ];
+
+          $status[]=  ["第一階段 ivoting ", "step_ivoting_1" ];
+
+        if($news->year <2018 ){
+          $status[]=["第二階段 ivoting ", "step_ivoting_2" ];
+	} 
+          $status[]=["優先執行", "step_advance" ];
+          $status[]=["執行進度", "step_running" ];
+          
           ?>
           <?php foreach ($status as $key => $value) { 
               $file = $value[1]."_files";

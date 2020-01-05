@@ -55,7 +55,7 @@
             <hr />
             <p>
               有任何參與式預算的相關問題，都歡迎 email 至臺中市參與式預算推動專案辦公室！<br />
-              <a style='color:white;' href="mailto:empower.tccentral@gmail.com">empower.tccentral@gmail.com</a>
+              <a style='color:white;' href="mailto:2018pb.taichung@gmail.com">2018pb.taichung@gmail.com</a>
             </p>
           </div>  
         </div>

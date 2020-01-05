@@ -41,15 +41,21 @@
 
         <h3>歷年民眾提案一覽表</h3>
         
-        <?php foreach($area_cases as $year => $datas){ ?>
+        <?php foreach($area_cases as $year => $datas){
+		if(count($datas) == 0){ continue ;}
+		
+ ?>
         <p>
           <?=$year?> 年
         </p>
         <table style="background:white;border-radius: 5px;" class="table table-bordered">
         <tr>
-          <td style="width:10%;text-align:center;">
+	<?php if($year < 2017 ) { ?>
+	<td style="width:10%;text-align:center;">
             進入<Br />第二階段<Br />
-            i-Voting</td>
+            i-Voting
+		</td>
+	<?php }?>
           <td>最終優先提案</td>
           <td>編號</td>
           <td>名稱</td>
@@ -57,7 +63,9 @@
         </tr>
       <?php foreach($datas as $item){ ?>
         <tr>
+	 <?php if($year < 2017 ) { ?>
           <td style="text-align:center;"><?=h($item->step_ivoting_2?"V":"")?></td>
+	<?php } ?>
           <td><?=h($item->step_advance?"V":"")?></td>
           <td><?=h($item->caseno)?></td>
           <td><a href="<?=site_url("/cases/view/".$item->id)?>"><?=h($item->name)?></a></td>
@@ -67,6 +75,8 @@
       </table>
         <?php } ?>
 
+	
+	<hr />
 
         <!-- <div id="mapid" style="width: 100%; height: 500px"></div> -->
 

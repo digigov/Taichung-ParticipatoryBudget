@@ -32,7 +32,9 @@
             <div class="content">
               <a  href="<?=site_url("records/livingroom/view/".$new->id)?>"><?=_truncate(strip_tags($new->content),60)?>
                 <br />
+		<?php if($new->type != "其它") { ?>
                 <img width="30" src="<?="/img/icons/".$new->type.".png"?>" title="<?=h($new->type)?>"  alt="<?=h($new->type)?>" />
+		<?php } ?>
                 <?=h($new->type)?>
 
               </a>

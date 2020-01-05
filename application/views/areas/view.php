@@ -14,9 +14,12 @@
     <div class="col-md-12 col-sm-12 ">
       <table style="background:white;border-radius: 5px;" class="table table-bordered">
         <tr>
+	<?php if($current_year < 2018) { ?>
           <td style="width:15%;text-align:center;">
+	
             進入<Br />第二階段<Br />
             i-Voting</td>
+	<?php } ?>
           <td>最終優先提案</td>
           <td>編號</td>
           <td>名稱</td>
@@ -30,7 +33,9 @@
         <?php } ?>
       <?php foreach($items as $item){ ?>
         <tr>
+	   <?php if($current_year < 2018) { ?>
           <td style="text-align:center;"><?=h($item->step_ivoting_2?"V":"")?></td>
+           <?php } ?>
           <td><?=h($item->step_advance?"V":"")?></td>
           <td><?=h($item->caseno)?></td>
           <td><a href="<?=site_url("/cases/view/".$item->id)?>"><?=h($item->name)?></a></td>

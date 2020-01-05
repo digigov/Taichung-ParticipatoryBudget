@@ -1,4 +1,5 @@
 <div class="container"  style="max-width:960px;margin:0 auto;margin-top:10px;">
+<!--
   <div class="qrcode">
     <a target="_blank" href="http://line.me/ti/p/%40frg1760p"><img src="<?=base_url("img/LineQRcode.png")?>" alt="line QR code" />
     </a>
@@ -7,6 +8,8 @@
       官方 line
     </div>
   </div>
+-->
+
   <hr style="margin: 0;"/>
   <div class="footer">
     <div class="footer-body"> 
@@ -28,11 +31,11 @@
             <div class="panel panel-default">
               <div class="panel-heading">執行單位:臺中市參與式預算辦公室</div>
               <div class="panel-body">
-                <p>地 址:402臺中市南區忠明南路758號17樓</p>
-                <p>電 話:04-22609641</p>
-                <p>傳 真:04-22609368</p>
+                <p>地 址:402臺中市中區中山路69號四樓</p>
+                <p>電 話:04-2222-1712</p>
+                <p></p>
                 <p>辦公時間:09:00-18:00</p>
-                <p>E-mail:deliberamos@gmail.com</p>
+                <p>E-mail:2018pb.taichung@gmail.com</p>
               </div>
             </div>
           </div>
