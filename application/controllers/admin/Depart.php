@@ -5,7 +5,7 @@ class Depart extends MY_ADMIN_Controller {
         
   var $_type = "depart";
   var $_name = "局處";
-  var $fields = ["name","city", "intro","opendata_link"];
+  var $fields = ["name"];
   public function __construct()
   {
     parent::__construct();
@@ -26,7 +26,8 @@ class Depart extends MY_ADMIN_Controller {
 
     $latest_news = $this->_model->get_list();
     $this->_load_view($this->_type."/index",[
-        "pageTitle" => "所有局處一覽"
+        "pageTitle" => "所有局處一覽",
+        "all_items" => $latest_news
     ]);
   }
 
@@ -76,7 +77,7 @@ class Depart extends MY_ADMIN_Controller {
 
     $this->_load_view($this->_type."/edit",[
         "pageTitle" => "編輯".$this->_name ,
-        "news" => $news,
+        "item" => $news,
         "action" => admin_url($this->_type."/editing")
     ]);
   }

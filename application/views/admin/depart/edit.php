@@ -27,7 +27,7 @@
           <tr>
             <td class="field col-xs-2" >局處名稱</td>
             <td class="col-xs-10" colspan="2">
-              <input type="text" style="width:100%;" name="name" value="<?=h($news->name)?>"/>
+              <input type="text" style="width:100%;" name="name" value="<?=h($item->name)?>"/>
             </td>
           </tr>
         </tbody>
@@ -35,7 +35,7 @@
 
     </div>
     <div class="button pull-right" >
-      <input type="hidden" name="id" value="<?=h($news->id)?>" />
+      <input type="hidden" name="id" value="<?=h($item->id)?>" />
       <button class="btn-primary btn">存檔</button>&nbsp;&nbsp;&nbsp;
       <a href="<?=admin_url($_type)?>">返回</a>
     </div>
