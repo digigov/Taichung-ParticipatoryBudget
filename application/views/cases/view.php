@@ -196,15 +196,17 @@
           $status[]=["第二階段 ivoting ", "step_ivoting_2" ];
 	} 
           $status[]=["優先執行", "step_advance" ];
-          $status[]=["執行進度", "step_running" ];
+          //$status[]=["執行進度", "step_running" ];
           
           ?>
-          <?php foreach ($status as $key => $value) { 
+          <?php foreach ($status as $key => $value) {
               $file = $value[1]."_files";
-            ?>
+                $file_key = $value[1];                                                                                                  
+                $file_text = $value[0];
+            ?>                                                                                                                      
             <p>
-              <a target="_blank" href="<?=$news->$value[1]?$news->$file:"#"?>" style="width:160px;text-align: center;" class="btn btn-default <?=$news->$value[1]?"btn-primary":""?>">
-                <?=$value[0]?>
+              <a target="_blank" href="<?=$news->$file_key?$news->$file:"#"?>" style="width:160px;text-align: center;" class="btn btn-default <?=$news->$file_key?"btn-primary":""?>">
+                <?=$file_text?>
               </a>
             </p>
           <?php } ?>

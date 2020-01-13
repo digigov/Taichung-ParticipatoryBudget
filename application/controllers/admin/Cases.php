@@ -10,7 +10,7 @@ class Cases extends MY_ADMIN_Controller {
     "step_ivoting_1","step_ivoting_2",
     "step_advance","progress","area_id",
     "caseno","type","process","gov_type",
-    "location_urls"
+    "location_urls","depart_id"
     ];
 
   var $advice_fields = [
@@ -24,7 +24,7 @@ class Cases extends MY_ADMIN_Controller {
 
     $this->load->database();
     $this->load->model("caseModel");
-
+    $this->load->model("departModel");
 
     $depart = $this-> _get_depart();
     if(  $depart  != null ){
@@ -81,6 +81,7 @@ class Cases extends MY_ADMIN_Controller {
     $news->content ="";
     $news->author ="";
     $news->advice ="";
+    $news->progress ="";
     $news->publish_date = gmdate("Y-m-d H:i:s");
     $news->step_source = false;
     $news->step_expert = false;
@@ -108,6 +109,7 @@ class Cases extends MY_ADMIN_Controller {
       $news->depart_id = -1;
     }
 
+      $this->load->model("departModel");
     $departs = $this->departModel->get_list();
 
     $this->_load_view("cases/edit",[
@@ -129,7 +131,7 @@ class Cases extends MY_ADMIN_Controller {
       $data[$field] = $this->input->post($field);
     }
 
-    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files","dm_file"];
+    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "dm_file"];
 
     foreach($files as $file){
       $upload = $this->_upload("pb",$file,$file."/".date("Ymd")."/");
@@ -169,6 +171,8 @@ class Cases extends MY_ADMIN_Controller {
     if($news == null){
       return show_404();
     }
+
+      $this->load->model("departModel");
 
     $depart = $this->_get_depart();
     $departs = $this->departModel->get_list();

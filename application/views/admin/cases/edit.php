@@ -47,13 +47,13 @@
           <tr>
             <td>所屬局處</td>
             <td>
-              <select name="depart" >
+              <select name="depart_id" >
                 <?php if($depart == null ) {?>
                 <option value="-1"> 請選擇 </option>
                 <?php } ?>
                 <?php foreach($departs as $now_depart){ ?>
                     <?php if($depart == null || ($depart != null && $now_depart->id == $depart)) { ?>
-                    <option value="<?=h($depart->id)?>" <?=h($item->depart == $now_depart->id ?"selected":"")?>><?=$now_depart->name?></option>
+                    <option value="<?=h($now_depart->id)?>" <?=h($news->depart_id == $now_depart->id ?"selected":"")?>><?=$now_depart->name?></option>
                     <?php } ?>
 
                 <?php } ?>
