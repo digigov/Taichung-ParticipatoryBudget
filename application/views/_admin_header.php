@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$is_depart = isset( $_SESSION["user"]) && ($_SESSION["user"]->depart != "" &&  $_SESSION["user"]->depart != null);
+
 ?><!DOCTYPE html>
 <html lang="zh-TW">
   <head>
@@ -76,7 +79,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="jq">
   
 
-
   <div class="container">
     <nav class="navbar navbar-default" >
       <div class="container-fluid">
@@ -97,21 +99,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav" style="">
             <li><a href="<?=site_url("/")?>">網站首頁</a></li>
+
+
           <?php if($is_login){ ?>
-            <li class="dropdown">
-              <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                首頁與新聞內容管理
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
-                <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
-                <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
-                <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
-                <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=友站連結&key=reference_link&year=-1")?>">友站連結管理上稿</a></li>
-                <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=何謂參與式預算&key=introduce&year=-1")?>">何謂參與式預算上稿</a></li>
-                <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=推動流程&key=process&year=-1")?>">推動流程上稿</a></li>
-              </ul>
-            </li>
+
+            <?php if(!$is_depart){ ?>
+              <li class="dropdown">
+                <a href="#" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  首頁與新聞內容管理
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-item" href="<?=site_url("/admin/news")?>">最新消息管理</a></li>
+                  <li><a class="nav-item" href="<?=site_url("/admin/events")?>">活動快訊管理</a></li>
+                  <li><a class="nav-item" href="<?=site_url("/admin/sliders")?>">輪播管理</a></li>
+                  <li><a class="nav-item" href="<?=site_url("/admin/qa")?>">QA 管理</a></li>
+                  <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=友站連結&key=reference_link&year=-1")?>">友站連結管理上稿</a></li>
+                  <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=何謂參與式預算&key=introduce&year=-1")?>">何謂參與式預算上稿</a></li>
+                  <li><a class="nav-item" href="<?=site_url("/admin/page/build?name=推動流程&key=process&year=-1")?>">推動流程上稿</a></li>
+                </ul>
+              </li>
+            <?php } ?>
             <li class="dropdown">
               <a href="<?=site_url("/admin/cases")?>" class="nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">提案管理</a>
               <ul class="dropdown-menu">
@@ -133,7 +140,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?=site_url("/admin/citizenconf/")?>">住民會議紀錄管理</a></li>
               </ul>
             </li>
-            <li><a href="<?=site_url("/admin/area/")?>">區域管理</a></li>
+
+            <?php if(!$is_depart){ ?>
+              <li><a href="<?=site_url("/admin/area/")?>">區域管理</a></li>
+              <li><a href="<?=site_url("/admin/depart/")?>">局處管理</a></li>
+            <?php } ?>
+
             <li><a class="nav-item" href="<?=site_url("/member/password")?>">變更密碼</a></li>
             <li><a class="nav-item" href="<?=site_url("/member/logout")?>">登出</a></li>
           <?php }else{ ?>
