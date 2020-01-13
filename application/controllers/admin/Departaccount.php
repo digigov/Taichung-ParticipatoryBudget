@@ -38,13 +38,14 @@ class DepartAccount extends MY_ADMIN_Controller {
     $news->name ="";  
     $news->depart ="";  
     $news->account ="";  
+    $news->id = "";
 
     $departs = $this->departModel->get_list();
 
     $this->_load_view($this->_type."/edit",[
         "pageTitle" => "新增 ".$this->_name ,
-        "item" => $item,
-        "departs" => $depars,
+        "item" => $news,
+        "departs" => $departs,
         "action" => admin_url($this->_type."/adding")
     ]);
 
@@ -58,6 +59,13 @@ class DepartAccount extends MY_ADMIN_Controller {
     foreach($this->fields as $field){
       $inserted_data[$field] = $this->input->post($field);
     }
+
+    $acc = $inserted_data["account"];
+    $existing_user = $this->_model->getByAccount($acc);
+    if($existing_user != null){
+      die("帳號已存在.");
+    }
+
 
     $id = $this->_model->insert($inserted_data);
 
@@ -91,7 +99,7 @@ class DepartAccount extends MY_ADMIN_Controller {
     $this->_load_view($this->_type."/edit",[
         "pageTitle" => "編輯".$this->_name ,
         "item" => $news,
-        "departs" => $depars,
+        "departs" => $departs,
         "action" => admin_url($this->_type."/editing")
     ]);
   }
