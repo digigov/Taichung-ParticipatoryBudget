@@ -10,6 +10,7 @@
       <td>名稱</td>
       <td style="width:20%;">提案人</td>
       <td style="width:100px;">專家建議</td>
+      <td>所屬局處</td>
       <td>建檔時間</td>
       <td>&nbsp;</td>
     </tr>
@@ -27,6 +28,9 @@
         <a href="<?=admin_url("cases/advices/".$item->id)?>">
           建議管理(<?=$item->case_cnt?>)
         </a>
+      </td>
+      <td>
+        <?=h($item->departname== null ?"尚未設定":$item->departname)?>
       </td>
       <td>
         <?=_date_format_utc($item->ctime) ?>

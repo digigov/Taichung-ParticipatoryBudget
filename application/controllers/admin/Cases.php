@@ -25,7 +25,14 @@ class Cases extends MY_ADMIN_Controller {
     $this->load->database();
     $this->load->model("caseModel");
 
-    $latest_sliders = $this->caseModel->get_latest_by_page(1,1000);
+
+    if(trim($_SESSION["user"]->depart) != ""){
+        $latest_sliders = $this->caseModel->get_latest_by_page_and_depart($_SESSION["user"]->depart,1,1000);
+    }else{
+        $latest_sliders = $this->caseModel->get_latest_by_page(1,1000);
+    }
+
+    
 
     $this->_load_view("cases/index",[
         "pageTitle" => "所有案件管理",

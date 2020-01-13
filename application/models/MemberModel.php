@@ -21,6 +21,21 @@ class MemberModel extends CI_Model {
     return ($q->result());
   }
 
+  public function insert($options){
+    //text,start_time,end_time,status,img_url,url
+    $this->db->insert($this->_table,$options);
+    return $this->db->insert_id();
+  }
+  
+
+
+  public function get($id){
+    $this->db->select("*");
+    $this->db->limit(1);
+    $this->db->where("id",$id);
+    $q = $this->db->get($this->_table);
+    return array_first_item($q->result());
+  }
 
   public function getByAccount($acc){
     $this->db->where("account",$acc);

@@ -15,7 +15,7 @@
     <?php foreach($all_items as $ind => $item){  ?>
       <tr>
         <td><?=$ind +1 ?></td>
-        <td><?=h($item->departName)?></td>
+        <td><?=h($item->departname)?></td>
         <td>
           <?=h($item->account)?>
         </td>
