@@ -144,6 +144,7 @@ $is_depart = isset( $_SESSION["user"]) && ($_SESSION["user"]->depart != "" &&  $
             <?php if(!$is_depart){ ?>
               <li><a href="<?=site_url("/admin/area/")?>">區域管理</a></li>
               <li><a href="<?=site_url("/admin/depart/")?>">局處管理</a></li>
+              <li><a href="<?=site_url("/admin/departaccount/")?>">局處帳號管理</a></li>
             <?php } ?>
 
             <li><a class="nav-item" href="<?=site_url("/member/password")?>">變更密碼</a></li>

@@ -10,6 +10,19 @@ class MemberModel extends CI_Model {
   }
 
 
+
+
+  public function get_depart_list(){
+
+    $this->db->select("* ,(select name from departs where departs.id = member.depart) as departName")
+    $this->db->where("depart is not null",null,true);
+    $q = $this->db->get($this->_table);
+
+    return ($q->result());
+  }
+
+
+
   public function getUser($acc,$pwd){
 
     $this->db->where("account",$acc);
