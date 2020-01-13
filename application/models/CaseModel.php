@@ -46,22 +46,24 @@ class CaseModel extends CI_Model {
   }
 
   public function get_latest_by_page_and_depart($depart,$page,$pageSize){
-    $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt,
-      (select name from departs dp where dp.id = cases.depart_id ) as departname");
-    $this->db->where("deleted",0);
-    $this->db->where("depart_id",$depart);
-    $this->db->order_by("id","desc");
-    $this->db->limit($pageSize);
-    $this->db->offset($pageSize*($page-1));
-
-    $q = $this->db->get($this->_table);
-    return ($q->result());
+    return $this->_get_latest_by_page($depart,null,$page,$pageSize);
   }
 
   public function get_latest_by_page($page,$pageSize){
-    $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt,
-      (select name from departs dp where dp.id = cases.depart_id ) as departname");
+    return $this->_get_latest_by_page(null,null,$page,$pageSize);
+  }
+
+  public function _get_latest_by_page($depart,$area,$page,$pageSize){
+    $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt, (select name from departs dp where dp.id = cases.depart_id ) as departname");
     $this->db->where("deleted",0);
+
+    if($depart != null){
+      $this->db->where("depart_id",$depart);
+    }
+
+    if($area != null){
+      $this->db->where("area_id",$area);
+    }
 
     $this->db->order_by("id","desc");
     $this->db->limit($pageSize);
@@ -71,23 +73,19 @@ class CaseModel extends CI_Model {
     return ($q->result());
   }
 
+
+  public function get_latest_by_area_and_page_and_depart($depart,$area,$page,$pageSize){
+    return $this->_get_latest_by_page($depart,$area,$page,$pageSize);
+  }
+
   public function get_latest_by_area_and_page($areaID,$page,$pageSize){
-    $this->db->select("*,(select count(*) from case_advice ca where ca.case_id = cases.id and deleted = 0) as case_cnt");
-
-    $this->db->where("area_id",$areaID);
-    $this->db->where("deleted",0);
-
-    $this->db->order_by("id","desc");
-    $this->db->limit($pageSize);
-    $this->db->offset($pageSize*($page-1));
-
-    $q = $this->db->get($this->_table);
-    return ($q->result());
+	 
+    return $this->_get_latest_by_page(null,$areaID,$page,$pageSize);
   }
 
 
   public function get_public($id){
-    $this->db->select("*,(select a.name from areas as a where cases.area_id = a.id) as area");
+    $this->db->select("*,(select a.name from areas as a where cases.area_id = a.id) as area, (select name from departs dp where dp.id = cases.depart_id ) as departname");
     $this->db->limit(1);
     $this->db->where("id",$id);
     $this->db->where("publish_date <= timezone('utc'::text, now()) ");
@@ -97,7 +95,7 @@ class CaseModel extends CI_Model {
   }
 
   public function get($id){
-    $this->db->select("*,(select a.name from areas as a where cases.area_id = a.id) as area");
+    $this->db->select("*,(select a.name from areas as a where cases.area_id = a.id) as area, (select name from departs dp where dp.id = cases.depart_id ) as departname");
     $this->db->limit(1);
     $this->db->where("id",$id);
     $this->db->where("deleted",0);

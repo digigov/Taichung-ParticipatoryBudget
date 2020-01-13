@@ -44,6 +44,10 @@
       </td>
     </tr>
   <?php }?>
+
+  <?php if(trim($_SESSION["user"]->depart)!="" && count($all_items) == 0 ){ ?> 
+      <tr><td colspan="12">您所屬局處尚無該區相關案件.</td></tr>
+  <?php } ?>
   </table>
   
   <div style="clear:both"></div>

@@ -170,6 +170,10 @@ class MY_ADMIN_Controller extends MY_Controller {
     return false;
   }
 
+  public function _get_depart(){
+    return  (trim($_SESSION["user"]->depart) != "") ? $_SESSION["user"]->depart : null;
+  }
+
 
 }
 

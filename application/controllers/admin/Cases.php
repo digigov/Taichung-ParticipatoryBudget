@@ -8,7 +8,7 @@ class Cases extends MY_ADMIN_Controller {
     "purpose","content","budget_desc","advice",
     "step_source","step_expert",
     "step_ivoting_1","step_ivoting_2",
-    "step_advance","step_running","area_id",
+    "step_advance","progress","area_id",
     "caseno","type","process","gov_type",
     "location_urls"
     ];
@@ -26,8 +26,9 @@ class Cases extends MY_ADMIN_Controller {
     $this->load->model("caseModel");
 
 
-    if(trim($_SESSION["user"]->depart) != ""){
-        $latest_sliders = $this->caseModel->get_latest_by_page_and_depart($_SESSION["user"]->depart,1,1000);
+    $depart = $this-> _get_depart();
+    if(  $depart  != null ){
+        $latest_sliders = $this->caseModel->get_latest_by_page_and_depart( $depart ,1,1000);
     }else{
         $latest_sliders = $this->caseModel->get_latest_by_page(1,1000);
     }
@@ -48,7 +49,14 @@ class Cases extends MY_ADMIN_Controller {
     }
 
     $this->load->model("caseModel");    
-    $latest_news = $this->caseModel->get_latest_by_area_and_page($area->id,1,1000);
+
+    
+    if(trim($_SESSION["user"]->depart) != ""){
+        $latest_news = $this->caseModel->get_latest_by_area_and_page_and_depart($_SESSION["user"]->depart,$areaID,1,1000);
+    }else{
+        $latest_news = $this->caseModel->get_latest_by_area_and_page($areaID,1,1000);
+    }
+
 
     $this->_load_view('cases/index',[
         "pageTitle" => $area->name." 提案",
@@ -93,9 +101,20 @@ class Cases extends MY_ADMIN_Controller {
     $news->year = date("Y");
     $news->id = -1;
 
+    $depart = $this->_get_depart();
+    if( $depart  != null ){
+      $news->depart_id = $depart;
+    }else{
+      $news->depart_id = -1;
+    }
+
+    $departs = $this->departModel->get_list();
+
     $this->_load_view("cases/edit",[
         "pageTitle" => "新增提案 " ,
         "news" => $news,
+        "depart" => $depart,
+        "departs" => $departs,
         "action" => admin_url("cases/adding")
     ]);
 
@@ -151,9 +170,14 @@ class Cases extends MY_ADMIN_Controller {
       return show_404();
     }
 
+    $depart = $this->_get_depart();
+    $departs = $this->departModel->get_list();
+
     $this->_load_view("cases/edit",[
         "pageTitle" => "編輯提案 " ,
         "news" => $news,
+        "depart" => $depart,
+        "departs" => $departs,        
         "action" => admin_url("cases/editing")
     ]);
   }
@@ -167,7 +191,7 @@ class Cases extends MY_ADMIN_Controller {
       $data[$field] = $this->input->post($field);
     }
 
-    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files", "step_running_files","dm_file"];
+    $files = ["step_source_files", "step_expert_files", "step_ivoting_1_files", "step_ivoting_2_files", "step_advance_files","dm_file"];
 
     foreach($files as $file){
       $upload = $this->_upload("pb",$file,$file."/".date("Ymd")."/");

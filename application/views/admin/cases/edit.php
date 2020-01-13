@@ -45,6 +45,22 @@
             </td>
           </tr>
           <tr>
+            <td>所屬局處</td>
+            <td>
+              <select name="depart" >
+                <?php if($depart == null ) {?>
+                <option value="-1"> 請選擇 </option>
+                <?php } ?>
+                <?php foreach($departs as $now_depart){ ?>
+                    <?php if($depart == null || ($depart != null && $now_depart->id == $depart)) { ?>
+                    <option value="<?=h($depart->id)?>" <?=h($item->depart == $now_depart->id ?"selected":"")?>><?=$now_depart->name?></option>
+                    <?php } ?>
+
+                <?php } ?>
+              </select>
+            </td>
+          </tr>
+          <tr>
             <td>政府提案或民間提案</td>
             <td>
               <?php _render_select(["公民","政府"],"gov_type",$news->gov_type) ?>
@@ -177,12 +193,8 @@
           </tr>
           <tr>
             <td class="field col-xs-2" >執行進度</td>
-            <td class="col-xs-10" colspan="2"><input type="checkbox" name="step_running" value="1" <?=$news->step_running?"checked":""?> />
-              啟用<input type="file" name="step_running_files" />
-              <?php if($news->step_running_files != null){ ?>
-                <hr />
-                <a href="<?=$news->step_running_files?>" target="_blank"> 下載已上傳檔案</a>
-              <?php } ?>
+            <td class="col-xs-10" colspan="2">
+              <textarea class="tinymce" name="progress" style="width:770px; height:200px;resize:vertical;"><?=h($news->progress)?></textarea>
             </td>
           </tr>
           
